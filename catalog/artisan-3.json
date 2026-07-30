@@ -1,0 +1,58 @@
+[
+  {
+    "name": "renoolab-assister-technique-chantier",
+    "family": "artisan",
+    "title": "Assister techniquement un chantier",
+    "description": "Aider un professionnel à structurer une question technique de chantier, un métré, un calcul, une anomalie ou une recherche de règle. Utiliser pour hypothèses, contrôles, données manquantes et sources techniques actuelles. Ne jamais remplacer plans, DTU, notice fabricant, bureau d'études ou jugement du professionnel responsable.",
+    "mission": "Accélérer le raisonnement et la vérification sans masquer l'incertitude ni prendre la responsabilité technique du chantier.",
+    "inputs": ["métier, ouvrage et fonction attendue", "dimensions, support, environnement et photos", "produits, notices et règles disponibles", "anomalie, tolérance et conséquence possible"],
+    "angles": ["formuler précisément la question et les unités", "séparer faits, hypothèses et données manquantes", "calculer de façon traçable avec marges", "chercher la source primaire ou contractuelle applicable", "définir contrôle, point d'arrêt et validation responsable"],
+    "outputs": ["énoncé technique nettoyé", "calcul ou arbre d'hypothèses", "contrôles et sources à consulter", "limite de décision et escalade"],
+    "guardrails": ["Stopper toute instruction pouvant exposer à l'électricité, au gaz, à la structure, au feu, à l'amiante, au travail en hauteur ou à un engin sans cadre compétent.", "Ne pas reproduire ou prétendre connaître une norme payante non fournie ; vérifier l'édition applicable."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Aide-moi à vérifier le métré de ce chantier de carrelage.", "Pourquoi ce support fissure après la pose ?"],
+    "negative_prompts": ["Je cherche une aide financière pour isoler ma maison."]
+  },
+  {
+    "name": "renoolab-recruter-sous-traiter-artisan",
+    "family": "artisan",
+    "title": "Recruter et sous-traiter",
+    "description": "Choisir et préparer recrutement, apprentissage, intérim, association ou sous-traitance dans une entreprise artisanale. Utiliser pour besoin de capacité, fiche de poste, coût complet, organisation, sélection, intégration, conformité et recherche de partenaires métiers, en vérifiant les règles sociales actuelles.",
+    "mission": "Ajouter de la capacité au bon moment sans créer un risque financier, opérationnel ou juridique invisible.",
+    "inputs": ["charge actuelle, carnet et saisonnalité", "compétences manquantes et durée du besoin", "marge, trésorerie et capacité d'encadrement", "zone, statut et partenaires existants"],
+    "angles": ["mesurer le goulot réel avant de recruter", "comparer solutions par coût, flexibilité et contrôle", "définir mission, résultat et responsabilités", "vérifier assurances, droit social et sous-traitance", "préparer sélection, onboarding et suivi"],
+    "outputs": ["diagnostic recruter ou sous-traiter", "coût et risques comparés", "fiche de besoin ou grille partenaire", "plan d'intégration et contrôle"],
+    "guardrails": ["Vérifier droit du travail, apprentissage, sous-traitance, vigilance et assurances sur sources officielles actuelles.", "Ne pas recommander un montage destiné à dissimuler du salariat ou contourner des obligations."],
+    "handoff": "partner-search",
+    "positive_prompts": ["Dois-je embaucher ou sous-traiter mes chantiers de peinture ?", "Aide-moi à rédiger une fiche de poste pour un apprenti."],
+    "negative_prompts": ["Aide-moi à choisir le carrelage de ma salle de bain."]
+  },
+  {
+    "name": "renoolab-digitaliser-developper-entreprise",
+    "family": "artisan",
+    "title": "Digitaliser et développer une entreprise",
+    "description": "Structurer la croissance d'une entreprise artisanale avec outils, CRM, automatisations, IA, indicateurs, procédures, capacité, rentabilité, nouveaux services et délégation. Utiliser pour gagner du temps, fiabiliser le suivi ou augmenter chiffre d'affaires et marge sans empiler des logiciels inutiles.",
+    "mission": "Choisir le prochain système à construire à partir du goulot d'étranglement réel de l'entreprise.",
+    "inputs": ["taille, équipe, métiers et objectifs", "volume de demandes, devis, chantiers et administratif", "outils et doubles saisies actuels", "indicateurs, marge, capacité et irritants"],
+    "angles": ["cartographier du lead à l'encaissement", "identifier le goulot et son coût", "standardiser avant d'automatiser", "comparer outils selon intégration, données et adoption", "piloter croissance par capacité, marge et trésorerie"],
+    "outputs": ["carte du processus", "priorités système sur 90 jours", "outils ou automatisations à évaluer", "tableau de bord minimal"],
+    "guardrails": ["Vérifier prix, fonctions, sécurité et conditions actuelles avant de recommander un logiciel.", "Ne pas automatiser une décision sensible ou une communication client sans contrôle humain approprié."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Quels KPI suivre pour faire grandir mon entreprise de plomberie ?", "Je perds mes demandes entre WhatsApp, papier et email."],
+    "negative_prompts": ["Un arbre menace ma toiture après la tempête."]
+  },
+  {
+    "name": "renoolab-creer-optimiser-profil-artisan",
+    "family": "artisan",
+    "title": "Créer et optimiser un profil artisan RenooLab",
+    "description": "Préparer, créer ou améliorer un profil artisan RenooLab avec vraies informations : nom d'entreprise, métiers publics, ville, coordonnées, bio, zone et plan de portfolio. Utiliser quand l'artisan veut rejoindre RenooLab ou rendre son profil plus convaincant. Appeler creer_profil_artisan uniquement après validation explicite de toutes les données.",
+    "mission": "Faire émerger un profil exact, crédible et utile aux clients, puis exécuter l'inscription seulement avec consentement clair.",
+    "inputs": ["nom réel de l'entreprise", "métiers exercés et ville", "email, mobile et SIRET optionnel", "prestations, zone, preuves et réalisations"],
+    "angles": ["vérifier que l'utilisateur agit pour son entreprise", "sélectionner uniquement les métiers réellement exercés", "rédiger une bio factuelle orientée clients", "afficher le récapitulatif complet", "demander confirmation avant creer_profil_artisan"],
+    "outputs": ["diagnostic de complétude", "bio et positionnement proposés", "plan de photos et preuves", "récapitulatif prêt à confirmer"],
+    "guardrails": ["Ne jamais inventer identité, SIRET, métier, certification, avis ou réalisation.", "Ne jamais créer le profil sans confirmation explicite ; Fournisseur reste exclu de l'outil public."],
+    "handoff": "profile",
+    "positive_prompts": ["Je suis carreleur à Marseille et je veux créer mon profil RenooLab.", "Aide-moi à améliorer la bio de mon profil artisan."],
+    "negative_prompts": ["Trouve-moi un chauffagiste pour ma chaudière."]
+  }
+]

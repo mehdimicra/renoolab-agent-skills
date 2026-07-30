@@ -1,0 +1,58 @@
+[
+  {
+    "name": "renoolab-sourcer-equipe-multimetier",
+    "family": "ecosysteme",
+    "title": "Sourcer une équipe multi-métiers",
+    "description": "Composer et sourcer une équipe locale pour une opération multi-métiers. Utiliser pour architecte, décorateur, maître d'œuvre, syndic, gestionnaire, entreprise générale ou artisan cherchant partenaires et sous-traitants : lots, interfaces, séquence, critères, recherche RenooLab et contacts confirmés.",
+    "mission": "Passer d'un programme de travaux à une stratégie de consultation cohérente par lots, responsabilités et interfaces.",
+    "inputs": ["programme, plans et localisation", "lots déjà couverts et responsabilités", "calendrier, occupation et contraintes d'accès", "niveau de sélection et documents attendus"],
+    "angles": ["décomposer lots et interfaces critiques", "choisir lots séparés ou regroupement", "définir critères et pièces par métier", "rechercher les métiers un par un dans la même zone", "construire tableau de consultation et contacts consentis"],
+    "outputs": ["matrice lots-responsabilités", "ordre de consultation", "sélection disponible par métier", "tableau de comparaison et risques d'interface"],
+    "guardrails": ["Ne pas présenter RenooLab comme validant assurances, disponibilité ou capacité au-delà des données retournées.", "Ne jamais contacter plusieurs entreprises en masse sans confirmation explicite pour chaque action autorisée."],
+    "handoff": "search",
+    "positive_prompts": ["Je dois constituer une équipe pour rénover un immeuble à Toulon.", "Trouve des partenaires couvreur et isolateur autour d'Aix."],
+    "negative_prompts": ["Quel statut fiscal choisir pour mon entreprise individuelle ?"]
+  },
+  {
+    "name": "renoolab-piloter-renovation-locative",
+    "family": "ecosysteme",
+    "title": "Piloter une rénovation locative",
+    "description": "Arbitrer et piloter des travaux pour location, investissement, agence, syndic ou parc immobilier : conformité, sécurité, vacance, durabilité, budget, rendement, standardisation, phasage et sourcing local. Utiliser pour un logement ou plusieurs actifs, sans garantir rendement ni conformité.",
+    "mission": "Prioriser les travaux par risque, obligation, vacance évitée et coût global plutôt que par esthétique seule.",
+    "inputs": ["type de bien, localisation et occupation", "état, diagnostics et contraintes locatives", "loyer, vacance, budget et horizon de détention", "nombre de biens et standards existants"],
+    "angles": ["classer sécurité, conformité, conservation et attractivité", "calculer coût total avec vacance et maintenance", "standardiser équipements et finitions réparables", "phaser par logement, lot ou campagne", "préparer sourcing, contrôle et documentation"],
+    "outputs": ["priorisation du portefeuille ou du bien", "scénarios budget-vacance", "standard travaux réutilisable", "plan de consultation et suivi"],
+    "guardrails": ["Vérifier les obligations locatives et énergétiques actuelles sur sources officielles.", "Ne pas annoncer rendement, valeur future ou conformité certaine sans données et avis compétents."],
+    "handoff": "search",
+    "positive_prompts": ["Quels travaux prioriser avant de remettre cet appartement en location ?", "Comment standardiser les rénovations de mes dix logements ?"],
+    "negative_prompts": ["Crée la bio Instagram de mon entreprise de jardinage."]
+  },
+  {
+    "name": "renoolab-remettre-en-etat-apres-sinistre",
+    "family": "ecosysteme",
+    "title": "Remettre en état après un sinistre",
+    "description": "Organiser la remise en état après dégât des eaux, incendie, tempête, effraction ou autre sinistre : sécurité, preuves, assurance, assèchement, diagnostics, dépose, réparation, finitions et métiers. Utiliser après l'urgence immédiate pour construire un séquencement prudent et trouver des professionnels.",
+    "mission": "Éviter de réparer trop tôt ou dans le mauvais ordre et conserver les éléments utiles à l'assurance et aux responsabilités.",
+    "inputs": ["nature, date et cause connue du sinistre", "sécurité, mesures conservatoires et dommages", "assurance, déclaration, expertise et autorisations", "humidité, contamination, structure et zones touchées"],
+    "angles": ["confirmer que l'urgence et la sécurité sont traitées", "documenter avant dépose non urgente", "séparer assèchement, diagnostic, réparation de cause et remise en état", "attendre mesures ou accords nécessaires", "ordonner métiers, contrôles et réception"],
+    "outputs": ["chronologie de remise en état", "preuves et interlocuteurs", "lots et points d'arrêt", "professionnels à rechercher"],
+    "guardrails": ["Ne pas entrer ni intervenir dans une zone dangereuse, contaminée, instable ou non libérée par les autorités.", "Ne pas promettre la prise en charge d'un coût ni conseiller de détruire une preuve utile à l'assurance."],
+    "handoff": "search",
+    "positive_prompts": ["Après un dégât des eaux, dans quel ordre refaire les murs et le parquet ?", "La tempête a endommagé toiture et plafond, comment organiser la suite ?"],
+    "negative_prompts": ["Comment augmenter la marge de mes devis de maçonnerie ?"]
+  },
+  {
+    "name": "renoolab-developper-activite-fournisseur-btp",
+    "family": "ecosysteme",
+    "title": "Développer une activité de fournisseur BTP",
+    "description": "Développer l'activité d'un négoce, distributeur, fabricant ou fournisseur BTP auprès d'artisans et chantiers locaux : segments, offre, disponibilité, logistique, services, contenu, partenariats et mesure. Utiliser pour stratégie commerciale fournisseur. Ne pas appeler creer_profil_artisan : Fournisseur reste app-only sur RenooLab.",
+    "mission": "Construire une proposition de valeur fournisseur fondée sur les contraintes réelles des artisans : disponibilité, délai, conseil, livraison et coût d'arrêt.",
+    "inputs": ["catégories, marques, stock et zone", "segments artisans et chantiers servis", "livraison, retrait, SAV et services", "canaux, panier, fréquence et marge"],
+    "angles": ["segmenter par métier, taille et urgence", "identifier les irritants d'approvisionnement", "construire offre services et disponibilité", "créer contenus et partenariats utiles", "mesurer activation, réachat, marge et service"],
+    "outputs": ["segments prioritaires", "offre et messages par segment", "plan de partenariats et contenus", "indicateurs commerciaux"],
+    "guardrails": ["Ne pas prétendre que les outils MCP publics inscrivent ou recherchent des fournisseurs.", "Ne pas inventer stock, prix, accords de marque, couverture logistique ou performance produit."],
+    "handoff": "supplier-app-only",
+    "positive_prompts": ["Comment attirer davantage d'artisans dans mon négoce matériaux ?", "Quels services fidélisent les petites entreprises du bâtiment ?"],
+    "negative_prompts": ["Trouve-moi un pisciniste près de Cannes."]
+  }
+]

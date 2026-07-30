@@ -1,0 +1,7 @@
+interface:
+  display_name: "Diagnostiquer un logement"
+  short_description: "Trier symptômes, urgences et suites de sinistre"
+  default_prompt: "Utilise $renoolab-diagnostiquer-securiser-logement pour m'aider à sécuriser et comprendre ce problème."
+
+policy:
+  allow_implicit_invocation: true

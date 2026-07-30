@@ -1,0 +1,58 @@
+[
+  {
+    "name": "renoolab-lancer-entreprise-artisanale",
+    "family": "artisan",
+    "title": "Lancer une entreprise artisanale",
+    "description": "Construire la feuille de route pour devenir artisan indépendant ou ouvrir une entreprise du bâtiment en France. Utiliser pour métier, qualifications, étude de marché, statut, immatriculation, assurances, financement, équipement, premiers prix et premiers clients, avec vérification actuelle auprès des organismes officiels.",
+    "mission": "Transformer un projet de reconversion ou d'installation en séquence de décisions chiffrées et vérifiables.",
+    "inputs": ["métier, expérience et qualifications", "zone, clientèle et prestations visées", "situation actuelle et date de lancement", "capital, équipement et besoin de revenu"],
+    "angles": ["vérifier conditions d'accès au métier et assurances", "tester demande locale et offre initiale", "comparer structures selon situation réelle", "chiffrer besoin de départ et seuil de survie", "planifier formalités, acquisition et présence professionnelle"],
+    "outputs": ["diagnostic de préparation", "décisions à prendre avec sources", "budget et calendrier de lancement", "plan des 90 premiers jours"],
+    "guardrails": ["Vérifier les règles fiscales, sociales, d'immatriculation, de qualification et d'assurance sur sources officielles datées.", "Ne pas choisir à la place de l'utilisateur un statut juridique ou fiscal sans professionnel compétent."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Je suis salarié plombier et je veux me mettre à mon compte.", "Quelles étapes pour ouvrir une entreprise de peinture ?"],
+    "negative_prompts": ["Je veux rénover la terrasse de ma résidence principale."]
+  },
+  {
+    "name": "renoolab-positionner-offre-artisan",
+    "family": "artisan",
+    "title": "Positionner une offre artisan",
+    "description": "Clarifier le positionnement commercial d'une entreprise artisanale : clients, zone, prestations, spécialités, promesse, exclusions, preuves et différenciation. Utiliser pour sortir de la concurrence par le prix, lancer une nouvelle offre ou rendre une activité plus lisible et rentable.",
+    "mission": "Construire une offre que le bon client comprend rapidement et que l'entreprise sait délivrer avec marge.",
+    "inputs": ["métier, zone et capacité", "clients et chantiers actuels", "prestations rentables ou problématiques", "preuves, équipements, équipe et ambitions"],
+    "angles": ["segmenter les clients et situations d'achat", "relier compétences fortes à demande solvable", "définir offre cœur, options et exclusions", "formuler preuves et différence concrète", "tester message, canal et économie de l'offre"],
+    "outputs": ["positionnement en une phrase", "offres et clients prioritaires", "preuves et objections", "tests commerciaux à lancer"],
+    "guardrails": ["Éviter les promesses absolues, certifications non détenues ou faux avis.", "Ne pas confondre hausse de chiffre d'affaires et amélioration de marge ou de trésorerie."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Comment me différencier des autres carreleurs de ma ville ?", "Je veux arrêter les petits dépannages peu rentables."],
+    "negative_prompts": ["Cette fissure dans mon mur est-elle grave ?"]
+  },
+  {
+    "name": "renoolab-chiffrer-rentabiliser-chantier",
+    "family": "artisan",
+    "title": "Chiffrer et rentabiliser un chantier",
+    "description": "Construire ou auditer un chiffrage de chantier : métré, déboursé sec, main-d'œuvre productive, frais, sous-traitance, aléas, marge, prix de vente et analyse après chantier. Utiliser quand un artisan veut fixer ses prix, vérifier un devis ou comprendre pourquoi son chiffre d'affaires ne produit pas de bénéfice.",
+    "mission": "Rendre visible le coût complet et le prix plancher avant engagement, puis comparer prévu et réel.",
+    "inputs": ["quantités et périmètre", "coûts matières, location et sous-traitance", "temps par tâche, équipe et déplacements", "frais fixes, objectif de marge et risques"],
+    "angles": ["séparer quantité, coût unitaire et perte", "convertir temps productif en coût chargé", "allouer frais et coût commercial", "ajouter risque sans double compter", "tester marge, trésorerie et sensibilité"],
+    "outputs": ["hypothèses de métré", "déboursé et coût complet", "prix plancher et prix cible", "écarts à suivre pendant le chantier"],
+    "guardrails": ["Ne pas inventer les prix d'achat, temps normatifs ou charges de l'entreprise.", "Présenter les calculs et formules pour permettre leur vérification."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Mon devis de carrelage est-il rentable avec deux ouvriers ?", "Comment calculer mon vrai taux horaire facturable ?"],
+    "negative_prompts": ["Trouve-moi une idée d'aménagement pour mon salon."]
+  },
+  {
+    "name": "renoolab-gerer-devis-factures-tresorerie",
+    "family": "artisan",
+    "title": "Gérer devis, factures et trésorerie",
+    "description": "Améliorer le cycle administratif et financier d'une entreprise artisanale : devis, conditions, acomptes, avenants, factures, TVA, encaissements, prévision de trésorerie, retards et impayés. Utiliser pour modèles, checklists et scénarios, avec vérification juridique, fiscale et comptable actuelle.",
+    "mission": "Réduire les zones floues qui détruisent marge et trésorerie entre accord client et encaissement final.",
+    "inputs": ["statut, régime et organisation comptable", "type et durée des chantiers", "conditions de paiement actuelles", "retards, litiges et saisonnalité"],
+    "angles": ["sécuriser périmètre, exclusions et validité du devis", "lier acompte et échéances aux besoins de trésorerie", "formaliser modifications par avenant", "prévoir encaissements et décaissements hebdomadaires", "organiser relance graduée et preuves"],
+    "outputs": ["checklist documentaire", "échéancier type", "prévision de trésorerie", "séquence de relance ou questions au comptable"],
+    "guardrails": ["Vérifier mentions, TVA, facturation électronique, pénalités et recouvrement sur sources officielles actuelles.", "Ne pas produire un document présenté comme juridiquement conforme sans revue adaptée au cas."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Comment éviter de financer les matériaux à la place du client ?", "Prépare une relance progressive pour une facture impayée."],
+    "negative_prompts": ["Quelle isolation choisir pour mes combles ?"]
+  }
+]

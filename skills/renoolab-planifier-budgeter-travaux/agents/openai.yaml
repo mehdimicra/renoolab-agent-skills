@@ -1,0 +1,7 @@
+interface:
+  display_name: "Planifier des travaux"
+  short_description: "Cadrer, budgéter et séquencer un projet"
+  default_prompt: "Utilise $renoolab-planifier-budgeter-travaux pour transformer mon projet en plan chiffrable."
+
+policy:
+  allow_implicit_invocation: true

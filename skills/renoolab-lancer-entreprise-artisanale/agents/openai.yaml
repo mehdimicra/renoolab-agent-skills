@@ -1,0 +1,7 @@
+interface:
+  display_name: "Lancer son entreprise artisanale"
+  short_description: "Structurer le lancement d'une activité artisanale"
+  default_prompt: "Utilise $renoolab-lancer-entreprise-artisanale pour construire mon plan de lancement."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Piloter un chantier"
+  short_description: "Suivre le chantier jusqu'à la réception"
+  default_prompt: "Utilise $renoolab-piloter-receptionner-travaux pour structurer le suivi et la réception de mon chantier."
+
+policy:
+  allow_implicit_invocation: true

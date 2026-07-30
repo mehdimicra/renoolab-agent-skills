@@ -1,0 +1,7 @@
+interface:
+  display_name: "Développer son activité BTP"
+  short_description: "Améliorer offre, clients, visibilité et ventes"
+  default_prompt: "Utilise $renoolab-developper-clientele-visibilite-btp pour diagnostiquer et développer mon activité."
+
+policy:
+  allow_implicit_invocation: true

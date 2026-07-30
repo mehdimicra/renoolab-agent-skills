@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "renoolab": {
+      "type": "http",
+      "url": "https://mcp.renoolab.fr/mcp"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Piloter sa rentabilité"
+  short_description: "Calculer prix, marge et trésorerie chantier"
+  default_prompt: "Utilise $renoolab-chiffrer-piloter-rentabilite pour vérifier la rentabilité de mon activité."
+
+policy:
+  allow_implicit_invocation: true

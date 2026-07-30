@@ -1,0 +1,58 @@
+[
+  {
+    "name": "renoolab-trouver-clients-artisan",
+    "family": "artisan",
+    "title": "Trouver des clients artisan",
+    "description": "Construire un système d'acquisition pour une entreprise artisanale : demande locale, recommandations, prescripteurs, plateformes, prospection, partenariats, contenu et suivi des sources. Utiliser quand un artisan manque de clients, dépend d'un seul canal ou veut remplir son planning avec des chantiers plus adaptés.",
+    "mission": "Créer un portefeuille de canaux mesurables qui produit des demandes qualifiées sans sacrifier la marge.",
+    "inputs": ["métier, zone et rayon", "client et chantier idéaux", "capacité disponible et délai", "canaux actuels, résultats et budget"],
+    "angles": ["calculer besoin de demandes à partir de capacité et conversion", "prioriser canaux par confiance, vitesse et coût", "construire offre et preuve pour chaque canal", "définir routine hebdomadaire", "suivre source, qualité, conversion et marge"],
+    "outputs": ["objectif d'acquisition chiffré", "mix de canaux priorisé", "actions et messages", "tableau de mesure sur 30 jours"],
+    "guardrails": ["Respecter consentement, règles de prospection et réputation de l'entreprise.", "Ne pas promettre un volume de prospects ni confondre visibilité et demandes rentables."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Je suis électricien et mon planning est vide le mois prochain.", "Comment dépendre moins du bouche-à-oreille ?"],
+    "negative_prompts": ["Aide-moi à comparer deux devis reçus pour ma toiture."]
+  },
+  {
+    "name": "renoolab-booster-visibilite-artisan",
+    "family": "artisan",
+    "title": "Booster la visibilité d'un artisan",
+    "description": "Améliorer la présence publique d'un artisan : profil RenooLab, fiche établissement, SEO local, site, portfolio, photos avant-après, avis et contenus sociaux. Utiliser pour audit de visibilité, bio, pages de services, calendrier éditorial ou valorisation des réalisations sans faux avis ni contenu trompeur.",
+    "mission": "Transformer les preuves réelles de savoir-faire en présence locale claire, cohérente et crédible.",
+    "inputs": ["métier, zone, offres et clients cibles", "profils et pages existants", "réalisations, photos, avis et autorisations", "temps et budget de publication"],
+    "angles": ["uniformiser identité, métier, zone et contact", "montrer preuves par type de chantier", "optimiser pages pour intentions locales utiles", "créer routine photo et contenu depuis les chantiers", "mesurer appels, demandes et qualité des leads"],
+    "outputs": ["audit des surfaces", "profil ou bio réécrit", "plan de preuves et contenus", "priorités de visibilité locale"],
+    "guardrails": ["Ne jamais inventer avis, labels, zones, réalisations ou photos.", "Obtenir l'autorisation avant publication d'images ou d'informations identifiantes d'un client."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Réécris la présentation de mon entreprise de menuiserie.", "Que publier avec mes photos avant-après ?"],
+    "negative_prompts": ["Mon tableau électrique fait un bruit étrange."]
+  },
+  {
+    "name": "renoolab-vendre-relancer-fideliser",
+    "family": "artisan",
+    "title": "Vendre, relancer et fidéliser",
+    "description": "Améliorer la conversion commerciale d'un artisan : qualification, premier appel, visite, proposition, objections, relance de devis, communication, expérience client, avis, recommandation et entretien récurrent. Utiliser pour scripts et processus honnêtes adaptés aux travaux.",
+    "mission": "Aider l'artisan à sélectionner les bons projets, obtenir des décisions claires et transformer un chantier réussi en relation durable.",
+    "inputs": ["type de demandes et taux de conversion", "déroulé actuel du premier contact au devis", "objections fréquentes et délais de décision", "suivi après chantier et avis actuels"],
+    "angles": ["qualifier besoin, décideur, calendrier et budget", "préparer visite et reformulation", "présenter valeur, options et limites", "relancer avec raison et prochaine étape", "demander avis et recommandation après preuve de satisfaction"],
+    "outputs": ["pipeline et critères de qualification", "script ou message contextualisé", "séquence de relance", "routine de fidélisation"],
+    "guardrails": ["Éviter pression, fausse urgence, faux rabais ou promesse non maîtrisée.", "Ne pas solliciter d'avis biaisé ni conditionner un service à un avis positif."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Comment relancer un devis sans paraître insistant ?", "Je reçois des demandes mais j'en signe très peu."],
+    "negative_prompts": ["Faut-il un permis pour construire ma piscine ?"]
+  },
+  {
+    "name": "renoolab-organiser-chantier-artisan",
+    "family": "artisan",
+    "title": "Organiser un chantier artisan",
+    "description": "Préparer et piloter l'exécution d'un chantier artisanal : dossier, planning, approvisionnements, équipe, sous-traitants, interfaces métiers, sécurité, communication client, avenants, contrôle qualité et retour de rentabilité. Utiliser avant ou pendant un chantier pour réduire oublis et temps perdu.",
+    "mission": "Créer un système d'exécution léger qui rend visibles prérequis, responsabilités, décisions et écarts.",
+    "inputs": ["périmètre contractuel, plans et contraintes", "équipe, partenaires et responsabilités", "délais, accès, livraisons et stockage", "jalons qualité, client et autres métiers"],
+    "angles": ["valider prérequis avant mobilisation", "ordonner tâches, interfaces et temps de séchage", "lier achats et livraisons au planning", "prévoir contrôles avant masquage", "tenir journal écarts, décisions et temps réels"],
+    "outputs": ["fiche de préparation", "planning et responsabilités", "checklists démarrage-qualité-clôture", "messages et indicateurs de suivi"],
+    "guardrails": ["La sécurité et les obligations réglementaires priment sur l'optimisation du planning.", "Ne pas inventer des procédures techniques applicables à un métier sans données et références adaptées."],
+    "handoff": "optional-profile",
+    "positive_prompts": ["Prépare la checklist de démarrage de mon chantier de salle de bain.", "Comment coordonner plombier, plaquiste et carreleur ?"],
+    "negative_prompts": ["Je veux savoir si cette maison est un bon achat."]
+  }
+]

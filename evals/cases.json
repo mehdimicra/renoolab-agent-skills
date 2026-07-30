@@ -1,0 +1,527 @@
+{
+  "version": 2,
+  "cases": [
+    {
+      "skill": "renoolab-lancer-entreprise-artisanale",
+      "intent": "renoolab-lancer-entreprise-artisanale",
+      "prompt": "Je suis salarié plombier et je veux me mettre à mon compte.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-lancer-entreprise-artisanale",
+      "intent": "renoolab-lancer-entreprise-artisanale",
+      "prompt": "Quelles étapes pour ouvrir une entreprise de peinture ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-lancer-entreprise-artisanale",
+      "intent": "renoolab-lancer-entreprise-artisanale",
+      "prompt": "Je veux rénover la terrasse de ma résidence principale.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-positionner-offre-artisan",
+      "prompt": "Comment me différencier des autres carreleurs de ma ville ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-positionner-offre-artisan",
+      "prompt": "Je veux arrêter les petits dépannages peu rentables.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-positionner-offre-artisan",
+      "prompt": "Cette fissure dans mon mur est-elle grave ?",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-chiffrer-piloter-rentabilite",
+      "intent": "renoolab-chiffrer-rentabiliser-chantier",
+      "prompt": "Mon devis de carrelage est-il rentable avec deux ouvriers ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-chiffrer-piloter-rentabilite",
+      "intent": "renoolab-chiffrer-rentabiliser-chantier",
+      "prompt": "Comment calculer mon vrai taux horaire facturable ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-chiffrer-piloter-rentabilite",
+      "intent": "renoolab-chiffrer-rentabiliser-chantier",
+      "prompt": "Trouve-moi une idée d'aménagement pour mon salon.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-chiffrer-piloter-rentabilite",
+      "intent": "renoolab-gerer-devis-factures-tresorerie",
+      "prompt": "Comment éviter de financer les matériaux à la place du client ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-chiffrer-piloter-rentabilite",
+      "intent": "renoolab-gerer-devis-factures-tresorerie",
+      "prompt": "Prépare une relance progressive pour une facture impayée.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-chiffrer-piloter-rentabilite",
+      "intent": "renoolab-gerer-devis-factures-tresorerie",
+      "prompt": "Quelle isolation choisir pour mes combles ?",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-trouver-clients-artisan",
+      "prompt": "Je suis électricien et mon planning est vide le mois prochain.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-trouver-clients-artisan",
+      "prompt": "Comment dépendre moins du bouche-à-oreille ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-trouver-clients-artisan",
+      "prompt": "Aide-moi à comparer deux devis reçus pour ma toiture.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-booster-visibilite-artisan",
+      "prompt": "Réécris la présentation de mon entreprise de menuiserie.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-booster-visibilite-artisan",
+      "prompt": "Que publier avec mes photos avant-après ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-booster-visibilite-artisan",
+      "prompt": "Mon tableau électrique fait un bruit étrange.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-vendre-relancer-fideliser",
+      "prompt": "Comment relancer un devis sans paraître insistant ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-vendre-relancer-fideliser",
+      "prompt": "Je reçois des demandes mais j'en signe très peu.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-vendre-relancer-fideliser",
+      "prompt": "Faut-il un permis pour construire ma piscine ?",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-organiser-chantier-artisan",
+      "prompt": "Prépare la checklist de démarrage de mon chantier de salle de bain.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-organiser-chantier-artisan",
+      "prompt": "Comment coordonner plombier, plaquiste et carreleur ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-organiser-chantier-artisan",
+      "prompt": "Je veux savoir si cette maison est un bon achat.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-assister-technique-chantier",
+      "prompt": "Aide-moi à vérifier le métré de ce chantier de carrelage.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-assister-technique-chantier",
+      "prompt": "Pourquoi ce support fissure après la pose ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-assister-technique-chantier",
+      "prompt": "Je cherche une aide financière pour isoler ma maison.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-recruter-sous-traiter-artisan",
+      "prompt": "Dois-je embaucher ou sous-traiter mes chantiers de peinture ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-recruter-sous-traiter-artisan",
+      "prompt": "Aide-moi à rédiger une fiche de poste pour un apprenti.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-organiser-chantier-equipe-btp",
+      "intent": "renoolab-recruter-sous-traiter-artisan",
+      "prompt": "Aide-moi à choisir le carrelage de ma salle de bain.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-digitaliser-developper-entreprise",
+      "prompt": "Quels KPI suivre pour faire grandir mon entreprise de plomberie ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-digitaliser-developper-entreprise",
+      "prompt": "Je perds mes demandes entre WhatsApp, papier et email.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-digitaliser-developper-entreprise",
+      "prompt": "Un arbre menace ma toiture après la tempête.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-creer-profil-artisan",
+      "intent": "renoolab-creer-optimiser-profil-artisan",
+      "prompt": "Je suis carreleur à Marseille et je veux créer mon profil RenooLab.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-creer-profil-artisan",
+      "intent": "renoolab-creer-optimiser-profil-artisan",
+      "prompt": "Aide-moi à améliorer la bio de mon profil artisan.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-creer-profil-artisan",
+      "intent": "renoolab-creer-optimiser-profil-artisan",
+      "prompt": "Trouve-moi un chauffagiste pour ma chaudière.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-trouver-choisir-artisans",
+      "intent": "renoolab-sourcer-equipe-multimetier",
+      "prompt": "Je dois constituer une équipe pour rénover un immeuble à Toulon.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-trouver-choisir-artisans",
+      "intent": "renoolab-sourcer-equipe-multimetier",
+      "prompt": "Trouve des partenaires couvreur et isolateur autour d'Aix.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-trouver-choisir-artisans",
+      "intent": "renoolab-sourcer-equipe-multimetier",
+      "prompt": "Quel statut fiscal choisir pour mon entreprise individuelle ?",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-piloter-renovation-locative",
+      "prompt": "Quels travaux prioriser avant de remettre cet appartement en location ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-piloter-renovation-locative",
+      "prompt": "Comment standardiser les rénovations de mes dix logements ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-piloter-renovation-locative",
+      "prompt": "Crée la bio Instagram de mon entreprise de jardinage.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-remettre-en-etat-apres-sinistre",
+      "prompt": "Après un dégât des eaux, dans quel ordre refaire les murs et le parquet ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-remettre-en-etat-apres-sinistre",
+      "prompt": "La tempête a endommagé toiture et plafond, comment organiser la suite ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-remettre-en-etat-apres-sinistre",
+      "prompt": "Comment augmenter la marge de mes devis de maçonnerie ?",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-developper-activite-fournisseur-btp",
+      "prompt": "Comment attirer davantage d'artisans dans mon négoce matériaux ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-developper-activite-fournisseur-btp",
+      "prompt": "Quels services fidélisent les petites entreprises du bâtiment ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-developper-clientele-visibilite-btp",
+      "intent": "renoolab-developper-activite-fournisseur-btp",
+      "prompt": "Trouve-moi un pisciniste près de Cannes.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-imaginer-renovation",
+      "prompt": "Voici ma douche, donne-moi trois façons de la moderniser sans tout casser.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-imaginer-renovation",
+      "prompt": "Comment transformer ce salon sombre en pièce plus chaleureuse ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-imaginer-renovation",
+      "prompt": "Trouve-moi immédiatement un plombier à Marseille.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-diagnostiquer-logement",
+      "prompt": "J'ai une tache humide qui revient au plafond quand il pleut.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-diagnostiquer-logement",
+      "prompt": "Cette fissure au-dessus de la fenêtre s'agrandit-elle ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-diagnostiquer-logement",
+      "prompt": "Fais-moi un plan marketing pour mon entreprise de couverture.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-gerer-urgence-travaux",
+      "prompt": "Une canalisation vient de lâcher et l'eau coule dans la cuisine.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-gerer-urgence-travaux",
+      "prompt": "Ma porte est bloquée ce soir, que dois-je faire ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-diagnostiquer-securiser-logement",
+      "intent": "renoolab-gerer-urgence-travaux",
+      "prompt": "Je veux comparer trois devis de rénovation reçus hier.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-cadrer-projet-travaux",
+      "prompt": "Aide-moi à organiser la rénovation complète de mon appartement.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-cadrer-projet-travaux",
+      "prompt": "Je veux ouvrir la cuisine sur le salon, par quoi commencer ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-cadrer-projet-travaux",
+      "prompt": "Quel statut choisir pour lancer mon entreprise de peinture ?",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-estimer-budget-travaux",
+      "prompt": "Quel budget prévoir pour refaire une salle de bain de 6 m² ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-estimer-budget-travaux",
+      "prompt": "Peux-tu découper mon budget de 80 000 euros par lot ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-estimer-budget-travaux",
+      "prompt": "Rédige une facture pour mon client artisan.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-financer-renovation",
+      "prompt": "Quelles aides pourraient financer mon isolation en 2026 ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-financer-renovation",
+      "prompt": "Dois-je faire tous mes travaux maintenant ou les phaser ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-financer-renovation",
+      "prompt": "J'ai une fuite active sous mon évier.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-choisir-materiaux-equipements",
+      "prompt": "Parquet contrecollé ou carrelage imitation bois avec un chien ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-choisir-materiaux-equipements",
+      "prompt": "Quelle douche choisir pour limiter l'entretien ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-choisir-materiaux-equipements",
+      "prompt": "Trouve des prospects pour mon entreprise de menuiserie.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-renover-energie-confort",
+      "prompt": "Ma maison est froide malgré le chauffage, quels travaux prioriser ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-renover-energie-confort",
+      "prompt": "Comment améliorer le confort d'été sans climatiser partout ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-renover-energie-confort",
+      "prompt": "Écris une relance commerciale pour un devis non signé.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-preparer-demarches-travaux",
+      "prompt": "Faut-il une déclaration préalable pour changer mes fenêtres ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-preparer-demarches-travaux",
+      "prompt": "Quelles assurances demander avant de signer un devis ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-preparer-demarches-travaux",
+      "prompt": "Donne-moi trois idées de couleurs pour ma cuisine.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-preparer-exterieur-piscine",
+      "prompt": "Je veux une piscine dans ce petit jardin, quelles options sont réalistes ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-preparer-exterieur-piscine",
+      "prompt": "Comment organiser terrasse, drainage et plantations autour de la maison ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-imaginer-arbitrer-renovation",
+      "intent": "renoolab-preparer-exterieur-piscine",
+      "prompt": "Comment calculer la marge de mon entreprise de piscines ?",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-evaluer-bien-immobilier",
+      "prompt": "Analyse cette annonce et dis-moi quels travaux vérifier pendant la visite.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-evaluer-bien-immobilier",
+      "prompt": "Cette maison des années 70 est-elle un bon projet de rénovation ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-planifier-budgeter-travaux",
+      "intent": "renoolab-evaluer-bien-immobilier",
+      "prompt": "Je cherche un apprenti pour mon entreprise de plomberie.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-trouver-choisir-artisans",
+      "intent": "renoolab-trouver-choisir-artisan",
+      "prompt": "Trouve-moi un carreleur à Aix-en-Provence.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-trouver-choisir-artisans",
+      "intent": "renoolab-trouver-choisir-artisan",
+      "prompt": "Comment choisir entre ces deux artisans et leurs devis ?",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-trouver-choisir-artisans",
+      "intent": "renoolab-trouver-choisir-artisan",
+      "prompt": "Aide-moi à imaginer le style de ma future salle de bain.",
+      "expected_trigger": false
+    },
+    {
+      "skill": "renoolab-piloter-receptionner-travaux",
+      "intent": "renoolab-piloter-receptionner-travaux",
+      "prompt": "Prépare ma checklist de réception de salle de bain.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-piloter-receptionner-travaux",
+      "intent": "renoolab-piloter-receptionner-travaux",
+      "prompt": "Le chantier a trois semaines de retard et personne ne répond.",
+      "expected_trigger": true
+    },
+    {
+      "skill": "renoolab-piloter-receptionner-travaux",
+      "intent": "renoolab-piloter-receptionner-travaux",
+      "prompt": "Quel contenu Instagram publier pour mon entreprise de peinture ?",
+      "expected_trigger": false
+    }
+  ]
+}

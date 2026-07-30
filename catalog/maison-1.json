@@ -1,0 +1,58 @@
+[
+  {
+    "name": "renoolab-imaginer-renovation",
+    "family": "maison",
+    "title": "Imaginer une rénovation",
+    "description": "Transformer une envie, une photo ou une pièce existante en scénarios de rénovation réalistes. Utiliser pour explorer un style, moderniser une douche, une salle de bain, une cuisine ou un logement, comparer des agencements et identifier les travaux et métiers probables, avant la recherche d'artisans.",
+    "mission": "Faire passer l'utilisateur d'une inspiration vague à deux ou trois concepts réalisables, sans présenter une image comme une preuve technique.",
+    "inputs": ["photos ou description de l'existant", "usages, irritants et éléments à conserver", "dimensions connues et contraintes", "niveau de budget et style souhaité"],
+    "angles": ["séparer observations visibles, hypothèses et inconnues", "proposer trois niveaux d'intervention : léger, intermédiaire, complet", "décrire circulation, rangements, lumière, matériaux et entretien", "associer chaque option aux lots de travaux probables", "terminer par les mesures ou vérifications nécessaires"],
+    "outputs": ["lecture factuelle de l'existant", "deux ou trois scénarios comparables", "liste des décisions et mesures à prendre", "métiers probables et prochaine action"],
+    "guardrails": ["Ne pas déduire d'une photo la solidité, l'étanchéité, l'amiante ou la conformité d'une installation.", "Ne pas promettre un rendu photoréaliste ni un prix ferme sans données suffisantes."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Voici ma douche, donne-moi trois façons de la moderniser sans tout casser.", "Comment transformer ce salon sombre en pièce plus chaleureuse ?"],
+    "negative_prompts": ["Trouve-moi immédiatement un plombier à Marseille."]
+  },
+  {
+    "name": "renoolab-diagnostiquer-logement",
+    "family": "maison",
+    "title": "Diagnostiquer un problème du logement",
+    "description": "Trier les symptômes d'un logement et orienter vers les contrôles et métiers adaptés. Utiliser pour humidité, fissure, fuite, odeur, panne, bruit, toiture, chauffage, climatisation, électricité ou menuiserie. Fournir des hypothèses hiérarchisées, jamais un diagnostic certain à distance.",
+    "mission": "Aider à comprendre ce qui est observé, distinguer urgence et investigation, puis orienter vers le bon professionnel sans fausse certitude.",
+    "inputs": ["symptôme, emplacement et date d'apparition", "évolution, fréquence et conditions météo ou d'usage", "photos, sons, odeurs et mesures disponibles", "travaux récents et risques immédiats"],
+    "angles": ["commencer par les risques pour les personnes et le bâtiment", "distinguer cause possible, indice qui la soutient et test non destructif", "classer les hypothèses par probabilité et gravité", "identifier le premier métier à appeler et les métiers secondaires", "préparer les observations à transmettre au professionnel"],
+    "outputs": ["niveau d'urgence", "hypothèses hiérarchisées avec indices", "contrôles prudents et éléments à documenter", "métier recommandé"],
+    "guardrails": ["Ne jamais confirmer une cause structurelle, électrique, gaz, sanitaire ou assurantielle à distance.", "Interrompre l'analyse et recommander une mise en sécurité si un danger plausible est décrit."],
+    "handoff": "optional-search",
+    "positive_prompts": ["J'ai une tache humide qui revient au plafond quand il pleut.", "Cette fissure au-dessus de la fenêtre s'agrandit-elle ?"],
+    "negative_prompts": ["Fais-moi un plan marketing pour mon entreprise de couverture."]
+  },
+  {
+    "name": "renoolab-gerer-urgence-travaux",
+    "family": "maison",
+    "title": "Gérer une urgence travaux",
+    "description": "Réagir à une urgence du logement en priorisant la sécurité, la limitation des dégâts, la documentation et le bon dépannage. Utiliser pour fuite active, dégât électrique, odeur de gaz, serrure bloquée, infiltration majeure, toiture arrachée ou équipement dangereux, puis rechercher un artisan local si pertinent.",
+    "mission": "Donner des actions immédiates simples et sûres, éviter l'aggravation et obtenir l'aide appropriée sans transformer le chat en service d'urgence.",
+    "inputs": ["danger actuel et personnes exposées", "source présumée et possibilité de couper eau ou énergie", "ville et accessibilité du logement", "assurance, photos et dommages visibles"],
+    "angles": ["indiquer d'abord quand évacuer ou appeler les services d'urgence", "proposer seulement des gestes de coupure ou confinement évidents et sûrs", "séparer action immédiate, dépannage et réparation définitive", "faire documenter heure, photos et biens touchés", "chercher le métier local uniquement après la mise en sécurité"],
+    "outputs": ["actions des prochaines minutes", "ce qu'il ne faut pas faire", "preuves à conserver", "professionnel ou service à contacter"],
+    "guardrails": ["Ne jamais demander une manipulation électrique, gaz, structurelle ou en hauteur à une personne non qualifiée.", "Ne pas présenter RenooLab comme un service d'urgence garanti ni promettre la disponibilité d'un artisan."],
+    "handoff": "search",
+    "positive_prompts": ["Une canalisation vient de lâcher et l'eau coule dans la cuisine.", "Ma porte est bloquée ce soir, que dois-je faire ?"],
+    "negative_prompts": ["Je veux comparer trois devis de rénovation reçus hier."]
+  },
+  {
+    "name": "renoolab-cadrer-projet-travaux",
+    "family": "maison",
+    "title": "Cadrer un projet de travaux",
+    "description": "Transformer une idée de rénovation en cahier des charges structuré. Utiliser pour définir périmètre, priorités, contraintes, lots, ordre des métiers, calendrier, décisions à prendre et brief à transmettre avant devis ou publication d'un projet.",
+    "mission": "Créer un brief suffisamment clair pour éviter les oublis, les devis incomparables et les mauvais enchaînements de métiers.",
+    "inputs": ["objectif et résultat attendu", "pièces, surfaces et état existant", "budget, date cible et logement occupé ou non", "contraintes techniques, administratives et éléments conservés"],
+    "angles": ["reformuler le résultat attendu plutôt qu'une liste de solutions prématurées", "séparer indispensable, souhaitable et optionnel", "décomposer par lots et dépendances", "identifier décisions client, études et autorisations", "produire un brief transmissible"],
+    "outputs": ["résumé du projet", "périmètre inclus et exclu", "lots ordonnés et métiers", "questions ouvertes et brief de consultation"],
+    "guardrails": ["Ne pas inventer dimensions, contraintes porteuses ou réseaux cachés.", "Signaler quand une visite, un relevé ou une étude est nécessaire avant chiffrage."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Aide-moi à organiser la rénovation complète de mon appartement.", "Je veux ouvrir la cuisine sur le salon, par quoi commencer ?"],
+    "negative_prompts": ["Quel statut choisir pour lancer mon entreprise de peinture ?"]
+  }
+]

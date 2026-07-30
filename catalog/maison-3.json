@@ -1,0 +1,72 @@
+[
+  {
+    "name": "renoolab-preparer-demarches-travaux",
+    "family": "maison",
+    "title": "Préparer les démarches travaux",
+    "description": "Identifier les démarches administratives et contractuelles d'un projet : urbanisme, copropriété, voisinage, assurances, diagnostics, qualification des entreprises et garanties. Utiliser pour construire une checklist française actualisée, jamais pour affirmer une autorisation sans vérifier la commune et le cas précis.",
+    "mission": "Faire apparaître les validations à obtenir avant engagement et l'ordre dans lequel les traiter.",
+    "inputs": ["adresse ou commune et type de bien", "nature et visibilité extérieure des travaux", "copropriété, mitoyenneté ou zone protégée", "statut d'occupation et entreprises envisagées"],
+    "angles": ["distinguer règle nationale, règle locale et règlement privé", "vérifier le besoin de déclaration, permis ou vote", "lister assurances, qualifications et documents", "placer chaque démarche avant la décision irréversible", "citer les sources officielles et leur date"],
+    "outputs": ["checklist par étape", "autorités ou interlocuteurs", "documents et preuves à conserver", "points nécessitant confirmation officielle"],
+    "guardrails": ["Toujours vérifier les règles actuelles auprès de sources officielles et locales.", "Ne pas présenter la réponse comme un avis juridique, administratif ou assurantiel définitif."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Faut-il une déclaration préalable pour changer mes fenêtres ?", "Quelles assurances demander avant de signer un devis ?"],
+    "negative_prompts": ["Donne-moi trois idées de couleurs pour ma cuisine."]
+  },
+  {
+    "name": "renoolab-preparer-exterieur-piscine",
+    "family": "maison",
+    "title": "Préparer un extérieur ou une piscine",
+    "description": "Cadrer un projet de piscine, terrasse, jardin, clôture, drainage, façade ou aménagement extérieur. Utiliser pour comparer les options, analyser terrain, accès, eau, sécurité, entretien, autorisations, lots et budget, puis identifier paysagiste, pisciniste, maçon ou autres professionnels.",
+    "mission": "Construire un projet extérieur qui tient compte du terrain et de l'entretien, pas seulement du rendu visuel.",
+    "inputs": ["photos, plan, dimensions et pente", "sol, accès engins, réseaux et écoulement de l'eau", "usages, saisonnalité et entretien accepté", "budget, commune et voisinage"],
+    "angles": ["partir des usages et contraintes du terrain", "traiter terrassement, drainage et réseaux avant finitions", "comparer variantes et coût d'entretien", "vérifier sécurité et démarches locales", "ordonner les métiers et interfaces"],
+    "outputs": ["lecture du site", "variantes d'aménagement", "lots et contraintes critiques", "brief et professionnels à consulter"],
+    "guardrails": ["Ne pas conclure sur le sol, les réseaux enterrés ou la stabilité à partir d'une photo.", "Vérifier les règles locales, la sécurité piscine et les contraintes hydrauliques avant recommandation finale."],
+    "handoff": "search",
+    "positive_prompts": ["Je veux une piscine dans ce petit jardin, quelles options sont réalistes ?", "Comment organiser terrasse, drainage et plantations autour de la maison ?"],
+    "negative_prompts": ["Comment calculer la marge de mon entreprise de piscines ?"]
+  },
+  {
+    "name": "renoolab-evaluer-bien-immobilier",
+    "family": "maison",
+    "title": "Évaluer un bien immobilier avant travaux",
+    "description": "Préparer l'évaluation travaux d'un bien avant achat, location ou investissement. Utiliser avec annonce, photos, diagnostics ou compte rendu de visite pour repérer signaux d'alerte, postes probables, questions au vendeur, scénarios de rénovation et enveloppe prudente, sans remplacer expertise ni diagnostic réglementaire.",
+    "mission": "Aider à décider quelles vérifications et provisions intégrer avant de s'engager sur un bien.",
+    "inputs": ["annonce, photos, diagnostics et localisation", "surface, époque, type de construction et copropriété", "projet d'usage ou de location", "budget, rendement ou date cible"],
+    "angles": ["séparer faits documentés et suppositions", "repérer risques bâtiment, réseaux, énergie et copropriété", "distinguer remise au propre, conformité et transformation", "proposer contrôles avant offre ou compromis", "construire enveloppes et clauses de prudence"],
+    "outputs": ["faits, inconnues et drapeaux rouges", "travaux probables par horizon", "questions et vérifications avant engagement", "scénarios budgétaires"],
+    "guardrails": ["Ne pas déclarer un bien sain, conforme ou rentable sur la seule base d'une annonce ou de photos.", "Recommander un expert approprié quand l'enjeu structurel, sanitaire, juridique ou financier est significatif."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Analyse cette annonce et dis-moi quels travaux vérifier pendant la visite.", "Cette maison des années 70 est-elle un bon projet de rénovation ?"],
+    "negative_prompts": ["Je cherche un apprenti pour mon entreprise de plomberie."]
+  },
+  {
+    "name": "renoolab-trouver-choisir-artisan",
+    "family": "maison",
+    "title": "Trouver et choisir un artisan",
+    "description": "Préparer une recherche d'artisan, déterminer le métier, chercher des professionnels RenooLab par ville, comparer profils et devis, vérifier assurances, références et périmètre, puis contacter seulement sur demande explicite. Utiliser pour toute demande directe de prestataire ou de professionnel local.",
+    "mission": "Faire une mise en relation utile à partir d'un besoin qualifié, sans classement trompeur ni prise de contact non consentie.",
+    "inputs": ["nature et périmètre des travaux", "ville ou commune", "urgence et date souhaitée", "budget, photos et contraintes utiles"],
+    "angles": ["identifier le métier principal et les interfaces", "obtenir ville et critères réellement discriminants", "appeler rechercher_artisans avant toute proposition de contact", "présenter résultats et limites sans inventer", "comparer devis et demander confirmation avant contacter_artisan"],
+    "outputs": ["brief court", "métier recherché", "sélection RenooLab disponible", "grille de choix et prochaine action"],
+    "guardrails": ["Ne jamais inventer disponibilité, certification, prix, distance, note ou couverture géographique.", "Ne jamais appeler contacter_artisan sans demande explicite après présentation du professionnel."],
+    "handoff": "search",
+    "positive_prompts": ["Trouve-moi un carreleur à Aix-en-Provence.", "Comment choisir entre ces deux artisans et leurs devis ?"],
+    "negative_prompts": ["Aide-moi à imaginer le style de ma future salle de bain."]
+  },
+  {
+    "name": "renoolab-piloter-receptionner-travaux",
+    "family": "maison",
+    "title": "Piloter et réceptionner des travaux",
+    "description": "Préparer et suivre un chantier, organiser décisions, réunions, paiements, modifications, preuves, réception, réserves, garanties, entretien et résolution amiable des désaccords. Utiliser après sélection des entreprises ou lorsqu'un chantier dérape, sans se substituer à un maître d'œuvre, expert ou avocat.",
+    "mission": "Donner au client un système simple pour garder le périmètre, les décisions et les preuves sous contrôle jusqu'à la clôture.",
+    "inputs": ["devis, planning et entreprises", "état d'avancement et décisions en attente", "paiements, modifications et échanges", "défauts, photos, dates et urgence"],
+    "angles": ["établir référence contractuelle et responsabilités", "tenir journal décisions, preuves et écarts", "lier paiements à jalons vérifiables", "préparer inspection, réserves et délais", "escalader de l'amiable vers l'expert ou le droit si nécessaire"],
+    "outputs": ["tableau de suivi", "ordre du jour ou message prêt à envoyer", "checklist de réception", "plan de résolution et garanties à vérifier"],
+    "guardrails": ["Ne pas conseiller de retenir illégalement un paiement ou de modifier un contrat sans vérification adaptée.", "Pour litige important, danger ou malfaçon technique, orienter vers expert, assureur ou conseil compétent."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Prépare ma checklist de réception de salle de bain.", "Le chantier a trois semaines de retard et personne ne répond."],
+    "negative_prompts": ["Quel contenu Instagram publier pour mon entreprise de peinture ?"]
+  }
+]

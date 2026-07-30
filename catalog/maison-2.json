@@ -1,0 +1,58 @@
+[
+  {
+    "name": "renoolab-estimer-budget-travaux",
+    "family": "maison",
+    "title": "Estimer un budget travaux",
+    "description": "Construire une enveloppe de travaux prudente à partir d'un périmètre, de quantités et d'hypothèses explicites. Utiliser pour fourchettes de prix, scénarios économiques ou premium, phasage, aléas et arbitrages. Ne pas remplacer un devis local ni présenter des tarifs comme certains.",
+    "mission": "Donner une architecture budgétaire transparente qui montre ce qui fait varier le coût et ce qui doit être chiffré localement.",
+    "inputs": ["ville ou zone géographique", "surfaces, quantités et état de l'existant", "niveau de finition et équipements", "accessibilité, occupation et date souhaitée"],
+    "angles": ["lister les hypothèses avant les chiffres", "séparer main-d'œuvre, fournitures, études, protections et déchets", "construire bas, central et haut", "ajouter une réserve proportionnée aux inconnues", "montrer les arbitrages sans rogner sécurité ou conformité"],
+    "outputs": ["hypothèses et inconnues", "tableau par lot avec fourchettes", "provision pour aléas", "priorités de consultation"],
+    "guardrails": ["Dater et localiser toute référence de prix ; signaler les données non vérifiées.", "Ne jamais faire passer une estimation conversationnelle pour une offre ou un devis."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Quel budget prévoir pour refaire une salle de bain de 6 m² ?", "Peux-tu découper mon budget de 80 000 euros par lot ?"],
+    "negative_prompts": ["Rédige une facture pour mon client artisan."]
+  },
+  {
+    "name": "renoolab-financer-renovation",
+    "family": "maison",
+    "title": "Financer une rénovation",
+    "description": "Explorer les moyens de financer des travaux en France : épargne, prêt, phasage, aides et retour sur valeur. Utiliser pour MaPrimeRénov', éco-PTZ, aides locales ou arbitrage financier, en vérifiant systématiquement l'éligibilité et les règles actuelles sur des sources officielles.",
+    "mission": "Transformer un besoin de financement en scénarios réalistes sans promettre une aide, un taux ou une économie future.",
+    "inputs": ["type de logement, ancienneté et occupation", "propriétaire occupant, bailleur ou copropriété", "travaux, performance visée et professionnels pressentis", "budget disponible, revenus pertinents et calendrier"],
+    "angles": ["séparer coût total, reste à charge et trésorerie temporaire", "vérifier les dispositifs sur sources publiques actuelles", "identifier les conditions de qualification ou d'ordre des démarches", "comparer financement global et phasage", "prévoir un scénario sans aide"],
+    "outputs": ["dispositifs potentiels et conditions à vérifier", "scénarios de financement", "ordre des démarches", "risques et pièces à préparer"],
+    "guardrails": ["Ne jamais annoncer une éligibilité, un montant d'aide ou un taux sans vérification officielle datée.", "Ne pas fournir de conseil financier personnalisé comme s'il provenait d'un professionnel réglementé."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Quelles aides pourraient financer mon isolation en 2026 ?", "Dois-je faire tous mes travaux maintenant ou les phaser ?"],
+    "negative_prompts": ["J'ai une fuite active sous mon évier."]
+  },
+  {
+    "name": "renoolab-choisir-materiaux-equipements",
+    "family": "maison",
+    "title": "Choisir matériaux et équipements",
+    "description": "Comparer des matériaux, finitions et équipements de rénovation selon usage, compatibilité, coût global, pose, entretien, durabilité et réparabilité. Utiliser pour sols, murs, menuiseries, sanitaires, chauffage, climatisation, cuisine et produits techniques, sans inventer de performance ni d'avis produit actuel.",
+    "mission": "Faire choisir une solution adaptée au contexte réel plutôt que le produit le plus séduisant sur un seul critère.",
+    "inputs": ["usage, fréquence et niveau de sollicitation", "support existant, dimensions et environnement", "budget d'achat et coût de pose", "priorités d'entretien, esthétique et durée de vie"],
+    "angles": ["poser les critères avant de citer des options", "vérifier compatibilité avec support et environnement", "comparer achat, pose, maintenance et remplacement", "distinguer données fabricant, normes et retours d'usage", "préparer les questions à poser au poseur"],
+    "outputs": ["matrice de critères", "courte liste d'options avec compromis", "points de compatibilité à confirmer", "recommandation conditionnelle"],
+    "guardrails": ["Vérifier en ligne les produits, prix, garanties ou performances susceptibles d'avoir changé.", "Ne pas recommander une modification technique sans validation par le professionnel responsable de la pose."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Parquet contrecollé ou carrelage imitation bois avec un chien ?", "Quelle douche choisir pour limiter l'entretien ?"],
+    "negative_prompts": ["Trouve des prospects pour mon entreprise de menuiserie."]
+  },
+  {
+    "name": "renoolab-renover-energie-confort",
+    "family": "maison",
+    "title": "Rénover pour le confort et l'énergie",
+    "description": "Prioriser une rénovation énergétique et de confort : enveloppe, isolation, ventilation, humidité, chauffage, climatisation, menuiseries, confort d'été, bruit et adaptation des usages. Utiliser pour construire un parcours cohérent avant devis, audit ou recherche de professionnels.",
+    "mission": "Éviter les gestes isolés incohérents et ordonner les améliorations selon symptômes, bâtiment, usages et budget.",
+    "inputs": ["type, âge et localisation du bâtiment", "factures, DPE ou audit disponible", "inconfort hiver, été, bruit ou humidité", "systèmes actuels et travaux déjà réalisés"],
+    "angles": ["commencer par les usages et défauts observés", "raisonner enveloppe, air, humidité puis systèmes", "éviter les incompatibilités entre isolation et ventilation", "comparer confort, consommation et résilience", "indiquer les audits ou mesures nécessaires"],
+    "outputs": ["diagnostic d'orientation", "bouquets de travaux ordonnés", "gains attendus formulés avec prudence", "métiers, contrôles et aides à explorer"],
+    "guardrails": ["Ne pas promettre d'économies chiffrées sans données et méthode vérifiables.", "Ne pas ignorer ventilation, humidité, combustion ou sécurité lors d'une recommandation d'isolation."],
+    "handoff": "optional-search",
+    "positive_prompts": ["Ma maison est froide malgré le chauffage, quels travaux prioriser ?", "Comment améliorer le confort d'été sans climatiser partout ?"],
+    "negative_prompts": ["Écris une relance commerciale pour un devis non signé."]
+  }
+]

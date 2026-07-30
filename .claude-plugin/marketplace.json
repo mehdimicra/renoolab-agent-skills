@@ -1,0 +1,21 @@
+{
+  "name": "renoolab",
+  "owner": {
+    "name": "RenooLab",
+    "email": "contact@renoolab.fr"
+  },
+  "description": "Skills et MCP RenooLab pour la rénovation et les entreprises artisanales.",
+  "plugins": [
+    {
+      "name": "renoolab",
+      "source": ".",
+      "description": "10 workflows publics couvrant 29 intentions de particuliers, artisans et professionnels du BTP.",
+      "version": "0.2.0",
+      "author": {
+        "name": "RenooLab",
+        "email": "contact@renoolab.fr"
+      },
+      "homepage": "https://renoolab.fr/mcp/"
+    }
+  ]
+}

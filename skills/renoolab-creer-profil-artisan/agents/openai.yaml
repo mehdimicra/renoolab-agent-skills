@@ -1,0 +1,15 @@
+interface:
+  display_name: "Créer son profil RenooLab"
+  short_description: "Préparer et créer un profil artisan fidèle"
+  default_prompt: "Utilise $renoolab-creer-profil-artisan pour préparer puis créer mon profil RenooLab."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "renoolab"
+      description: "Recherche et actions RenooLab pour les travaux"
+      transport: "streamable_http"
+      url: "https://mcp.renoolab.fr/mcp"
+
+policy:
+  allow_implicit_invocation: true

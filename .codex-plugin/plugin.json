@@ -1,0 +1,32 @@
+{
+  "name": "renoolab-agent-skills",
+  "version": "0.2.0",
+  "description": "10 workflows couvrant 29 intentions de rénovation et d'entreprise BTP avec les actions du MCP RenooLab.",
+  "author": {
+    "name": "RenooLab",
+    "email": "contact@renoolab.fr",
+    "url": "https://renoolab.fr/"
+  },
+  "homepage": "https://renoolab.fr/mcp/",
+  "repository": "https://github.com/mehdimicra/renoolab-agent-skills",
+  "keywords": ["renovation", "travaux", "artisan", "batiment", "mcp", "agent-skills"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "RenooLab — Rénovation et artisans",
+    "shortDescription": "Préparer des travaux et développer une activité artisanale.",
+    "longDescription": "Dix workflows cohérents couvrent vingt-neuf intentions : imaginer, diagnostiquer, planifier, trouver et piloter des artisans, puis lancer, rentabiliser, développer et organiser une entreprise BTP. Les actions locales passent par le MCP RenooLab avec confirmation avant toute écriture.",
+    "developerName": "RenooLab",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://renoolab.fr/",
+    "privacyPolicyURL": "https://renoolab.fr/privacy/",
+    "termsOfServiceURL": "https://renoolab.fr/cgu/",
+    "defaultPrompt": [
+      "Transforme cette photo en options de rénovation réalistes.",
+      "Trouve les artisans adaptés à mon projet et à ma commune.",
+      "Diagnostique le goulot de mon entreprise artisanale."
+    ],
+    "brandColor": "#D946EF"
+  }
+}

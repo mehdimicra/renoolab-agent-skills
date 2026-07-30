@@ -1,0 +1,7 @@
+interface:
+  display_name: "Organiser chantier et équipe"
+  short_description: "Préparer l'exécution, la technique et la capacité"
+  default_prompt: "Utilise $renoolab-organiser-chantier-equipe-btp pour structurer ce chantier ou cette décision d'équipe."
+
+policy:
+  allow_implicit_invocation: true

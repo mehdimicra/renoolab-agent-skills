@@ -1,0 +1,7 @@
+interface:
+  display_name: "Imaginer une rénovation"
+  short_description: "Comparer des options de rénovation réalistes"
+  default_prompt: "Utilise $renoolab-imaginer-arbitrer-renovation pour transformer mon idée ou ma photo en options réalistes."
+
+policy:
+  allow_implicit_invocation: true
