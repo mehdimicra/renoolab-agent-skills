@@ -14,26 +14,9 @@ Ce skill déclare le MCP RenooLab comme dépendance. Vérifier malgré tout que 
 - `contacter_artisan` : transmettre une demande modérée pour un artisan déjà présenté ; exiger le choix et une confirmation explicite juste avant l'appel.
 - `creer_profil_artisan` : créer un profil inactif et obtenir son lien d'activation ; utiliser uniquement pour l'artisan lui-même, avec ses vraies données récapitulées et confirmées.
 
-## Métiers publics
+## Métier transmis au MCP
 
-- Rénovation générale
-- Plomberie
-- Électricité
-- Maçonnerie
-- Carrelage
-- Peinture
-- Plâtrerie/Plaquiste
-- Isolation
-- Menuiserie
-- Parquet
-- Charpente
-- Couverture/Toiture
-- Chauffage/Climatisation
-- Serrurerie
-- Paysagiste
-- Pisciniste
-- Décoration d'intérieur
-- Nettoyage
+Ne conserver aucune liste statique de métiers dans ce skill. Le schéma actif de `rechercher_artisans` est la source de vérité : utiliser une valeur actuellement acceptée par son champ `metier`. Le MCP public exclut les fournisseurs. Si l'outil ou son schéma n'est pas disponible, ne pas inventer une valeur ni prétendre avoir lancé la recherche.
 
 ## Règles de confiance
 

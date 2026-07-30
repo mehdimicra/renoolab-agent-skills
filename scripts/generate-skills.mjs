@@ -30,26 +30,40 @@ const intentFiles = (await readdir(catalogDir))
 const intents = [];
 for (const file of intentFiles) {
   const parsed = await readJson(join(catalogDir, file));
-  if (!Array.isArray(parsed)) throw new Error(`${file} must contain an array`);
+  if (!Array.isArray(parsed)) {
+    throw new Error(`${file} must contain an array`);
+  }
   intents.push(...parsed);
 }
 const workflows = await readJson(join(catalogDir, "workflows.json"));
-if (!Array.isArray(workflows)) throw new Error("workflows.json must contain an array");
-if (intents.length !== 29) throw new Error(`Expected 29 intent records, found ${intents.length}`);
-if (workflows.length !== 10) throw new Error(`Expected 10 public workflows, found ${workflows.length}`);
+if (!Array.isArray(workflows)) {
+  throw new Error("workflows.json must contain an array");
+}
+if (intents.length !== 29) {
+  throw new Error(`Expected 29 intent records, found ${intents.length}`);
+}
+if (workflows.length !== 10) {
+  throw new Error(`Expected 10 public workflows, found ${workflows.length}`);
+}
 
 const intentByName = new Map();
 for (const intent of intents) {
-  if (intentByName.has(intent.name)) throw new Error(`Duplicate intent: ${intent.name}`);
+  if (intentByName.has(intent.name)) {
+    throw new Error(`Duplicate intent: ${intent.name}`);
+  }
   intentByName.set(intent.name, intent);
 }
 const workflowByName = new Map();
 const intentToWorkflow = new Map();
 for (const workflow of workflows) {
-  if (workflowByName.has(workflow.name)) throw new Error(`Duplicate workflow: ${workflow.name}`);
+  if (workflowByName.has(workflow.name)) {
+    throw new Error(`Duplicate workflow: ${workflow.name}`);
+  }
   workflowByName.set(workflow.name, workflow);
   for (const route of workflow.references) {
-    if (!intentByName.has(route.intent)) throw new Error(`${workflow.name}: unknown intent ${route.intent}`);
+    if (!intentByName.has(route.intent)) {
+      throw new Error(`${workflow.name}: unknown intent ${route.intent}`);
+    }
     if (intentToWorkflow.has(route.intent)) {
       throw new Error(`${route.intent}: mapped to both ${intentToWorkflow.get(route.intent)} and ${workflow.name}`);
     }
@@ -61,12 +75,6 @@ if (intentToWorkflow.size !== intents.length) {
   throw new Error(`Intent mapping is incomplete: ${missing.join(", ")}`);
 }
 
-const publicTrades = [
-  "Rénovation générale", "Plomberie", "Électricité", "Maçonnerie", "Carrelage",
-  "Peinture", "Plâtrerie/Plaquiste", "Isolation", "Menuiserie", "Parquet",
-  "Charpente", "Couverture/Toiture", "Chauffage/Climatisation", "Serrurerie",
-  "Paysagiste", "Pisciniste", "Décoration d'intérieur", "Nettoyage"
-];
 
 function referenceFilename(intentName) {
   return `${intentName.replace(/^renoolab-/, "")}.md`;
@@ -156,9 +164,9 @@ ${availability}
 - \`contacter_artisan\` : transmettre une demande modérée pour un artisan déjà présenté ; exiger le choix et une confirmation explicite juste avant l'appel.
 - \`creer_profil_artisan\` : créer un profil inactif et obtenir son lien d'activation ; utiliser uniquement pour l'artisan lui-même, avec ses vraies données récapitulées et confirmées.
 
-## Métiers publics
+## Métier transmis au MCP
 
-${bullets(publicTrades)}
+Ne conserver aucune liste statique de métiers dans ce skill. Le schéma actif de \`rechercher_artisans\` est la source de vérité : utiliser une valeur actuellement acceptée par son champ \`metier\`. Le MCP public exclut les fournisseurs. Si l'outil ou son schéma n'est pas disponible, ne pas inventer une valeur ni prétendre avoir lancé la recherche.
 
 ## Règles de confiance
 
@@ -265,37 +273,90 @@ async function replaceGeneratedSkills() {
   try {
     await rename(skillsDir, backupSkillsDir);
   } catch (error) {
-    if (error.code === "ENOENT") hadExisting = false;
-    else throw error;
+    if (error.code === "ENOENT") {
+      hadExisting = false;
+    } else {
+      throw error;
+    }
   }
 
   try {
     await rename(nextSkillsDir, skillsDir);
   } catch (error) {
-    if (hadExisting) await rename(backupSkillsDir, skillsDir);
+    if (hadExisting) {
+      await rename(backupSkillsDir, skillsDir);
+    }
     throw error;
   }
 
-  if (hadExisting) await rm(backupSkillsDir, { recursive: true, force: true });
+  if (hadExisting) {
+    await rm(backupSkillsDir, { recursive: true, force: true });
+  }
 }
 
 await replaceGeneratedSkills();
 
+const negativeRouteDocument = await readJson(join(evalsDir, "negative-routes.json"));
+if (negativeRouteDocument.version !== 1 || !Array.isArray(negativeRouteDocument.routes)) {
+  throw new Error("evals/negative-routes.json must contain version 1 and a routes array");
+}
+const negativeRouteById = new Map();
+for (const route of negativeRouteDocument.routes) {
+  if (negativeRouteById.has(route.id)) {
+    throw new Error(`Duplicate negative route id: ${route.id}`);
+  }
+  if (!workflowByName.has(route.expected_skill)) {
+    throw new Error(`${route.id}: unknown expected skill ${route.expected_skill}`);
+  }
+  negativeRouteById.set(route.id, route.expected_skill);
+}
+
+const usedNegativeRouteIds = new Set();
 const cases = intents.flatMap((intent) => {
   const skill = intentToWorkflow.get(intent.name);
-  return [
-    ...intent.positive_prompts.map((prompt) => ({ skill, intent: intent.name, prompt, expected_trigger: true })),
-    ...intent.negative_prompts.map((prompt) => ({ skill, intent: intent.name, prompt, expected_trigger: false }))
-  ];
+  const positiveCases = intent.positive_prompts.map((prompt, index) => ({
+    id: `${intent.name}--positive-${index + 1}`,
+    skill,
+    intent: intent.name,
+    prompt,
+    kind: "positive",
+    expected_skill: skill
+  }));
+  const contrastCases = intent.negative_prompts.map((prompt, index) => {
+    const id = `${intent.name}--negative-${index + 1}`;
+    const expectedSkill = negativeRouteById.get(id);
+    if (!expectedSkill) {
+      throw new Error(`${id}: missing expected route in evals/negative-routes.json`);
+    }
+    if (expectedSkill === skill) {
+      throw new Error(`${id}: contrast route must differ from source skill ${skill}`);
+    }
+    usedNegativeRouteIds.add(id);
+    return {
+      id,
+      skill,
+      intent: intent.name,
+      prompt,
+      kind: "contrast",
+      expected_skill: expectedSkill
+    };
+  });
+  return [...positiveCases, ...contrastCases];
 });
-await writeFile(join(evalsDir, "cases.json"), `${JSON.stringify({ version: 2, cases }, null, 2)}\n`, "utf8");
+for (const id of negativeRouteById.keys()) {
+  if (!usedNegativeRouteIds.has(id)) {
+    throw new Error(`${id}: unused entry in evals/negative-routes.json`);
+  }
+}
+await writeFile(join(evalsDir, "cases.json"), `${JSON.stringify({ version: 3, cases }, null, 2)}\n`, "utf8");
 
 const intentCollisions = await readJson(join(evalsDir, "intent-collisions.json"));
-const collisionCases = intentCollisions.cases.map((entry) => {
+const collisionCases = intentCollisions.cases.map((entry, index) => {
   const primary = intentToWorkflow.get(entry.primary);
   const secondary = unique((entry.secondary ?? []).map((name) => intentToWorkflow.get(name)))
     .filter((name) => name !== primary);
   return {
+    id: `collision-${String(index + 1).padStart(2, "0")}`,
     prompt: entry.prompt,
     primary,
     secondary,
@@ -334,4 +395,4 @@ for (const workflow of workflows) {
 catalogMarkdown += "Les écritures MCP — contact et création de profil — exigent toujours une confirmation explicite juste avant l'action.\n";
 await writeFile(join(root, "CATALOG.md"), catalogMarkdown, "utf8");
 
-console.log(`Generated ${workflows.length} public skills from ${intents.length} intents, ${cases.length} trigger evals, and ${collisionCases.length} collision evals.`);
+console.log(`Generated ${workflows.length} public skills from ${intents.length} intents, ${cases.length} routing fixtures, and ${collisionCases.length} collision fixtures.`);

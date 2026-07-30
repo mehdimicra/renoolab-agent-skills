@@ -1,13 +1,17 @@
 {
   "name": "renoolab-agent-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Source, génération et validation des Agent Skills RenooLab.",
   "scripts": {
     "generate": "node scripts/generate-skills.mjs",
     "validate": "node scripts/validate-catalog.mjs",
-    "test": "npm run generate && npm run validate"
+    "validate:skills-ref": "node scripts/validate-skills-ref.mjs",
+    "eval:dry": "node scripts/run-behavioral-evals.mjs --dry-run --host claude --suite all",
+    "eval:claude": "node scripts/run-behavioral-evals.mjs --host claude --suite all --runs 1 --concurrency 3",
+    "eval:codex": "node scripts/run-behavioral-evals.mjs --host codex --suite all --runs 1 --concurrency 2",
+    "test": "npm run generate && npm run validate && npm run eval:dry"
   },
   "engines": {
     "node": ">=20"

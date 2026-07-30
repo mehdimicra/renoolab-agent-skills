@@ -2,6 +2,7 @@
   "version": 2,
   "cases": [
     {
+      "id": "collision-01",
       "prompt": "Voici une photo de ma vieille douche, je veux des idées avant de demander des devis.",
       "primary": "renoolab-imaginer-arbitrer-renovation",
       "secondary": [
@@ -15,6 +16,7 @@
       "reason": "L'intention immédiate est créative ; le cadrage vient après le choix d'une direction."
     },
     {
+      "id": "collision-02",
       "prompt": "L'eau coule près du tableau électrique en ce moment.",
       "primary": "renoolab-diagnostiquer-securiser-logement",
       "secondary": [],
@@ -24,6 +26,7 @@
       "reason": "Le danger actif prime sur toute recherche de cause."
     },
     {
+      "id": "collision-03",
       "prompt": "Une tache humide réapparaît depuis six mois mais rien ne coule actuellement.",
       "primary": "renoolab-diagnostiquer-securiser-logement",
       "secondary": [],
@@ -33,6 +36,7 @@
       "reason": "Il s'agit d'une investigation sans danger immédiat décrit."
     },
     {
+      "id": "collision-04",
       "prompt": "Je veux savoir combien coûtera ma salle de bain avant de consulter des artisans.",
       "primary": "renoolab-planifier-budgeter-travaux",
       "secondary": [],
@@ -44,6 +48,7 @@
       "reason": "La décision demandée est budgétaire ; le périmètre sert d'entrée."
     },
     {
+      "id": "collision-05",
       "prompt": "Compare ces deux devis de toiture et dis-moi quelles vérifications faire.",
       "primary": "renoolab-trouver-choisir-artisans",
       "secondary": [
@@ -57,6 +62,7 @@
       "reason": "Le choix de l'entreprise et la comparabilité des offres sont centraux."
     },
     {
+      "id": "collision-06",
       "prompt": "Je veux une piscine, puis trouver quelqu'un pour la construire près de Cannes.",
       "primary": "renoolab-imaginer-arbitrer-renovation",
       "secondary": [
@@ -70,6 +76,7 @@
       "reason": "Cadrer le projet avant d'exécuter la recherche locale."
     },
     {
+      "id": "collision-07",
       "prompt": "Je suis plombier salarié et je veux ouvrir ma boîte puis être visible en ligne.",
       "primary": "renoolab-lancer-entreprise-artisanale",
       "secondary": [
@@ -85,6 +92,7 @@
       "reason": "Le lancement légal et économique précède les surfaces de visibilité."
     },
     {
+      "id": "collision-08",
       "prompt": "Mon planning est vide mais ma fiche Google est déjà complète.",
       "primary": "renoolab-developper-clientele-visibilite-btp",
       "secondary": [],
@@ -96,6 +104,7 @@
       "reason": "Le problème est le flux et la conversion, pas seulement la présence publique."
     },
     {
+      "id": "collision-09",
       "prompt": "J'ai beaucoup de demandes mais presque aucun devis signé.",
       "primary": "renoolab-developper-clientele-visibilite-btp",
       "secondary": [],
@@ -107,6 +116,7 @@
       "reason": "Le goulot est la qualification et la conversion."
     },
     {
+      "id": "collision-10",
       "prompt": "Je travaille beaucoup mais je ne gagne rien sur mes chantiers.",
       "primary": "renoolab-chiffrer-piloter-rentabilite",
       "secondary": [],
@@ -118,6 +128,7 @@
       "reason": "Commencer par distinguer coût complet, marge et prix avant la trésorerie."
     },
     {
+      "id": "collision-11",
       "prompt": "Je dois choisir entre embaucher un salarié et confier le lot peinture à un partenaire local.",
       "primary": "renoolab-organiser-chantier-equipe-btp",
       "secondary": [
@@ -131,6 +142,7 @@
       "reason": "La décision de capacité vient avant le sourcing d'un partenaire."
     },
     {
+      "id": "collision-12",
       "prompt": "Je veux une équipe plomberie, électricité et peinture pour rénover un immeuble.",
       "primary": "renoolab-trouver-choisir-artisans",
       "secondary": [
@@ -144,6 +156,7 @@
       "reason": "Le besoin explicite est de composer et rechercher plusieurs lots."
     },
     {
+      "id": "collision-13",
       "prompt": "J'analyse une annonce pour acheter et louer l'appartement après rénovation.",
       "primary": "renoolab-planifier-budgeter-travaux",
       "secondary": [],
@@ -155,6 +168,7 @@
       "reason": "Avant achat, les inconnues et risques du bien priment sur l'exploitation future."
     },
     {
+      "id": "collision-14",
       "prompt": "Le dégât des eaux est stoppé ; comment organiser assèchement, sol et peinture ?",
       "primary": "renoolab-diagnostiquer-securiser-logement",
       "secondary": [
@@ -168,6 +182,7 @@
       "reason": "L'urgence est passée ; le séquencement assurantiel et technique devient central."
     },
     {
+      "id": "collision-15",
       "prompt": "Je suis négociant en matériaux et je veux rejoindre RenooLab comme fournisseur.",
       "primary": "renoolab-developper-clientele-visibilite-btp",
       "secondary": [],
@@ -177,6 +192,7 @@
       "reason": "Fournisseur reste app-only et ne doit pas être envoyé à creer_profil_artisan."
     },
     {
+      "id": "collision-16",
       "prompt": "Je veux créer maintenant mon profil de carreleur RenooLab à Marseille.",
       "primary": "renoolab-creer-profil-artisan",
       "secondary": [],

@@ -1,6 +1,6 @@
 {
   "name": "renoolab-agent-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "10 workflows couvrant 29 intentions de rénovation et d'entreprise BTP avec les actions du MCP RenooLab.",
   "author": {
     "name": "RenooLab",
