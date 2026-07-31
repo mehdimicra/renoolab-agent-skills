@@ -567,11 +567,14 @@ async function main() {
   const taskPlan = fixtures.flatMap((fixture) => (
     Array.from({ length: options.runs }, (_, runIndex) => ({ fixture, runIndex: runIndex + 1 }))
   ));
+  const fixtureIdsFingerprint = createHash("sha256")
+    .update(fixtures.map((fixture) => fixture.id).join("\n"), "utf8")
+    .digest("hex");
+  const fixturesFingerprint = createHash("sha256")
+    .update(JSON.stringify(fixtures), "utf8")
+    .digest("hex");
 
   if (options.dryRun) {
-    const fixtureFingerprint = createHash("sha256")
-      .update(fixtures.map((fixture) => fixture.id).join("\n"), "utf8")
-      .digest("hex");
     console.log(JSON.stringify({
       host: options.host,
       suite: options.suite,
@@ -579,7 +582,8 @@ async function main() {
       runs_per_fixture: options.runs,
       executions: taskPlan.length,
       failed_from: options.failedFrom,
-      fixture_ids_sha256: fixtureFingerprint
+      fixture_ids_sha256: fixtureIdsFingerprint,
+      fixtures_sha256: fixturesFingerprint
     }, null, 2));
     return;
   }
@@ -634,7 +638,9 @@ async function main() {
     const totalCostUsd = rawResults.reduce((sum, result) => sum + (result.cost_usd ?? 0), 0);
     const repositoryState = gitState();
     const report = {
-      schema_version: 1,
+      schema_version: 2,
+      fixture_ids_sha256: fixtureIdsFingerprint,
+      fixtures_sha256: fixturesFingerprint,
       generated_at: new Date().toISOString(),
       repository_commit: repositoryState.commit,
       repository_dirty: repositoryState.dirty,

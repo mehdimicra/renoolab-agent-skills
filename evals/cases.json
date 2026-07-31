@@ -229,7 +229,7 @@
       "id": "renoolab-recruter-sous-traiter-artisan--positive-2",
       "skill": "renoolab-organiser-chantier-equipe-btp",
       "intent": "renoolab-recruter-sous-traiter-artisan",
-      "prompt": "Aide-moi à rédiger une fiche de poste pour un apprenti.",
+      "prompt": "Mon entreprise de plomberie veut recruter un apprenti à la rentrée : aide-moi à définir ses missions, les compétences, l'encadrement et la fiche de poste.",
       "kind": "positive",
       "expected_skill": "renoolab-organiser-chantier-equipe-btp"
     },
@@ -629,7 +629,7 @@
       "id": "renoolab-evaluer-bien-immobilier--positive-1",
       "skill": "renoolab-planifier-budgeter-travaux",
       "intent": "renoolab-evaluer-bien-immobilier",
-      "prompt": "Analyse cette annonce et dis-moi quels travaux vérifier pendant la visite.",
+      "prompt": "J'envisage un appartement des années 70 classé F ; l'annonce signale l'électricité à revoir et une trace d'humidité. Quels travaux et contrôles préparer pour la visite ?",
       "kind": "positive",
       "expected_skill": "renoolab-planifier-budgeter-travaux"
     },

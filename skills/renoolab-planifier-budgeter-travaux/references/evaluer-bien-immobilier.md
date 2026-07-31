@@ -42,7 +42,7 @@ Apporter d'abord le livrable utile. Proposer une recherche locale seulement si e
 ## Exemples
 
 Déclenchements :
-- Analyse cette annonce et dis-moi quels travaux vérifier pendant la visite.
+- J'envisage un appartement des années 70 classé F ; l'annonce signale l'électricité à revoir et une trace d'humidité. Quels travaux et contrôles préparer pour la visite ?
 - Cette maison des années 70 est-elle un bon projet de rénovation ?
 
 À router ailleurs :

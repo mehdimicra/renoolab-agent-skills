@@ -43,7 +43,7 @@ Si une recherche de partenaire devient nécessaire, préciser métier et commune
 
 Déclenchements :
 - Dois-je embaucher ou sous-traiter mes chantiers de peinture ?
-- Aide-moi à rédiger une fiche de poste pour un apprenti.
+- Mon entreprise de plomberie veut recruter un apprenti à la rentrée : aide-moi à définir ses missions, les compétences, l'encadrement et la fiche de poste.
 
 À router ailleurs :
 - Aide-moi à choisir le carrelage de ma salle de bain.

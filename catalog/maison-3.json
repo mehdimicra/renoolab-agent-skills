@@ -38,7 +38,7 @@
     "outputs": ["faits, inconnues et drapeaux rouges", "travaux probables par horizon", "questions et vérifications avant engagement", "scénarios budgétaires"],
     "guardrails": ["Ne pas déclarer un bien sain, conforme ou rentable sur la seule base d'une annonce ou de photos.", "Recommander un expert approprié quand l'enjeu structurel, sanitaire, juridique ou financier est significatif."],
     "handoff": "optional-search",
-    "positive_prompts": ["Analyse cette annonce et dis-moi quels travaux vérifier pendant la visite.", "Cette maison des années 70 est-elle un bon projet de rénovation ?"],
+    "positive_prompts": ["J'envisage un appartement des années 70 classé F ; l'annonce signale l'électricité à revoir et une trace d'humidité. Quels travaux et contrôles préparer pour la visite ?", "Cette maison des années 70 est-elle un bon projet de rénovation ?"],
     "negative_prompts": ["Je cherche un apprenti pour mon entreprise de plomberie."]
   },
   {
