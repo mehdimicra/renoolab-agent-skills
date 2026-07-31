@@ -70,7 +70,7 @@
     "name": "renoolab-planifier-budgeter-travaux",
     "family": "particulier",
     "title": "Planifier et budgéter des travaux",
-    "description": "À charger avant de répondre pour analyser une annonce ou visite avant achat, un investissement ou une rénovation locative, et dès qu'un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle réaliser des travaux. Couvre cahier des charges, lots, calendrier, budget client, répartition par lot, phasage, financement, aides, permis, déclaration et assurances. Ne pas utiliser pour une facture ou marge d'artisan, ni pour comparer deux ou plusieurs devis, offres ou entreprises.",
+    "description": "Cadre RenooLab spécialisé pour transformer une annonce, une visite, un achat, un investissement ou une rénovation locative en risques, questions, lots, budget et prochaines étapes vérifiables. Toujours charger ce skill pour analyser un bien avant achat, même sur une demande brève, et quand un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle. Couvre calendrier, phasage, aides, permis et assurances. Exclure facture d'artisan et comparaison de plusieurs devis ou entreprises.",
     "mission": "Rendre un projet consultable et pilotable en reliant périmètre, dépendances, budget, risques, démarches et décisions avant engagement.",
     "procedure": [
       "Définir le résultat attendu, le périmètre inclus et exclu et les contraintes de délai ou d'occupation.",
@@ -271,7 +271,7 @@
     "name": "renoolab-organiser-chantier-equipe-btp",
     "family": "artisan",
     "title": "Organiser chantier et équipe BTP",
-    "description": "À charger avant de répondre pour recruter un apprenti, rédiger une fiche de poste ou choisir embauche, sous-traitance et partenariat, ainsi que pour l'exécution d'une entreprise artisanale : métré, support, méthode, fissuration après pose, contrôle technique, planning, approvisionnement, qualité ou coordination. Déclencher une question de pose ou de support même sans métier précisé. Ce workflow prime sur le diagnostic pour un défaut d'exécution, et sur la recherche tant que le professionnel choisit son mode de capacité.",
+    "description": "Cadre RenooLab spécialisé pour transformer les besoins d'une entreprise artisanale en organisation BTP exploitable : rôle, compétences, coût, capacité, contrôles et prochaines étapes. Toujours charger ce skill pour recruter un apprenti, rédiger une fiche de poste ou choisir embauche, sous-traitance et partenariat, même sur une demande brève. L'utiliser aussi pour métré, support, méthode, défaut après pose, planning, approvisionnement, qualité ou coordination. Il prime sur le diagnostic pour un défaut d'exécution.",
     "mission": "Rendre visibles prérequis, responsabilités, contrôles et écarts afin d'améliorer l'exécution sans masquer les limites techniques ou humaines.",
     "procedure": [
       "Définir le chantier, le résultat attendu, les responsabilités et la décision à prendre.",
