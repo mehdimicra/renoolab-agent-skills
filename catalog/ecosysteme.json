@@ -10,7 +10,7 @@
     "outputs": ["matrice lots-responsabilités", "ordre de consultation", "sélection disponible par métier", "tableau de comparaison et risques d'interface"],
     "guardrails": ["Ne pas présenter RenooLab comme validant assurances, disponibilité ou capacité au-delà des données retournées.", "Ne jamais contacter plusieurs entreprises en masse sans confirmation explicite pour chaque action autorisée."],
     "handoff": "search",
-    "positive_prompts": ["Je dois constituer une équipe pour rénover un immeuble à Toulon.", "Trouve des partenaires couvreur et isolateur autour d'Aix."],
+    "positive_prompts": ["Je suis propriétaire d’un immeuble à Toulon et je cherche les entreprises locales pour composer l’équipe de rénovation.", "Trouve des partenaires couvreur et isolateur autour d'Aix."],
     "negative_prompts": ["Quel statut fiscal choisir pour mon entreprise individuelle ?"]
   },
   {

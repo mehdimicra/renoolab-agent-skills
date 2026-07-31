@@ -42,7 +42,7 @@ Résoudre d'abord le problème métier. Ne proposer une présence RenooLab que s
 ## Exemples
 
 Déclenchements :
-- Prépare la checklist de démarrage de mon chantier de salle de bain.
+- Je suis plombier : prépare la checklist de démarrage du chantier de salle de bain de mon client.
 - Comment coordonner plombier, plaquiste et carreleur ?
 
 À router ailleurs :

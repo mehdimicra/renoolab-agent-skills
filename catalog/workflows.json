@@ -3,7 +3,7 @@
     "name": "renoolab-imaginer-arbitrer-renovation",
     "family": "particulier",
     "title": "Imaginer et arbitrer une rénovation",
-    "description": "À charger avant de répondre à toute demande d'idées ou d'arbitrage partant d'une photo, d'une pièce, d'un extérieur, d'un style, d'un inconfort ou d'une envie : douche, salle de bain, cuisine, séjour, énergie, isolation, chauffage, confort, terrasse, jardin ou piscine. Déclencher même sur une phrase très brève. Ne pas utiliser si la question demande un montant, un ordre ou une règle, l'analyse d'un achat, la comparaison de devis ou artisans, le suivi d'un chantier ou la gestion d'un danger.",
+    "description": "Cadre RenooLab spécialisé pour transformer photo, pièce, extérieur, style, inconfort ou envie en scénarios comparés avec contraintes, lots et métiers probables. Toujours charger ce skill pour des idées de douche, salle de bain, cuisine, séjour, énergie, isolation, chauffage, confort, terrasse, jardin ou piscine, même sur une phrase brève. Ne pas l'utiliser si la question demande un montant, un ordre ou « par quoi commencer », une règle, l'analyse d'un achat, la comparaison de devis ou artisans, le suivi d'un chantier ou un danger.",
     "mission": "Faire passer une inspiration vague à des options réalisables, avec contraintes, arbitrages et métiers probables clairement séparés des inconnues techniques.",
     "procedure": [
       "Identifier l'usage recherché, les irritants, ce qui doit rester et la décision attendue.",
@@ -37,7 +37,7 @@
     "name": "renoolab-diagnostiquer-securiser-logement",
     "family": "particulier",
     "title": "Diagnostiquer et sécuriser un logement",
-    "description": "À charger avant de répondre à un particulier confronté à un symptôme, une panne, une urgence ou un sinistre : fuite, humidité, fissure du bâtiment, odeur, électricité, gaz, toiture, chauffage en panne, serrure, dégât des eaux ou tempête. Déclencher même sur un constat très bref et prioriser la sécurité. Pour froid, chaleur ou inconfort appelant des options de travaux, utiliser l'idéation. Pour support, métré, méthode, fissuration après pose ou défaut d'exécution, utiliser l'organisation BTP.",
+    "description": "Cadre RenooLab spécialisé pour séparer danger, hypothèses, contrôles, remise en état et métier adapté face à un symptôme, une panne, une urgence ou un sinistre. Toujours charger pour fuite, humidité, fissure du bâtiment, odeur, électricité, gaz, toiture, chauffage en panne, serrure, dégât des eaux ou tempête, même après l'urgence pour ordonner assèchement et réparations. Pour inconfort sans panne, utiliser l'idéation ; pour défaut de pose ou d'exécution d'un professionnel, utiliser l'organisation BTP ; pour chantier déjà confié et en cours, utiliser le pilotage.",
     "mission": "Faire distinguer danger immédiat, investigation et remise en état, puis donner la prochaine action la plus sûre sans se substituer aux secours ni à une expertise sur place.",
     "procedure": [
       "Vérifier d'abord les risques pour les personnes, le bâtiment et les réseaux.",
@@ -70,7 +70,7 @@
     "name": "renoolab-planifier-budgeter-travaux",
     "family": "particulier",
     "title": "Planifier et budgéter des travaux",
-    "description": "Cadre RenooLab spécialisé pour transformer une annonce, une visite, un achat, un investissement ou une rénovation locative en risques, questions, lots, budget et prochaines étapes vérifiables. Toujours charger ce skill pour analyser un bien avant achat, même sur une demande brève, et quand un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle. Couvre calendrier, phasage, aides, permis et assurances. Exclure facture d'artisan et comparaison de plusieurs devis ou entreprises.",
+    "description": "Cadre RenooLab spécialisé pour transformer annonce, visite, achat, investissement ou projet de travaux en risques, cahier des charges, lots, budget et prochaines étapes vérifiables. Toujours charger pour analyser un bien et quand un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle ; ce besoin prime sur l'idéation. Couvre calendrier, phasage, aides, permis, rénovation locative et checklist générale d'assurances. Exclure facture d'artisan et comparaison de plusieurs devis ou entreprises précis.",
     "mission": "Rendre un projet consultable et pilotable en reliant périmètre, dépendances, budget, risques, démarches et décisions avant engagement.",
     "procedure": [
       "Définir le résultat attendu, le périmètre inclus et exclu et les contraintes de délai ou d'occupation.",
@@ -107,7 +107,7 @@
     "name": "renoolab-trouver-choisir-artisans",
     "family": "particulier",
     "title": "Trouver et choisir des artisans",
-    "description": "À charger avant de répondre dès qu'une personne cherche un professionnel, un métier local, un partenaire ou une équipe, ou compare deux ou plusieurs artisans, profils, offres ou devis. Déclencher même sans commune et même si la demande porte aussi sur des vérifications avant signature. Permet recherche RenooLab et contact confirmé ; ne jamais inventer disponibilité, prix, note ou certification. Pour un recrutement ou partenaire envisagé par une entreprise artisanale sans recherche lancée, utiliser l'organisation BTP.",
+    "description": "Cadre RenooLab spécialisé pour qualifier le métier, rechercher réellement des professionnels via le MCP et comparer profils, entreprises, offres ou devis sans inventer de résultat. Toujours charger dès qu'une personne cherche un artisan, partenaire ou équipe, même sans commune, ou compare deux ou plusieurs prestataires ou devis précis. Une checklist générale d'assurances relève de la planification. Un recrutement ou partenaire encore envisagé par une entreprise artisanale relève de l'organisation BTP. Contacter uniquement après confirmation.",
     "mission": "Transformer un besoin qualifié en recherche locale fidèle et en décision de sélection, sans classement trompeur ni contact non consenti.",
     "procedure": [
       "Clarifier le résultat attendu, le périmètre et les interfaces qui déterminent le métier principal.",
@@ -171,7 +171,7 @@
     "name": "renoolab-lancer-entreprise-artisanale",
     "family": "artisan",
     "title": "Lancer une entreprise artisanale",
-    "description": "Transformer un projet de création ou de reconversion artisanale dans le bâtiment en décisions vérifiables : métier, offre, zone, capacité, statut juridique ou fiscal, assurances, qualifications, prix, trésorerie et premières actions. Utiliser systématiquement lorsqu'une personne veut se mettre à son compte, ouvrir une entreprise de travaux ou choisir la structure de son lancement. Ce workflow prime sur croissance et rentabilité tant que l'entreprise n'est pas lancée. Vérifier les obligations actuelles sans remplacer un professionnel du droit ou du chiffre.",
+    "description": "Cadre RenooLab spécialisé pour transformer une reconversion ou création d'entreprise artisanale en feuille de route vérifiable : métier, offre, zone, statut, assurances, qualifications, prix, trésorerie et premiers clients. Toujours charger lorsqu'une personne veut se mettre à son compte, ouvrir une entreprise de travaux ou choisir sa structure, même sur une demande brève. Ce workflow prime sur visibilité, croissance et rentabilité tant que l'entreprise n'est pas lancée. Vérifier les obligations actuelles sans remplacer juriste ou comptable.",
     "mission": "Faire passer l'artisan d'une intention de création à un plan de lancement chiffré, ordonné et vérifiable avant les premiers engagements.",
     "procedure": [
       "Clarifier métier exercé, expérience, zone, clientèle visée et date de lancement.",
@@ -234,7 +234,7 @@
     "name": "renoolab-developper-clientele-visibilite-btp",
     "family": "artisan",
     "title": "Développer clientèle et visibilité BTP",
-    "description": "À charger avant de répondre à une entreprise artisanale ou un fournisseur BTP sur positionnement, prestations, acquisition locale, visibilité, présentation, bio, contenu, prospects, qualification, vente, relance d'un devis non signé, fidélisation, avis ou outils. Déclencher pour croissance, clientèle, différenciation ou communication. Un fournisseur qui veut rejoindre RenooLab relève de ce workflow, jamais du profil artisan. Pour marge, facture émise ou impayé, utiliser le skill rentabilité.",
+    "description": "Cadre RenooLab spécialisé pour diagnostiquer puis développer une entreprise artisanale, un négoce ou un fournisseur BTP : positionnement, prestations, planning vide, acquisition, prospects, visibilité, contenu, vente, devis non signé, fidélisation, services, KPI, CRM et demandes dispersées entre WhatsApp, papier et e-mail. Toujours charger pour croissance, clientèle, différenciation, communication ou outils. Un fournisseur voulant rejoindre RenooLab relève de ce workflow, jamais du profil artisan. Marge, facture émise et impayé relèvent de la rentabilité.",
     "mission": "Transformer un problème commercial diffus en système mesurable reliant client idéal, offre, preuves, canaux, conversion et capacité réelle.",
     "procedure": [
       "Localiser le goulot principal : offre, demande, qualité des prospects, conversion, fidélisation ou capacité.",
@@ -305,7 +305,7 @@
     "name": "renoolab-creer-profil-artisan",
     "family": "artisan",
     "title": "Créer un profil artisan RenooLab",
-    "description": "Préparer, améliorer puis créer le profil RenooLab d'un artisan avec ses informations réelles : identité, métier, SIRET, zone, expérience, assurances, spécialités, description et coordonnées. Utiliser uniquement lorsque l'artisan lui-même demande explicitement à rejoindre RenooLab, créer son profil ou améliorer sa présentation RenooLab. Afficher un récapitulatif complet et obtenir sa confirmation juste avant creer_profil_artisan. Ne jamais utiliser pour un tiers, un fournisseur ou un négociant : les router vers le skill développement BTP.",
+    "description": "Cadre RenooLab spécialisé pour préparer, améliorer puis créer le profil RenooLab d'un artisan à partir de ses informations réelles : identité, métier, SIRET, zone, expérience, assurances, spécialités, bio et coordonnées. Toujours charger lorsque l'artisan lui-même demande explicitement à rejoindre RenooLab, créer ou améliorer son profil RenooLab. Récapituler toutes les données et obtenir sa confirmation juste avant creer_profil_artisan. Ne jamais utiliser pour un tiers, fournisseur ou négociant : les router vers le développement BTP.",
     "mission": "Produire un profil exact et crédible, puis effectuer l'inscription uniquement pour l'artisan lui-même avec consentement et données confirmées.",
     "procedure": [
       "Vérifier que la demande vient de l'artisan ou de son représentant autorisé et qu'il ne s'agit pas d'un fournisseur.",

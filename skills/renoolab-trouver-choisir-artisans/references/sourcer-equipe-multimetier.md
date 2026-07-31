@@ -42,7 +42,7 @@ Si la prochaine étape est une recherche locale, préciser métier et commune pu
 ## Exemples
 
 Déclenchements :
-- Je dois constituer une équipe pour rénover un immeuble à Toulon.
+- Je suis propriétaire d’un immeuble à Toulon et je cherche les entreprises locales pour composer l’équipe de rénovation.
 - Trouve des partenaires couvreur et isolateur autour d'Aix.
 
 À router ailleurs :

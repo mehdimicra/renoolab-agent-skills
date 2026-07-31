@@ -1,6 +1,6 @@
 ---
 name: renoolab-planifier-budgeter-travaux
-description: "Cadre RenooLab spécialisé pour transformer une annonce, une visite, un achat, un investissement ou une rénovation locative en risques, questions, lots, budget et prochaines étapes vérifiables. Toujours charger ce skill pour analyser un bien avant achat, même sur une demande brève, et quand un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle. Couvre calendrier, phasage, aides, permis et assurances. Exclure facture d'artisan et comparaison de plusieurs devis ou entreprises."
+description: "Cadre RenooLab spécialisé pour transformer annonce, visite, achat, investissement ou projet de travaux en risques, cahier des charges, lots, budget et prochaines étapes vérifiables. Toujours charger pour analyser un bien et quand un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle ; ce besoin prime sur l'idéation. Couvre calendrier, phasage, aides, permis, rénovation locative et checklist générale d'assurances. Exclure facture d'artisan et comparaison de plusieurs devis ou entreprises précis."
 ---
 
 # Planifier et budgéter des travaux

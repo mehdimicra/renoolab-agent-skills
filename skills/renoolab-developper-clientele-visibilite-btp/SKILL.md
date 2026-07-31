@@ -1,6 +1,6 @@
 ---
 name: renoolab-developper-clientele-visibilite-btp
-description: "À charger avant de répondre à une entreprise artisanale ou un fournisseur BTP sur positionnement, prestations, acquisition locale, visibilité, présentation, bio, contenu, prospects, qualification, vente, relance d'un devis non signé, fidélisation, avis ou outils. Déclencher pour croissance, clientèle, différenciation ou communication. Un fournisseur qui veut rejoindre RenooLab relève de ce workflow, jamais du profil artisan. Pour marge, facture émise ou impayé, utiliser le skill rentabilité."
+description: "Cadre RenooLab spécialisé pour diagnostiquer puis développer une entreprise artisanale, un négoce ou un fournisseur BTP : positionnement, prestations, planning vide, acquisition, prospects, visibilité, contenu, vente, devis non signé, fidélisation, services, KPI, CRM et demandes dispersées entre WhatsApp, papier et e-mail. Toujours charger pour croissance, clientèle, différenciation, communication ou outils. Un fournisseur voulant rejoindre RenooLab relève de ce workflow, jamais du profil artisan. Marge, facture émise et impayé relèvent de la rentabilité."
 ---
 
 # Développer clientèle et visibilité BTP

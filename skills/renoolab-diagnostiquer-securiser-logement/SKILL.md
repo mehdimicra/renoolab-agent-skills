@@ -1,6 +1,6 @@
 ---
 name: renoolab-diagnostiquer-securiser-logement
-description: "À charger avant de répondre à un particulier confronté à un symptôme, une panne, une urgence ou un sinistre : fuite, humidité, fissure du bâtiment, odeur, électricité, gaz, toiture, chauffage en panne, serrure, dégât des eaux ou tempête. Déclencher même sur un constat très bref et prioriser la sécurité. Pour froid, chaleur ou inconfort appelant des options de travaux, utiliser l'idéation. Pour support, métré, méthode, fissuration après pose ou défaut d'exécution, utiliser l'organisation BTP."
+description: "Cadre RenooLab spécialisé pour séparer danger, hypothèses, contrôles, remise en état et métier adapté face à un symptôme, une panne, une urgence ou un sinistre. Toujours charger pour fuite, humidité, fissure du bâtiment, odeur, électricité, gaz, toiture, chauffage en panne, serrure, dégât des eaux ou tempête, même après l'urgence pour ordonner assèchement et réparations. Pour inconfort sans panne, utiliser l'idéation ; pour défaut de pose ou d'exécution d'un professionnel, utiliser l'organisation BTP ; pour chantier déjà confié et en cours, utiliser le pilotage."
 ---
 
 # Diagnostiquer et sécuriser un logement

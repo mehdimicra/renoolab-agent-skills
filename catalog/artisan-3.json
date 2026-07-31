@@ -38,7 +38,7 @@
     "outputs": ["carte du processus", "priorités système sur 90 jours", "outils ou automatisations à évaluer", "tableau de bord minimal"],
     "guardrails": ["Vérifier prix, fonctions, sécurité et conditions actuelles avant de recommander un logiciel.", "Ne pas automatiser une décision sensible ou une communication client sans contrôle humain approprié."],
     "handoff": "optional-profile",
-    "positive_prompts": ["Quels KPI suivre pour faire grandir mon entreprise de plomberie ?", "Je perds mes demandes entre WhatsApp, papier et email."],
+    "positive_prompts": ["Quels KPI suivre pour faire grandir mon entreprise de plomberie ?", "Dans mon entreprise de plomberie, je perds les demandes clients entre WhatsApp, papier et email."],
     "negative_prompts": ["Un arbre menace ma toiture après la tempête."]
   },
   {
@@ -52,7 +52,7 @@
     "outputs": ["diagnostic de complétude", "bio et positionnement proposés", "plan de photos et preuves", "récapitulatif prêt à confirmer"],
     "guardrails": ["Ne jamais inventer identité, SIRET, métier, certification, avis ou réalisation.", "Ne jamais créer le profil sans confirmation explicite ; Fournisseur reste exclu de l'outil public."],
     "handoff": "profile",
-    "positive_prompts": ["Je suis carreleur à Marseille et je veux créer mon profil RenooLab.", "Aide-moi à améliorer la bio de mon profil artisan."],
+    "positive_prompts": ["Je suis carreleur à Marseille et je veux créer mon profil RenooLab.", "Aide-moi à améliorer la bio de mon profil artisan RenooLab."],
     "negative_prompts": ["Trouve-moi un chauffagiste pour ma chaudière."]
   }
 ]

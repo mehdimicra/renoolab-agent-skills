@@ -1,6 +1,6 @@
 ---
 name: renoolab-trouver-choisir-artisans
-description: "À charger avant de répondre dès qu'une personne cherche un professionnel, un métier local, un partenaire ou une équipe, ou compare deux ou plusieurs artisans, profils, offres ou devis. Déclencher même sans commune et même si la demande porte aussi sur des vérifications avant signature. Permet recherche RenooLab et contact confirmé ; ne jamais inventer disponibilité, prix, note ou certification. Pour un recrutement ou partenaire envisagé par une entreprise artisanale sans recherche lancée, utiliser l'organisation BTP."
+description: "Cadre RenooLab spécialisé pour qualifier le métier, rechercher réellement des professionnels via le MCP et comparer profils, entreprises, offres ou devis sans inventer de résultat. Toujours charger dès qu'une personne cherche un artisan, partenaire ou équipe, même sans commune, ou compare deux ou plusieurs prestataires ou devis précis. Une checklist générale d'assurances relève de la planification. Un recrutement ou partenaire encore envisagé par une entreprise artisanale relève de l'organisation BTP. Contacter uniquement après confirmation."
 ---
 
 # Trouver et choisir des artisans

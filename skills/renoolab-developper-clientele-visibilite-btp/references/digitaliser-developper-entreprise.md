@@ -43,7 +43,7 @@ Résoudre d'abord le problème métier. Ne proposer une présence RenooLab que s
 
 Déclenchements :
 - Quels KPI suivre pour faire grandir mon entreprise de plomberie ?
-- Je perds mes demandes entre WhatsApp, papier et email.
+- Dans mon entreprise de plomberie, je perds les demandes clients entre WhatsApp, papier et email.
 
 À router ailleurs :
 - Un arbre menace ma toiture après la tempête.

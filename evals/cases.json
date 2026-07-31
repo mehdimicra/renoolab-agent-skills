@@ -173,7 +173,7 @@
       "id": "renoolab-organiser-chantier-artisan--positive-1",
       "skill": "renoolab-organiser-chantier-equipe-btp",
       "intent": "renoolab-organiser-chantier-artisan",
-      "prompt": "Prépare la checklist de démarrage de mon chantier de salle de bain.",
+      "prompt": "Je suis plombier : prépare la checklist de démarrage du chantier de salle de bain de mon client.",
       "kind": "positive",
       "expected_skill": "renoolab-organiser-chantier-equipe-btp"
     },
@@ -253,7 +253,7 @@
       "id": "renoolab-digitaliser-developper-entreprise--positive-2",
       "skill": "renoolab-developper-clientele-visibilite-btp",
       "intent": "renoolab-digitaliser-developper-entreprise",
-      "prompt": "Je perds mes demandes entre WhatsApp, papier et email.",
+      "prompt": "Dans mon entreprise de plomberie, je perds les demandes clients entre WhatsApp, papier et email.",
       "kind": "positive",
       "expected_skill": "renoolab-developper-clientele-visibilite-btp"
     },
@@ -277,7 +277,7 @@
       "id": "renoolab-creer-optimiser-profil-artisan--positive-2",
       "skill": "renoolab-creer-profil-artisan",
       "intent": "renoolab-creer-optimiser-profil-artisan",
-      "prompt": "Aide-moi à améliorer la bio de mon profil artisan.",
+      "prompt": "Aide-moi à améliorer la bio de mon profil artisan RenooLab.",
       "kind": "positive",
       "expected_skill": "renoolab-creer-profil-artisan"
     },
@@ -293,7 +293,7 @@
       "id": "renoolab-sourcer-equipe-multimetier--positive-1",
       "skill": "renoolab-trouver-choisir-artisans",
       "intent": "renoolab-sourcer-equipe-multimetier",
-      "prompt": "Je dois constituer une équipe pour rénover un immeuble à Toulon.",
+      "prompt": "Je suis propriétaire d’un immeuble à Toulon et je cherche les entreprises locales pour composer l’équipe de rénovation.",
       "kind": "positive",
       "expected_skill": "renoolab-trouver-choisir-artisans"
     },

@@ -52,7 +52,7 @@
     "outputs": ["fiche de préparation", "planning et responsabilités", "checklists démarrage-qualité-clôture", "messages et indicateurs de suivi"],
     "guardrails": ["La sécurité et les obligations réglementaires priment sur l'optimisation du planning.", "Ne pas inventer des procédures techniques applicables à un métier sans données et références adaptées."],
     "handoff": "optional-profile",
-    "positive_prompts": ["Prépare la checklist de démarrage de mon chantier de salle de bain.", "Comment coordonner plombier, plaquiste et carreleur ?"],
+    "positive_prompts": ["Je suis plombier : prépare la checklist de démarrage du chantier de salle de bain de mon client.", "Comment coordonner plombier, plaquiste et carreleur ?"],
     "negative_prompts": ["Je veux savoir si cette maison est un bon achat."]
   }
 ]

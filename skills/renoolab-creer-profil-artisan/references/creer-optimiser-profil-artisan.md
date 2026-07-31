@@ -43,7 +43,7 @@ Créer un profil uniquement pour l'artisan lui-même, après récapitulatif comp
 
 Déclenchements :
 - Je suis carreleur à Marseille et je veux créer mon profil RenooLab.
-- Aide-moi à améliorer la bio de mon profil artisan.
+- Aide-moi à améliorer la bio de mon profil artisan RenooLab.
 
 À router ailleurs :
 - Trouve-moi un chauffagiste pour ma chaudière.
