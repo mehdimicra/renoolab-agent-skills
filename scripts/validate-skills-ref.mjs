@@ -10,11 +10,11 @@ function resolveInvocation() {
   if (process.env.SKILLS_REF_BIN) {
     return { command: process.env.SKILLS_REF_BIN, args: [] };
   }
-  const venvCommand = process.platform === "win32"
-    ? join(root, ".venv", "Scripts", "skills-ref.exe")
-    : join(root, ".venv", "bin", "skills-ref");
-  if (existsSync(venvCommand)) {
-    return { command: venvCommand, args: [] };
+  const venvPython = process.platform === "win32"
+    ? join(root, ".venv", "Scripts", "python.exe")
+    : join(root, ".venv", "bin", "python");
+  if (existsSync(venvPython)) {
+    return { command: venvPython, args: ["-m", "skills_ref.cli"] };
   }
   return {
     command: "python",
