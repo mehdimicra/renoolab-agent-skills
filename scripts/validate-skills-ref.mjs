@@ -6,31 +6,38 @@ import { fileURLToPath } from "node:url";
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const skillsRoot = join(root, "skills");
 
-function resolveCommand() {
+function resolveInvocation() {
   if (process.env.SKILLS_REF_BIN) {
-    return process.env.SKILLS_REF_BIN;
+    return { command: process.env.SKILLS_REF_BIN, args: [] };
   }
-  const candidates = process.platform === "win32"
-    ? [join(root, ".venv", "Scripts", "skills-ref.exe")]
-    : [join(root, ".venv", "bin", "skills-ref")];
-  return candidates.find((candidate) => existsSync(candidate)) ?? "skills-ref";
+  const venvCommand = process.platform === "win32"
+    ? join(root, ".venv", "Scripts", "skills-ref.exe")
+    : join(root, ".venv", "bin", "skills-ref");
+  if (existsSync(venvCommand)) {
+    return { command: venvCommand, args: [] };
+  }
+  return {
+    command: process.platform === "win32" ? "python" : "python3",
+    args: ["-m", "skills_ref.cli"]
+  };
 }
 
-const command = resolveCommand();
+const invocation = resolveInvocation();
 const skillNames = readdirSync(skillsRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
   .sort();
 
 for (const skillName of skillNames) {
-  const result = spawnSync(command, ["validate", join(skillsRoot, skillName)], {
+  const args = [...invocation.args, "validate", join(skillsRoot, skillName)];
+  const result = spawnSync(invocation.command, args, {
     cwd: root,
     encoding: "utf8",
     stdio: "pipe",
     windowsHide: true
   });
   if (result.error) {
-    throw new Error(`Unable to run ${command}: ${result.error.message}`);
+    throw new Error(`Unable to run ${invocation.command}: ${result.error.message}`);
   }
   if (result.stdout) {
     process.stdout.write(result.stdout);
