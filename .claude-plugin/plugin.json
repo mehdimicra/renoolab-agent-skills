@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "renoolab",
   "description": "10 workflows couvrant 29 intentions pour la rénovation, les artisans et l'écosystème BTP, reliés au MCP RenooLab.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": {
     "name": "RenooLab",
     "email": "contact@renoolab.fr"
