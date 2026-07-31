@@ -1,6 +1,6 @@
 ---
 name: renoolab-organiser-chantier-equipe-btp
-description: "À utiliser obligatoirement pour l'exécution et la capacité d'une entreprise artisanale : métré, support, méthode, fissuration après pose, contrôle technique, planning, approvisionnement, qualité, coordination, recrutement, apprenti, fiche de poste, embauche, sous-traitance ou partenariat. Déclencher une question de pose ou de support même si le métier n'est pas précisé. Ce workflow prime sur le diagnostic logement pour un défaut d'exécution, et sur la recherche d'artisans tant que le professionnel choisit encore son mode de capacité."
+description: "À charger avant de répondre pour recruter un apprenti, rédiger une fiche de poste ou choisir embauche, sous-traitance et partenariat, ainsi que pour l'exécution d'une entreprise artisanale : métré, support, méthode, fissuration après pose, contrôle technique, planning, approvisionnement, qualité ou coordination. Déclencher une question de pose ou de support même sans métier précisé. Ce workflow prime sur le diagnostic pour un défaut d'exécution, et sur la recherche tant que le professionnel choisit son mode de capacité."
 ---
 
 # Organiser chantier et équipe BTP

@@ -1,6 +1,6 @@
 ---
 name: renoolab-planifier-budgeter-travaux
-description: "À utiliser obligatoirement dès qu'un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle réaliser des travaux. Couvre cahier des charges, lots, calendrier, budget client, répartition par lot, phasage, financement, aides, rénovation énergétique ou confort, permis, déclaration, assurances, annonce ou visite avant achat, investissement et rénovation locative. Ne pas utiliser pour une facture ou marge d'artisan, ni pour comparer deux ou plusieurs devis, offres ou entreprises."
+description: "À charger avant de répondre pour analyser une annonce ou visite avant achat, un investissement ou une rénovation locative, et dès qu'un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle réaliser des travaux. Couvre cahier des charges, lots, calendrier, budget client, répartition par lot, phasage, financement, aides, permis, déclaration et assurances. Ne pas utiliser pour une facture ou marge d'artisan, ni pour comparer deux ou plusieurs devis, offres ou entreprises."
 ---
 
 # Planifier et budgéter des travaux

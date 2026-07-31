@@ -1,6 +1,6 @@
 ---
 name: renoolab-chiffrer-piloter-rentabilite
-description: "À utiliser obligatoirement pour toute question financière ou administrative d'une entreprise artisanale : coût, temps facturable, prix, marge, rentabilité, devis émis, acompte, avenant, facture client, TVA, paiement, impayé, encaissement ou trésorerie. Déclencher même sur une demande brève de rédaction ou relance de facture. Pour le budget reçu ou prévu par un particulier, utiliser la planification ; pour comparer plusieurs devis reçus, utiliser la recherche d'artisans."
+description: "À charger avant de répondre à toute rédaction ou relance de facture client ou d'impayé, et à toute question financière d'une entreprise artisanale : coût, temps facturable, prix, marge, rentabilité, devis émis, acompte, avenant, TVA, paiement, encaissement ou trésorerie. Déclencher même si le métier n'est pas précisé. Pour le budget d'un particulier, utiliser la planification ; pour comparer plusieurs devis reçus, utiliser la recherche d'artisans ; pour relancer un devis non signé, utiliser le développement commercial."
 ---
 
 # Chiffrer et piloter la rentabilité
