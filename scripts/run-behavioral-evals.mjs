@@ -20,6 +20,7 @@ Options:
   --suite <trigger|collisions|all>
                               Fixture suite (default: all)
   --case <glob>               Stable case id filter
+  --failed-from <report>      Re-run only failed ids from a prior report
   --limit <n>                 Maximum selected cases
   --runs <n>                  Repetitions per case (default: 1)
   --concurrency <n>           Concurrent agent processes (default: 1)
@@ -54,6 +55,7 @@ function parseArguments(argv) {
     host: "claude",
     suite: "all",
     caseGlob: null,
+    failedFrom: null,
     limit: null,
     runs: 1,
     concurrency: 1,
@@ -81,6 +83,8 @@ function parseArguments(argv) {
       options.suite = nextValue();
     } else if (argument === "--case") {
       options.caseGlob = nextValue();
+    } else if (argument === "--failed-from") {
+      options.failedFrom = resolve(nextValue());
     } else if (argument === "--limit") {
       options.limit = parsePositiveInteger(nextValue(), argument);
     } else if (argument === "--runs") {
@@ -152,6 +156,15 @@ async function loadFixtures(options) {
   }
 
   let selected = fixtures;
+  if (options.failedFrom) {
+    const previousReport = await readJson(options.failedFrom);
+    const failedIds = new Set(
+      (previousReport.runs ?? [])
+        .filter((result) => result.passed === false)
+        .map((result) => result.id)
+    );
+    selected = selected.filter((fixture) => failedIds.has(fixture.id));
+  }
   if (options.caseGlob) {
     const pattern = globToRegExp(options.caseGlob);
     selected = selected.filter((fixture) => pattern.test(fixture.id));
@@ -565,6 +578,7 @@ async function main() {
       fixtures: fixtures.length,
       runs_per_fixture: options.runs,
       executions: taskPlan.length,
+      failed_from: options.failedFrom,
       fixture_ids_sha256: fixtureFingerprint
     }, null, 2));
     return;

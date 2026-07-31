@@ -1,6 +1,6 @@
 ---
 name: renoolab-lancer-entreprise-artisanale
-description: "Transformer un projet de création ou de reconversion artisanale dans le bâtiment en décisions vérifiables : métier, offre, clients, zone, capacité, statut, assurances, qualifications, prix, trésorerie et premières actions commerciales. Utiliser lorsqu'une personne veut se mettre à son compte ou ouvrir une entreprise de travaux. Vérifier les obligations actuelles sans promettre l'éligibilité ni remplacer un professionnel du droit ou du chiffre."
+description: "Transformer un projet de création ou de reconversion artisanale dans le bâtiment en décisions vérifiables : métier, offre, zone, capacité, statut juridique ou fiscal, assurances, qualifications, prix, trésorerie et premières actions. Utiliser systématiquement lorsqu'une personne veut se mettre à son compte, ouvrir une entreprise de travaux ou choisir la structure de son lancement. Ce workflow prime sur croissance et rentabilité tant que l'entreprise n'est pas lancée. Vérifier les obligations actuelles sans remplacer un professionnel du droit ou du chiffre."
 ---
 
 # Lancer une entreprise artisanale

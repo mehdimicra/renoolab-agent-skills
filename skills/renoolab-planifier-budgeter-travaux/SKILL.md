@@ -1,6 +1,6 @@
 ---
 name: renoolab-planifier-budgeter-travaux
-description: "Transformer un projet de rénovation, un achat immobilier ou un logement locatif en plan de travaux chiffrable. Utiliser pour cahier des charges, lots, ordre des métiers, calendrier, budget, financement, aides, autorisations, assurances, visite avant achat, arbitrage ou programme de rénovation locative. Produire des hypothèses explicites plutôt qu'un devis ou une validation réglementaire."
+description: "Transformer un projet de rénovation, un achat immobilier ou un logement locatif en plan de travaux chiffrable. Utiliser systématiquement dès qu'il est question de cahier des charges, ordre des lots, calendrier, coût ou budget client, répartition par lot, phasage, financement, aides, permis, déclaration, assurances avant signature, analyse avant achat ou rénovation locative. Ce workflow prime sur l'idéation quand la décision demandée est combien, quand, dans quel ordre ou sous quelle règle. Pour marge ou facture d'artisan, préférer le skill rentabilité ; pour comparer des entreprises ou devis, préférer le skill artisans."
 ---
 
 # Planifier et budgéter des travaux

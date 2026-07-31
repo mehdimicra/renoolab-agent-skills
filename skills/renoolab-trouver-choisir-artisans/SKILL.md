@@ -1,6 +1,6 @@
 ---
 name: renoolab-trouver-choisir-artisans
-description: "Identifier le bon métier, préparer une recherche locale, trouver des artisans RenooLab, constituer une équipe multimetier et comparer profils ou devis. Utiliser lorsqu'un particulier, bailleur, maître d'œuvre ou entreprise demande directement un professionnel, un partenaire ou une équipe dans une commune. Rechercher avant de proposer un contact et ne jamais inventer disponibilité, prix, note ou certification."
+description: "Identifier le bon métier, préparer une recherche locale, trouver des artisans RenooLab, constituer une équipe multimetier et comparer profils ou devis. Utiliser systématiquement pour toute demande directe de professionnel, partenaire ou équipe, et pour choisir entre artisans, profils, offres ou devis, même si la commune manque encore. Ce workflow prime sur la planification lorsque la décision porte sur les entreprises ou leurs offres. Ne jamais inventer disponibilité, prix, note ou certification."
 ---
 
 # Trouver et choisir des artisans

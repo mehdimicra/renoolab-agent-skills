@@ -1,6 +1,6 @@
 ---
 name: renoolab-chiffrer-piloter-rentabilite
-description: "Aider une entreprise artisanale à calculer coût complet, temps productif, prix plancher, marge, devis, acomptes, facturation, encaissement et trésorerie. Utiliser lorsqu'un artisan travaille beaucoup sans gagner assez, doute de la rentabilité d'un chantier, finance les matériaux ou subit des impayés. Produire des calculs transparents sans inventer les charges ni remplacer un expert-comptable."
+description: "Aider une entreprise artisanale à calculer coût complet, temps productif, prix plancher, marge, devis, acomptes, factures, relances d'impayés, encaissement et trésorerie. Utiliser systématiquement pour toute demande d'artisan portant sur rentabilité, tarification, chiffrage, facture, paiement ou marge d'un chantier, y compris la rédaction ou la relance. Pour le budget travaux d'un particulier, préférer le skill planification ; pour positionner l'offre ou convertir des clients sans calcul financier, préférer le skill développement."
 ---
 
 # Chiffrer et piloter la rentabilité

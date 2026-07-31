@@ -136,7 +136,7 @@ npm run eval:claude -- --runs 3
 npm run eval:codex -- --runs 3
 ```
 
-Options utiles : `--suite trigger`, `--suite collisions`, `--case "*piscine*"`, `--limit 10`, `--concurrency 3`, `--model <nom>` et `--report <fichier>`.
+Options utiles : `--suite trigger`, `--suite collisions`, `--case "*piscine*"`, `--failed-from <rapport>`, `--limit 10`, `--concurrency 3`, `--model <nom>` et `--report <fichier>`. `--failed-from` rejoue uniquement les identifiants en échec d'un rapport précédent.
 
 Les rapports par défaut vont dans `evals/results/` et restent gitignorés. Ils contiennent la sélection, l'attendu, la durée et le verdict, mais aucun raisonnement privé du modèle. Le runner désactive le MCP et les écritures ; Codex travaille dans un dossier temporaire en lecture seule.
 
