@@ -17,7 +17,7 @@ function resolveInvocation() {
     return { command: venvCommand, args: [] };
   }
   return {
-    command: process.platform === "win32" ? "python" : "python3",
+    command: "python",
     args: ["-m", "skills_ref.cli"]
   };
 }
