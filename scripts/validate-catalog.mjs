@@ -404,6 +404,7 @@ const jsonFiles = [
   ".mcp.json",
   ".codex-plugin/plugin.json",
   ".cursor-plugin/plugin.json",
+  ".github/plugin/plugin.json",
   ".claude-plugin/plugin.json",
   ".claude-plugin/marketplace.json",
   "package.json"
@@ -421,6 +422,7 @@ const versions = [
   json["package.json"]?.version,
   json[".codex-plugin/plugin.json"]?.version,
   json[".cursor-plugin/plugin.json"]?.version,
+  json[".github/plugin/plugin.json"]?.version,
   json[".claude-plugin/plugin.json"]?.version,
   json[".claude-plugin/marketplace.json"]?.plugins?.[0]?.version
 ].filter(Boolean);
@@ -451,7 +453,20 @@ if (json[".cursor-plugin/plugin.json"]?.logo !== "assets/logo.png") {
 if (!(await exists(join(root, "assets", "logo.png")))) {
   fail("Cursor plugin logo is missing");
 }
-const generatorSource = await readFile(join(root, "scripts", "generate-skills.mjs"), "utf8");
+if (json[".github/plugin/plugin.json"]?.name !== "renoolab") {
+  fail("GitHub Copilot plugin name must be renoolab");
+}
+if (!Array.isArray(json[".github/plugin/plugin.json"]?.skills)
+  || json[".github/plugin/plugin.json"].skills.length !== 1
+  || json[".github/plugin/plugin.json"].skills[0] !== "./skills/") {
+  fail("GitHub Copilot plugin must expose ./skills/");
+}
+if (json[".github/plugin/plugin.json"]?.mcpServers !== "./.mcp.json") {
+  fail("GitHub Copilot plugin must expose ./.mcp.json");
+}
+if (json[".github/plugin/plugin.json"]?.license !== "Apache-2.0") {
+  fail("GitHub Copilot plugin must declare Apache-2.0");
+}const generatorSource = await readFile(join(root, "scripts", "generate-skills.mjs"), "utf8");
 if (generatorSource.includes("const publicTrades")) {
   fail("generator must not duplicate the public MCP trade enum");
 }

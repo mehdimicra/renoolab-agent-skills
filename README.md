@@ -31,7 +31,7 @@ Le skill apporte donc le raisonnement et le parcours métier. Le MCP apporte les
 | Codex | Agent Skills + `.codex-plugin/plugin.json` | Manifest validé et lecture réelle du bon `SKILL.md` traçable |
 | ChatGPT | Import/installation de Skills ou plugin selon les droits du workspace | Format Agent Skills compatible ; publication dans le répertoire OpenAI distincte du dépôt GitHub |
 | Gemini CLI | `.agents/skills` ou CLI `skills` | Format et installation compatibles |
-| GitHub Copilot | `gh skill install` / `gh skill publish` | Validation GitHub Agent Skills intégrée à la CI |
+| GitHub Copilot | Plugin `.github/plugin/` ou `gh skill install` / `gh skill publish` | Manifest plugin et validation Agent Skills intégrés à la CI |
 | Cursor | Plugin `.cursor-plugin/`, Agent Skills ou CLI `skills` | Manifest conforme au schéma officiel ; comportement à mesurer dans l'hôte |
 | Autres clients | Tout client conforme à `agentskills.io` | Compatibilité structurelle, à confirmer par l'implémentation de l'hôte |
 
