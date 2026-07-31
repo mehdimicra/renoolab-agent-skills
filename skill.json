@@ -1,0 +1,20 @@
+{
+  "name": "renoolab-agent-skills",
+  "version": "0.4.2",
+  "description": "Ten French Agent Skills covering 29 homeowner renovation, contractor discovery, artisan business, and construction workflow intents, with optional RenooLab MCP actions.",
+  "category": "productivity",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor",
+    "github-copilot",
+    "gemini-cli"
+  ],
+  "author": {
+    "name": "RenooLab",
+    "github": "mehdimicra"
+  },
+  "license": "Apache-2.0",
+  "repository": "https://github.com/mehdimicra/renoolab-agent-skills",
+  "homepage": "https://renoolab.fr/mcp/"
+}

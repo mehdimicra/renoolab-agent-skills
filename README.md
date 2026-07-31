@@ -1,5 +1,24 @@
 # RenooLab Agent Skills
 
+> **Registry review summary (English):** this is an Apache-2.0 open-source collection of 10 standard Agent Skills, not a single executable package. Each implementation lives in `skills/<name>/SKILL.md`; generation, validation and behavioral evaluation code lives in `scripts/`.
+
+## Quick verification for registries
+
+- **License:** [Apache License 2.0](LICENSE), with attribution details in [NOTICE](NOTICE).
+- **Install:** `npx skills add https://github.com/mehdimicra/renoolab-agent-skills` installs the collection; add `--skill <name>` to install one workflow.
+- **Source:** 10 `SKILL.md` implementations and their references are in [`skills/`](skills/); the 29 source intents and mappings are in [`catalog/`](catalog/); deterministic JavaScript tooling is in [`scripts/`](scripts/).
+- **Tests:** `npm test` regenerates the collection, runs about 90 catalog/manifest assertions and validates 103 routing fixtures. The public CI additionally runs the official `skills-ref`, Claude strict and GitHub Agent Skills validators.
+- **Security:** the skills do not execute local shell code. Eight workflows are instruction-only. Two may use the optional remote RenooLab MCP; search is read-only, while contact and profile creation require explicit user confirmation. See [SECURITY.md](SECURITY.md).
+- **External API:** optional MCP endpoint `https://mcp.renoolab.fr/mcp`; documented tools are `rechercher_artisans`, `contacter_artisan` and `creer_profil_artisan`. Full behavior, OAuth and privacy documentation: <https://renoolab.fr/mcp/>.
+
+Example requests that should activate the collection:
+
+- “Propose realistic ways to modernize this shower from a photo.”
+- “Help me budget and phase a house renovation.”
+- “Find a plumber near Lyon for this project.”
+- “My quotes win work but my construction business is not profitable — diagnose why.”
+- “How should I launch and grow my artisan business?”
+
 RenooLab distribue **10 Agent Skills en français** couvrant **29 intentions métier** autour de la rénovation, de l'habitat et des entreprises du bâtiment. Les intentions décrivent finement les besoins ; les skills regroupent ces besoins en workflows cohérents que l'agent peut charger au moment utile.
 
 Le dépôt suit le standard ouvert [Agent Skills](https://agentskills.io/specification). Le MCP distant `https://mcp.renoolab.fr/mcp` ajoute les données et actions RenooLab lorsque l'hôte l'autorise.

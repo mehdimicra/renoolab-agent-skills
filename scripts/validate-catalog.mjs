@@ -407,7 +407,8 @@ const jsonFiles = [
   ".github/plugin/plugin.json",
   ".claude-plugin/plugin.json",
   ".claude-plugin/marketplace.json",
-  "package.json"
+  "package.json",
+  "skill.json"
 ];
 const json = {};
 for (const file of jsonFiles) {
@@ -420,6 +421,7 @@ for (const file of jsonFiles) {
 }
 const versions = [
   json["package.json"]?.version,
+  json["skill.json"]?.version,
   json[".codex-plugin/plugin.json"]?.version,
   json[".cursor-plugin/plugin.json"]?.version,
   json[".github/plugin/plugin.json"]?.version,
@@ -428,6 +430,18 @@ const versions = [
 ].filter(Boolean);
 if (new Set(versions).size !== 1) {
   fail(`package and plugin versions differ: ${versions.join(", ")}`);
+}
+if (json["skill.json"]?.name !== "renoolab-agent-skills") {
+  fail("OpenAgentSkill manifest name must be renoolab-agent-skills");
+}
+if (json["skill.json"]?.license !== "Apache-2.0") {
+  fail("OpenAgentSkill manifest must declare Apache-2.0");
+}
+if (json["skill.json"]?.repository !== "https://github.com/mehdimicra/renoolab-agent-skills") {
+  fail("OpenAgentSkill manifest repository is invalid");
+}
+if (!Array.isArray(json["skill.json"]?.platforms) || json["skill.json"].platforms.length < 4) {
+  fail("OpenAgentSkill manifest must declare multi-host platforms");
 }
 if (json[".codex-plugin/plugin.json"]?.skills !== "./skills/") {
   fail("Codex plugin must expose ./skills/");
