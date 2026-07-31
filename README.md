@@ -32,10 +32,10 @@ Le skill apporte donc le raisonnement et le parcours métier. Le MCP apporte les
 | ChatGPT | Import/installation de Skills ou plugin selon les droits du workspace | Format Agent Skills compatible ; publication dans le répertoire OpenAI distincte du dépôt GitHub |
 | Gemini CLI | `.agents/skills` ou CLI `skills` | Format et installation compatibles |
 | GitHub Copilot | `gh skill install` / `gh skill publish` | Validation GitHub Agent Skills intégrée à la CI |
-| Cursor | Agent Skills ou CLI `skills` | Format compatible ; comportement à mesurer dans l'hôte |
+| Cursor | Plugin `.cursor-plugin/`, Agent Skills ou CLI `skills` | Manifest conforme au schéma officiel ; comportement à mesurer dans l'hôte |
 | Autres clients | Tout client conforme à `agentskills.io` | Compatibilité structurelle, à confirmer par l'implémentation de l'hôte |
 
-Références officielles : [OpenAI Skills](https://help.openai.com/en/articles/20001066), [Gemini CLI](https://codelabs.developers.google.com/gemini-cli/how-to-create-agent-skills-for-gemini-cli), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) et [Cursor](https://cursor.com/changelog/2-4).
+Références officielles : [OpenAI Skills](https://help.openai.com/en/articles/20001066), [Gemini CLI](https://codelabs.developers.google.com/gemini-cli/how-to-create-agent-skills-for-gemini-cli), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) et [Cursor Plugins](https://github.com/cursor/plugins).
 
 ## Installer
 
@@ -69,6 +69,8 @@ Ou installer son marketplace après publication :
 claude plugin marketplace add mehdimicra/renoolab-agent-skills
 claude plugin install renoolab@renoolab
 ```
+
+Cursor peut charger le clone comme plugin local depuis `~/.cursor/plugins/local/renoolab`. Après validation par Cursor, le même paquet sera installable depuis son Marketplace officiel.
 
 La connexion MCP dépend de l'hôte. Sans MCP, les huit workflows de conseil restent utiles ; aucun skill ne doit prétendre avoir exécuté une recherche ou une action indisponible.
 
@@ -142,7 +144,7 @@ Les rapports par défaut vont dans `evals/results/` et restent gitignorés. Ils 
 
 ## Licence
 
-Le code, les Agent Skills, leurs références, les scripts et les manifestes générés sont distribués sous [Apache License 2.0](LICENSE). Voir également [NOTICE](NOTICE). Cette licence n'accorde aucun droit sur le nom, la marque ou les logos RenooLab, hors usage descriptif autorisé par la licence.
+Le code, les Agent Skills, leurs références, les scripts et les manifestes sont distribués sous [Apache License 2.0](LICENSE). Voir également [NOTICE](NOTICE). Cette licence n'accorde aucun droit sur le nom, la marque ou les logos RenooLab, hors usage descriptif autorisé par la licence.
 
 ## Liens
 

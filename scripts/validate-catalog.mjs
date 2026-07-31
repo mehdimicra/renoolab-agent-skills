@@ -403,6 +403,7 @@ if (collisions) {
 const jsonFiles = [
   ".mcp.json",
   ".codex-plugin/plugin.json",
+  ".cursor-plugin/plugin.json",
   ".claude-plugin/plugin.json",
   ".claude-plugin/marketplace.json",
   "package.json"
@@ -419,6 +420,7 @@ for (const file of jsonFiles) {
 const versions = [
   json["package.json"]?.version,
   json[".codex-plugin/plugin.json"]?.version,
+  json[".cursor-plugin/plugin.json"]?.version,
   json[".claude-plugin/plugin.json"]?.version,
   json[".claude-plugin/marketplace.json"]?.plugins?.[0]?.version
 ].filter(Boolean);
@@ -431,7 +433,24 @@ if (json[".codex-plugin/plugin.json"]?.skills !== "./skills/") {
 if (json[".codex-plugin/plugin.json"]?.mcpServers !== "./.mcp.json") {
   fail("Codex plugin must expose ./.mcp.json");
 }
-
+if (json[".cursor-plugin/plugin.json"]?.name !== "renoolab") {
+  fail("Cursor plugin name must be renoolab");
+}
+if (json[".cursor-plugin/plugin.json"]?.skills !== "./skills/") {
+  fail("Cursor plugin must expose ./skills/");
+}
+if (json[".cursor-plugin/plugin.json"]?.mcpServers !== "./.mcp.json") {
+  fail("Cursor plugin must expose ./.mcp.json");
+}
+if (json[".cursor-plugin/plugin.json"]?.license !== "Apache-2.0") {
+  fail("Cursor plugin must declare Apache-2.0");
+}
+if (json[".cursor-plugin/plugin.json"]?.logo !== "assets/logo.png") {
+  fail("Cursor plugin must expose assets/logo.png");
+}
+if (!(await exists(join(root, "assets", "logo.png")))) {
+  fail("Cursor plugin logo is missing");
+}
 const generatorSource = await readFile(join(root, "scripts", "generate-skills.mjs"), "utf8");
 if (generatorSource.includes("const publicTrades")) {
   fail("generator must not duplicate the public MCP trade enum");

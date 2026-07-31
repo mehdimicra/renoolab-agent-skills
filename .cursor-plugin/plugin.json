@@ -1,0 +1,32 @@
+{
+  "name": "renoolab",
+  "displayName": "RenooLab — Rénovation et artisans",
+  "version": "0.4.0",
+  "description": "10 workflows en français pour préparer des rénovations, trouver des artisans et développer une entreprise du BTP avec le MCP RenooLab.",
+  "author": {
+    "name": "RenooLab",
+    "email": "contact@renoolab.fr"
+  },
+  "homepage": "https://renoolab.fr/mcp/",
+  "repository": "https://github.com/mehdimicra/renoolab-agent-skills",
+  "license": "Apache-2.0",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "renovation",
+    "travaux",
+    "artisan",
+    "batiment",
+    "mcp",
+    "agent-skills"
+  ],
+  "category": "productivity",
+  "tags": [
+    "renovation",
+    "home-improvement",
+    "construction",
+    "contractors",
+    "small-business"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}
