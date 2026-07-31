@@ -3,7 +3,7 @@
   "cases": [
     {
       "id": "collision-01",
-      "prompt": "Voici une photo de ma vieille douche, je veux des idées avant de demander des devis.",
+      "prompt": "Ma vieille douche a un receveur haut, des joints noircis et un rideau ; je veux trois idées pour la moderniser avant de demander des devis.",
       "primary": "renoolab-imaginer-arbitrer-renovation",
       "secondary": [
         "renoolab-planifier-budgeter-travaux"

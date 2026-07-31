@@ -2,7 +2,7 @@
   "version": 1,
   "cases": [
     {
-      "prompt": "Voici une photo de ma vieille douche, je veux des idées avant de demander des devis.",
+      "prompt": "Ma vieille douche a un receveur haut, des joints noircis et un rideau ; je veux trois idées pour la moderniser avant de demander des devis.",
       "primary": "renoolab-imaginer-renovation",
       "secondary": ["renoolab-cadrer-projet-travaux"],
       "reason": "L'intention immédiate est créative ; le cadrage vient après le choix d'une direction."

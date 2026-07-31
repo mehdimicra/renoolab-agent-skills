@@ -138,7 +138,7 @@ npm run eval:codex -- --runs 3
 
 Options utiles : `--suite trigger`, `--suite collisions`, `--case "*piscine*"`, `--failed-from <rapport>`, `--limit 10`, `--concurrency 3`, `--model <nom>` et `--report <fichier>`. `--failed-from` rejoue uniquement les identifiants en échec d'un rapport précédent.
 
-Les rapports par défaut vont dans `evals/results/` et restent gitignorés. Ils contiennent la sélection, l'attendu, la durée et le verdict, mais aucun raisonnement privé du modèle. Le runner désactive le MCP et les écritures ; Codex travaille dans un dossier temporaire en lecture seule.
+Les rapports par défaut vont dans `evals/results/` et restent gitignorés. Ils contiennent la sélection, l'attendu, la durée et le verdict, mais aucun raisonnement privé du modèle. Le runner désactive le MCP et les écritures ; Codex travaille dans un dossier temporaire en lecture seule. Le corpus actuel est textuel : il teste une description de photo, pas le chargement binaire d’une image, et ne constitue donc pas une preuve de routage multimodal.
 
 ## Liens
 
