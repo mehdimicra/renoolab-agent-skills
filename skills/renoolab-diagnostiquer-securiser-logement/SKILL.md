@@ -1,6 +1,6 @@
 ---
 name: renoolab-diagnostiquer-securiser-logement
-description: "Trier un symptôme, une panne, une urgence ou les suites d'un sinistre dans un logement. Utiliser systématiquement pour toute mention, même brève, de fuite, humidité, fissure, odeur, électricité, gaz, toiture, chauffage, serrure, dégât des eaux, tempête ou remise en état après sinistre. Prioriser la sécurité sans diagnostic certain à distance. Pour un simple inconfort sans panne, préférer le skill d'idéation ; pour un défaut technique décrit par l'artisan pendant ses travaux, préférer le skill d'organisation BTP."
+description: "À utiliser obligatoirement pour un particulier confronté à un symptôme, une panne, une urgence ou un sinistre : fuite, humidité, fissure du bâtiment, odeur, électricité, gaz, toiture, chauffage en panne, serrure, dégât des eaux ou tempête. Déclencher même sur un constat très bref et prioriser la sécurité. Pour froid, chaleur ou inconfort appelant des travaux énergétiques, utiliser la planification. Pour support, métré, méthode, fissuration après pose ou défaut d'exécution, utiliser l'organisation BTP."
 ---
 
 # Diagnostiquer et sécuriser un logement

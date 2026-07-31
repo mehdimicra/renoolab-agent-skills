@@ -1,6 +1,6 @@
 ---
 name: renoolab-organiser-chantier-equipe-btp
-description: "Structurer l'exécution d'une entreprise artisanale : préparation, métrés, méthodes, planning, approvisionnements, qualité, coordination, défaut technique sur ses travaux, incidents, recrutement, apprentissage, fiche de poste, sous-traitance et capacité. Utiliser systématiquement lorsqu'un artisan veut organiser un chantier, vérifier un raisonnement technique, recruter ou choisir entre embauche, sous-traitant et partenaire. Ce workflow prime sur le diagnostic logement lorsque l'auteur raisonne comme professionnel sur l'exécution de ses travaux, et sur la recherche d'artisan tant que la décision de capacité n'est pas prise."
+description: "À utiliser obligatoirement pour l'exécution et la capacité d'une entreprise artisanale : métré, support, méthode, fissuration après pose, contrôle technique, planning, approvisionnement, qualité, coordination, recrutement, apprenti, fiche de poste, embauche, sous-traitance ou partenariat. Déclencher une question de pose ou de support même si le métier n'est pas précisé. Ce workflow prime sur le diagnostic logement pour un défaut d'exécution, et sur la recherche d'artisans tant que le professionnel choisit encore son mode de capacité."
 ---
 
 # Organiser chantier et équipe BTP

@@ -1,6 +1,6 @@
 ---
 name: renoolab-imaginer-arbitrer-renovation
-description: "Transformer une photo, une pièce, un extérieur ou une envie en options de rénovation comparables et réalistes. Utiliser systématiquement pour toute photo, idée, demande ou simple énoncé d'un projet de salle de bain, douche, cuisine, séjour, terrasse, jardin ou piscine, ainsi que pour styles, couleurs, matériaux, équipements, isolation, confort ou énergie. Céder la priorité à un danger actif, un budget, une démarche, un chantier en cours ou une recherche explicite d'artisan."
+description: "À utiliser obligatoirement pour imaginer ou comparer des transformations à partir d'une photo, d'une pièce, d'un extérieur, d'un style ou d'une envie : douche, salle de bain, cuisine, séjour, terrasse, jardin ou piscine. Déclencher même sur une demande très brève d'idées, couleurs, agencements, matériaux ou équipements. Ne pas utiliser si la question demande combien, dans quel ordre ou par quoi commencer, une règle ou autorisation, l'analyse d'un achat, la comparaison de devis ou artisans, le suivi d'un chantier ou la gestion d'un danger."
 ---
 
 # Imaginer et arbitrer une rénovation

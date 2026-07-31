@@ -1,6 +1,6 @@
 ---
 name: renoolab-piloter-receptionner-travaux
-description: "Aider un client à suivre un chantier après sélection des entreprises : préparation, coordination, décisions, modifications, retards, silence d'un intervenant, paiements, contrôles, réception et réserves. Utiliser systématiquement dès qu'un chantier est annoncé comme démarré, en cours, en retard, bloqué ou terminé, même sous la forme d'un simple constat. Structurer faits et preuves sans se substituer à un maître d'œuvre, un expert ou un conseil juridique."
+description: "À utiliser obligatoirement dès qu'un client indique que les entreprises sont choisies ou que le chantier est préparé, démarré, en cours, en retard, bloqué ou terminé. Couvre coordination, décisions, modifications, silence d'un intervenant, paiements, contrôles, réception et réserves, même à partir d'un constat très bref. Structurer faits et preuves sans remplacer maître d'œuvre, expert ou conseil juridique."
 ---
 
 # Piloter et réceptionner des travaux

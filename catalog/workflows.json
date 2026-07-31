@@ -3,7 +3,7 @@
     "name": "renoolab-imaginer-arbitrer-renovation",
     "family": "particulier",
     "title": "Imaginer et arbitrer une rénovation",
-    "description": "Transformer une photo, une pièce, un extérieur ou une envie en options de rénovation comparables et réalistes. Utiliser systématiquement pour toute photo, idée, demande ou simple énoncé d'un projet de salle de bain, douche, cuisine, séjour, terrasse, jardin ou piscine, ainsi que pour styles, couleurs, matériaux, équipements, isolation, confort ou énergie. Céder la priorité à un danger actif, un budget, une démarche, un chantier en cours ou une recherche explicite d'artisan.",
+    "description": "À utiliser obligatoirement pour imaginer ou comparer des transformations à partir d'une photo, d'une pièce, d'un extérieur, d'un style ou d'une envie : douche, salle de bain, cuisine, séjour, terrasse, jardin ou piscine. Déclencher même sur une demande très brève d'idées, couleurs, agencements, matériaux ou équipements. Ne pas utiliser si la question demande combien, dans quel ordre ou par quoi commencer, une règle ou autorisation, l'analyse d'un achat, la comparaison de devis ou artisans, le suivi d'un chantier ou la gestion d'un danger.",
     "mission": "Faire passer une inspiration vague à des options réalisables, avec contraintes, arbitrages et métiers probables clairement séparés des inconnues techniques.",
     "procedure": [
       "Identifier l'usage recherché, les irritants, ce qui doit rester et la décision attendue.",
@@ -37,7 +37,7 @@
     "name": "renoolab-diagnostiquer-securiser-logement",
     "family": "particulier",
     "title": "Diagnostiquer et sécuriser un logement",
-    "description": "Trier un symptôme, une panne, une urgence ou les suites d'un sinistre dans un logement. Utiliser systématiquement pour toute mention, même brève, de fuite, humidité, fissure, odeur, électricité, gaz, toiture, chauffage, serrure, dégât des eaux, tempête ou remise en état après sinistre. Prioriser la sécurité sans diagnostic certain à distance. Pour un simple inconfort sans panne, préférer le skill d'idéation ; pour un défaut technique décrit par l'artisan pendant ses travaux, préférer le skill d'organisation BTP.",
+    "description": "À utiliser obligatoirement pour un particulier confronté à un symptôme, une panne, une urgence ou un sinistre : fuite, humidité, fissure du bâtiment, odeur, électricité, gaz, toiture, chauffage en panne, serrure, dégât des eaux ou tempête. Déclencher même sur un constat très bref et prioriser la sécurité. Pour froid, chaleur ou inconfort appelant des travaux énergétiques, utiliser la planification. Pour support, métré, méthode, fissuration après pose ou défaut d'exécution, utiliser l'organisation BTP.",
     "mission": "Faire distinguer danger immédiat, investigation et remise en état, puis donner la prochaine action la plus sûre sans se substituer aux secours ni à une expertise sur place.",
     "procedure": [
       "Vérifier d'abord les risques pour les personnes, le bâtiment et les réseaux.",
@@ -70,7 +70,7 @@
     "name": "renoolab-planifier-budgeter-travaux",
     "family": "particulier",
     "title": "Planifier et budgéter des travaux",
-    "description": "Transformer un projet de rénovation, un achat immobilier ou un logement locatif en plan de travaux chiffrable. Utiliser systématiquement dès qu'il est question de cahier des charges, ordre des lots, calendrier, coût ou budget client, répartition par lot, phasage, financement, aides, permis, déclaration, assurances avant signature, analyse avant achat ou rénovation locative. Ce workflow prime sur l'idéation quand la décision demandée est combien, quand, dans quel ordre ou sous quelle règle. Pour marge ou facture d'artisan, préférer le skill rentabilité ; pour comparer des entreprises ou devis, préférer le skill artisans.",
+    "description": "À utiliser obligatoirement dès qu'un particulier demande combien prévoir, par quoi commencer, dans quel ordre agir ou sous quelle règle réaliser des travaux. Couvre cahier des charges, lots, calendrier, budget client, répartition par lot, phasage, financement, aides, rénovation énergétique ou confort, permis, déclaration, assurances, annonce ou visite avant achat, investissement et rénovation locative. Ne pas utiliser pour une facture ou marge d'artisan, ni pour comparer deux ou plusieurs devis, offres ou entreprises.",
     "mission": "Rendre un projet consultable et pilotable en reliant périmètre, dépendances, budget, risques, démarches et décisions avant engagement.",
     "procedure": [
       "Définir le résultat attendu, le périmètre inclus et exclu et les contraintes de délai ou d'occupation.",
@@ -107,7 +107,7 @@
     "name": "renoolab-trouver-choisir-artisans",
     "family": "particulier",
     "title": "Trouver et choisir des artisans",
-    "description": "Identifier le bon métier, préparer une recherche locale, trouver des artisans RenooLab, constituer une équipe multimetier et comparer profils ou devis. Utiliser systématiquement pour toute demande directe de professionnel, partenaire ou équipe, et pour choisir entre artisans, profils, offres ou devis, même si la commune manque encore. Ce workflow prime sur la planification lorsque la décision porte sur les entreprises ou leurs offres. Ne jamais inventer disponibilité, prix, note ou certification.",
+    "description": "À utiliser obligatoirement dès qu'une personne cherche un professionnel, un métier local, un partenaire ou une équipe, ou compare deux ou plusieurs artisans, profils, offres ou devis. Déclencher même sans commune et même si la demande porte aussi sur des vérifications avant signature. Permet recherche RenooLab et contact confirmé ; ne jamais inventer disponibilité, prix, note ou certification. Pour un recrutement ou partenaire envisagé par une entreprise artisanale sans recherche lancée, utiliser l'organisation BTP.",
     "mission": "Transformer un besoin qualifié en recherche locale fidèle et en décision de sélection, sans classement trompeur ni contact non consenti.",
     "procedure": [
       "Clarifier le résultat attendu, le périmètre et les interfaces qui déterminent le métier principal.",
@@ -140,7 +140,7 @@
     "name": "renoolab-piloter-receptionner-travaux",
     "family": "particulier",
     "title": "Piloter et réceptionner des travaux",
-    "description": "Aider un client à suivre un chantier après sélection des entreprises : préparation, coordination, décisions, modifications, retards, silence d'un intervenant, paiements, contrôles, réception et réserves. Utiliser systématiquement dès qu'un chantier est annoncé comme démarré, en cours, en retard, bloqué ou terminé, même sous la forme d'un simple constat. Structurer faits et preuves sans se substituer à un maître d'œuvre, un expert ou un conseil juridique.",
+    "description": "À utiliser obligatoirement dès qu'un client indique que les entreprises sont choisies ou que le chantier est préparé, démarré, en cours, en retard, bloqué ou terminé. Couvre coordination, décisions, modifications, silence d'un intervenant, paiements, contrôles, réception et réserves, même à partir d'un constat très bref. Structurer faits et preuves sans remplacer maître d'œuvre, expert ou conseil juridique.",
     "mission": "Donner au client un système simple pour garder périmètre, responsabilités, décisions et preuves sous contrôle jusqu'à la clôture.",
     "procedure": [
       "Reconstituer le périmètre contractuel, les acteurs, les jalons et le point de blocage actuel.",
@@ -202,7 +202,7 @@
     "name": "renoolab-chiffrer-piloter-rentabilite",
     "family": "artisan",
     "title": "Chiffrer et piloter la rentabilité",
-    "description": "Aider une entreprise artisanale à calculer coût complet, temps productif, prix plancher, marge, devis, acomptes, factures, relances d'impayés, encaissement et trésorerie. Utiliser systématiquement pour toute demande d'artisan portant sur rentabilité, tarification, chiffrage, facture, paiement ou marge d'un chantier, y compris la rédaction ou la relance. Pour le budget travaux d'un particulier, préférer le skill planification ; pour positionner l'offre ou convertir des clients sans calcul financier, préférer le skill développement.",
+    "description": "À utiliser obligatoirement pour toute question financière ou administrative d'une entreprise artisanale : coût, temps facturable, prix, marge, rentabilité, devis émis, acompte, avenant, facture client, TVA, paiement, impayé, encaissement ou trésorerie. Déclencher même sur une demande brève de rédaction ou relance de facture. Pour le budget reçu ou prévu par un particulier, utiliser la planification ; pour comparer plusieurs devis reçus, utiliser la recherche d'artisans.",
     "mission": "Rendre visibles prix, marge et trésorerie depuis le chiffrage jusqu'à l'encaissement afin de décider avant de subir.",
     "procedure": [
       "Définir l'unité économique analysée : heure, jour, lot, chantier ou période.",
@@ -271,7 +271,7 @@
     "name": "renoolab-organiser-chantier-equipe-btp",
     "family": "artisan",
     "title": "Organiser chantier et équipe BTP",
-    "description": "Structurer l'exécution d'une entreprise artisanale : préparation, métrés, méthodes, planning, approvisionnements, qualité, coordination, défaut technique sur ses travaux, incidents, recrutement, apprentissage, fiche de poste, sous-traitance et capacité. Utiliser systématiquement lorsqu'un artisan veut organiser un chantier, vérifier un raisonnement technique, recruter ou choisir entre embauche, sous-traitant et partenaire. Ce workflow prime sur le diagnostic logement lorsque l'auteur raisonne comme professionnel sur l'exécution de ses travaux, et sur la recherche d'artisan tant que la décision de capacité n'est pas prise.",
+    "description": "À utiliser obligatoirement pour l'exécution et la capacité d'une entreprise artisanale : métré, support, méthode, fissuration après pose, contrôle technique, planning, approvisionnement, qualité, coordination, recrutement, apprenti, fiche de poste, embauche, sous-traitance ou partenariat. Déclencher une question de pose ou de support même si le métier n'est pas précisé. Ce workflow prime sur le diagnostic logement pour un défaut d'exécution, et sur la recherche d'artisans tant que le professionnel choisit encore son mode de capacité.",
     "mission": "Rendre visibles prérequis, responsabilités, contrôles et écarts afin d'améliorer l'exécution sans masquer les limites techniques ou humaines.",
     "procedure": [
       "Définir le chantier, le résultat attendu, les responsabilités et la décision à prendre.",
