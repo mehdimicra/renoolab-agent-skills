@@ -194,6 +194,7 @@ function skillMarkdown(workflow) {
   return `---
 name: ${workflow.name}
 description: ${yamlQuote(workflow.description)}
+license: Apache-2.0
 ---
 
 # ${workflow.title}

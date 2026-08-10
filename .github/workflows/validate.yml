@@ -28,6 +28,8 @@ jobs:
       - run: .venv/bin/python -m pip install -r requirements-dev.txt
       - run: npm test
       - run: npm run validate:skills-ref
+      - name: Validate Gemini CLI extension
+        run: npm run validate:gemini
       - name: Validate Claude plugin strictly
         run: npx --yes @anthropic-ai/claude-code@2.1.220 plugin validate --strict .
       - name: Validate GitHub Agent Skills publication

@@ -1,6 +1,6 @@
 {
   "name": "renoolab-agent-skills",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Ten French Agent Skills covering 29 homeowner renovation, contractor discovery, artisan business, and construction workflow intents, with optional RenooLab MCP actions.",
   "category": "productivity",
   "platforms": [

@@ -197,8 +197,8 @@ for (const workflow of workflows) {
     fail(`${workflow.name}: malformed frontmatter`);
   } else {
     const frontmatterKeys = frontmatter[1].split("\n").map((line) => line.split(":", 1)[0].trim()).filter(Boolean);
-    if (frontmatterKeys.join(",") !== "name,description") {
-      fail(`${workflow.name}: frontmatter must contain only name and description`);
+    if (frontmatterKeys.join(",") !== "name,description,license") {
+      fail(`${workflow.name}: frontmatter must contain only name, description and license`);
     }
     const name = frontmatter[1].match(/^name:\s*(.+)$/m)?.[1]?.trim();
     const descriptionLine = frontmatter[1].match(/^description:\s*(.+)$/m)?.[1]?.trim();
@@ -207,6 +207,10 @@ for (const workflow of workflows) {
     }
     if (!descriptionLine?.startsWith('"') || !descriptionLine.endsWith('"')) {
       fail(`${workflow.name}: description must be YAML-quoted`);
+    }
+    const license = frontmatter[1].match(/^license:\s*(.+)$/m)?.[1]?.trim();
+    if (license !== "Apache-2.0") {
+      fail(`${workflow.name}: frontmatter license must be Apache-2.0`);
     }
   }
   for (const route of workflow.references) {
@@ -407,7 +411,9 @@ const jsonFiles = [
   ".github/plugin/plugin.json",
   ".claude-plugin/plugin.json",
   ".claude-plugin/marketplace.json",
+  "gemini-extension.json",
   "package.json",
+  "package-lock.json",
   "skill.json"
 ];
 const json = {};
@@ -419,17 +425,49 @@ for (const file of jsonFiles) {
     fail(`${file}: missing or invalid JSON (${error.message})`);
   }
 }
-const versions = [
-  json["package.json"]?.version,
-  json["skill.json"]?.version,
-  json[".codex-plugin/plugin.json"]?.version,
-  json[".cursor-plugin/plugin.json"]?.version,
-  json[".github/plugin/plugin.json"]?.version,
-  json[".claude-plugin/plugin.json"]?.version,
-  json[".claude-plugin/marketplace.json"]?.plugins?.[0]?.version
-].filter(Boolean);
-if (new Set(versions).size !== 1) {
-  fail(`package and plugin versions differ: ${versions.join(", ")}`);
+const semverPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/;
+const versionEntries = [
+  ["package.json.version", json["package.json"]?.version],
+  ["package-lock.json.version", json["package-lock.json"]?.version],
+  ["package-lock.json.packages[\"\"].version", json["package-lock.json"]?.packages?.[""]?.version],
+  ["skill.json.version", json["skill.json"]?.version],
+  [".codex-plugin/plugin.json.version", json[".codex-plugin/plugin.json"]?.version],
+  [".cursor-plugin/plugin.json.version", json[".cursor-plugin/plugin.json"]?.version],
+  [".github/plugin/plugin.json.version", json[".github/plugin/plugin.json"]?.version],
+  [".claude-plugin/plugin.json.version", json[".claude-plugin/plugin.json"]?.version],
+  [".claude-plugin/marketplace.json.plugins[0].version", json[".claude-plugin/marketplace.json"]?.plugins?.[0]?.version],
+  ["gemini-extension.json.version", json["gemini-extension.json"]?.version],
+];
+for (const [label, version] of versionEntries) {
+  if (typeof version !== "string" || version.length === 0) {
+    fail(`${label} is required`);
+  } else if (!semverPattern.test(version)) {
+    fail(`${label} must be valid SemVer; found ${version}`);
+  }
+}
+const releaseVersion = json["package.json"]?.version;
+const mismatchedVersions = versionEntries.filter(([, version]) => version !== releaseVersion);
+if (mismatchedVersions.length > 0) {
+  fail(`package and plugin versions must all equal ${releaseVersion}: ${mismatchedVersions.map(([label, version]) => `${label}=${String(version)}`).join(", ")}`);
+}
+const geminiExtension = json["gemini-extension.json"] ?? {};
+const geminiExtensionKeys = Object.keys(geminiExtension).sort();
+if (JSON.stringify(geminiExtensionKeys) !== JSON.stringify(["description", "mcpServers", "name", "version"])) {
+  fail("Gemini CLI extension must contain exactly description, mcpServers, name, and version");
+}
+const expectedGeminiMcpServers = {
+  renoolab: {
+    httpUrl: expectedMcpUrl,
+  },
+};
+if (JSON.stringify(geminiExtension.mcpServers) !== JSON.stringify(expectedGeminiMcpServers)) {
+  fail("Gemini CLI extension must configure only the RenooLab Streamable HTTP MCP without trust overrides");
+}
+if (geminiExtension.name !== "renoolab-agent-skills") {
+  fail("Gemini CLI extension name must be renoolab-agent-skills");
+}
+if (geminiExtension.description !== "10 French Agent Skills covering 29 intents for home renovation, finding tradespeople, and running an artisan or construction business.") {
+  fail("Gemini CLI extension description must remain concise and distribution-focused");
 }
 if (json["skill.json"]?.name !== "renoolab-agent-skills") {
   fail("OpenAgentSkill manifest name must be renoolab-agent-skills");
@@ -494,6 +532,60 @@ if (!readme.includes("10") || !readme.includes("29 intentions")) {
 }
 if (/29 skills/i.test(readme)) {
   fail("README still presents 29 public skills");
+}
+const context7InstallCommands = [
+  "npx ctx7@latest skills install /mehdimicra/renoolab-agent-skills renoolab-trouver-choisir-artisans",
+  "npx ctx7@latest skills install /mehdimicra/renoolab-agent-skills --all",
+];
+for (const command of context7InstallCommands) {
+  if (!readme.includes(command)) {
+    fail(`README must document the Context7 install command: ${command}`);
+  }
+}
+if (!readme.includes("[Context7 CLI](https://context7.com/docs/clients/cli)")) {
+  fail("README must link the official Context7 CLI documentation");
+}
+
+if (!readme.includes("Context7 signale toutefois ces commandes comme dépréciées")) {
+  fail("README must disclose the Context7 CLI deprecation warning observed during installation");
+}
+const geminiInstallCommand = `gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v${json["gemini-extension.json"]?.version}`;
+if (!readme.includes(geminiInstallCommand)) {
+  fail("README must document the versioned Gemini CLI extension install command");
+}
+if (!readme.includes("gemini-cli-extension")) {
+  fail("README must document the Gemini CLI Gallery discovery topic");
+}
+if (!readme.includes("`mcpServers.renoolab.httpUrl`") || !readme.includes("découverte OAuth dynamique")) {
+  fail("README must explain the Gemini extension MCP configuration and dynamic OAuth discovery");
+}
+const geminiReleaseVersion = json["gemini-extension.json"]?.version;
+for (const prerequisite of [
+  "dépôt GitHub public",
+  "`gemini-extension.json` à la racine",
+  "topic GitHub exact `gemini-cli-extension`",
+  `tag Git \`v${geminiReleaseVersion}\``,
+  "versions synchronisées",
+]) {
+  if (!readme.includes(prerequisite)) {
+    fail(`README must document the Gemini Gallery prerequisite: ${prerequisite}`);
+  }
+}
+const perplexityAssetUrl =
+  `https://renoolab.fr/.well-known/agent-skills/packages/v${geminiReleaseVersion}/renoolab-trouver-choisir-artisans.zip`;
+if (!readme.includes(perplexityAssetUrl)) {
+  fail("README must link the versioned first-party Perplexity search skill asset");
+}
+if (!readme.includes("SKILL.md` à la racine")) {
+  fail("README must explain the Perplexity ZIP root layout");
+}
+if (!readme.includes("Perplexity Pro, Max ou Enterprise")
+  || !readme.includes("connecteurs MCP personnalisés sont disponibles")
+  || !readme.includes("activés par l'administrateur")) {
+  fail("README must qualify Perplexity remote MCP access by plan, availability, and organization activation");
+}
+if (!readme.includes("Sans MCP, ce skill reste consultatif")) {
+  fail("README must state that the Perplexity skill remains advisory without MCP access");
 }
 
 if (errors.length) {

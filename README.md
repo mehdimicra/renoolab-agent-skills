@@ -49,12 +49,15 @@ Le skill apporte donc le raisonnement et le parcours métier. Le MCP apporte les
 | Claude Code | Plugin `.claude-plugin/` ou installation des skills | Manifest validé et déclenchement réel traçable |
 | Codex | Agent Skills + `.codex-plugin/plugin.json` | Manifest validé et lecture réelle du bon `SKILL.md` traçable |
 | ChatGPT | Import/installation de Skills ou plugin selon les droits du workspace | Format Agent Skills compatible ; publication dans le répertoire OpenAI distincte du dépôt GitHub |
-| Gemini CLI | `.agents/skills` ou CLI `skills` | Format et installation compatibles |
+| Gemini CLI | Extension native `gemini-extension.json` ou CLI `skills` | Extension validée par Gemini CLI stable ; dix skills standards embarqués |
+| Perplexity | Skill ZIP dans Computer + connecteur MCP distant | Workflow de recherche empaqueté à la racine et validé ; installation manuelle requise |
 | GitHub Copilot | Plugin `.github/plugin/` ou `gh skill install` / `gh skill publish` | Manifest plugin et validation Agent Skills intégrés à la CI |
 | Cursor | Plugin `.cursor-plugin/`, Agent Skills ou CLI `skills` | Manifest conforme au schéma officiel ; comportement à mesurer dans l'hôte |
 | Autres clients | Tout client conforme à `agentskills.io` | Compatibilité structurelle, à confirmer par l'implémentation de l'hôte |
 
-Références officielles : [OpenAI Skills](https://help.openai.com/en/articles/20001066), [Gemini CLI](https://codelabs.developers.google.com/gemini-cli/how-to-create-agent-skills-for-gemini-cli), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) et [Cursor Plugins](https://github.com/cursor/plugins).
+Références officielles : [OpenAI Skills](https://help.openai.com/en/articles/20001066), [extensions Gemini CLI](https://geminicli.com/docs/extensions/reference/), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) et [Cursor Plugins](https://github.com/cursor/plugins).
+
+Documentation complémentaire : [Perplexity Computer Skills](https://www.perplexity.ai/help-center/en/articles/13914413-how-to-use-computer-skills).
 
 ## Installer
 
@@ -74,6 +77,37 @@ Avec GitHub CLI 2.90 ou plus récent :
 
 ```bash
 gh skill install mehdimicra/renoolab-agent-skills renoolab-trouver-choisir-artisans
+```
+
+[Context7 CLI](https://context7.com/docs/clients/cli) peut installer directement le workflow de recherche ou toute la collection depuis le dépôt GitHub public :
+
+```bash
+npx ctx7@latest skills install /mehdimicra/renoolab-agent-skills renoolab-trouver-choisir-artisans
+npx ctx7@latest skills install /mehdimicra/renoolab-agent-skills --all
+```
+
+Context7 signale toutefois ces commandes comme dépréciées et prévoit de les retirer dans sa prochaine version majeure. Ce canal reste donc complémentaire et devra être revalidé à chaque mise à jour du CLI.
+
+Gemini CLI peut installer les dix skills comme extension native. Le manifeste racine embarque aussi la configuration du MCP distant via `mcpServers.renoolab.httpUrl`, sans jeton ni `trust`. Gemini CLI effectue la découverte OAuth dynamique auprès du serveur au moment de la connexion :
+
+```bash
+gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v0.5.0
+```
+
+Choisissez l'extension Gemini ou une installation séparée via `skills`, pas les deux : une copie utilisateur ou workspace peut masquer les skills fournis par l'extension.
+
+Pour être publiée et découvrable dans la Gallery Gemini CLI, la version `0.5.0` doit réunir cumulativement : dépôt GitHub public, `gemini-extension.json` à la racine, topic GitHub exact `gemini-cli-extension`, tag Git `v0.5.0` et versions synchronisées dans tous les manifestes. La Gallery effectue ensuite son propre crawl ; ces prérequis rendent le dépôt éligible sans garantir sa mise en avant.
+
+Perplexity Computer peut importer le seul workflow passerelle de recherche lorsque Computer Skills est disponible pour le compte :
+
+<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.0/renoolab-trouver-choisir-artisans.zip>
+
+Le ZIP place `SKILL.md` à la racine avec ses trois références canoniques et reste sous la limite de 10 MB. Sans MCP, ce skill reste consultatif : il aide à cadrer le besoin, le métier et les critères de choix, mais ne prétend jamais avoir interrogé RenooLab.
+
+Avec un abonnement Perplexity Pro, Max ou Enterprise, ajoutez séparément le connecteur MCP distant `https://mcp.renoolab.fr/mcp` avec OAuth lorsque les connecteurs MCP personnalisés sont disponibles pour votre compte ; dans une organisation, ils doivent aussi avoir été activés par l'administrateur. L'import du skill n'autorise pas automatiquement le MCP.
+
+```bash
+npm run perplexity:build && npm run perplexity:test
 ```
 
 Claude Code peut charger le dépôt comme plugin :
@@ -137,9 +171,10 @@ Validations externes de release :
 ```bash
 claude plugin validate --strict .
 gh skill publish --dry-run .
+npm run validate:gemini
 ```
 
-La CI rejoue la génération, les assertions du catalogue, `skills-ref`, le validateur Claude strict et le dry-run GitHub, puis vérifie que le générateur n'a laissé aucun diff.
+La CI rejoue la génération, les assertions du catalogue, `skills-ref`, les validateurs Claude et Gemini stables et le dry-run GitHub, puis vérifie que le générateur n'a laissé aucun diff.
 
 ## Mesurer le comportement réel
 

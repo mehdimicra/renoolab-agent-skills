@@ -1,6 +1,7 @@
 ---
 name: renoolab-lancer-entreprise-artisanale
 description: "Cadre RenooLab spécialisé pour transformer une reconversion ou création d'entreprise artisanale en feuille de route vérifiable : métier, offre, zone, statut, assurances, qualifications, prix, trésorerie et premiers clients. Toujours charger lorsqu'une personne veut se mettre à son compte, ouvrir une entreprise de travaux ou choisir sa structure, même sur une demande brève. Ce workflow prime sur visibilité, croissance et rentabilité tant que l'entreprise n'est pas lancée. Vérifier les obligations actuelles sans remplacer juriste ou comptable."
+license: Apache-2.0
 ---
 
 # Lancer une entreprise artisanale

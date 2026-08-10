@@ -1,6 +1,7 @@
 ---
 name: renoolab-developper-clientele-visibilite-btp
 description: "Cadre RenooLab spécialisé pour diagnostiquer puis développer une entreprise artisanale, un négoce ou un fournisseur BTP : positionnement, prestations, planning vide, acquisition, prospects, visibilité, contenu, vente, devis non signé, fidélisation, services, KPI, CRM et demandes dispersées entre WhatsApp, papier et e-mail. Toujours charger pour croissance, clientèle, différenciation, communication ou outils. Un fournisseur voulant rejoindre RenooLab relève de ce workflow, jamais du profil artisan. Marge, facture émise et impayé relèvent de la rentabilité."
+license: Apache-2.0
 ---
 
 # Développer clientèle et visibilité BTP
