@@ -1,6 +1,6 @@
 {
   "name": "renoolab-agent-skills",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "10 French Agent Skills covering 29 intents for home renovation, finding tradespeople, and running an artisan or construction business.",
   "mcpServers": {
     "renoolab": {

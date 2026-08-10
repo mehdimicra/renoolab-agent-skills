@@ -30,6 +30,8 @@ jobs:
       - run: npm run validate:skills-ref
       - name: Validate Gemini CLI extension
         run: npm run validate:gemini
+      - name: Validate Kiro Power against Agent Plugins 1.0.0
+        run: npm run validate:agent-plugins
       - name: Validate Claude plugin strictly
         run: npx --yes @anthropic-ai/claude-code@2.1.220 plugin validate --strict .
       - name: Validate GitHub Agent Skills publication

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "renoolab",
+  "version": "0.5.1",
+  "description": "Prepare home renovation projects, find French tradespeople, and run an artisan or construction business with 10 French Agent Skills and the optional RenooLab MCP.",
+  "author": {
+    "name": "RenooLab",
+    "email": "contact@renoolab.fr",
+    "url": "https://renoolab.fr/"
+  },
+  "homepage": "https://renoolab.fr/mcp/",
+  "repository": "https://github.com/mehdimicra/renoolab-agent-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "renoolab",
+    "rénovation",
+    "renovation",
+    "travaux",
+    "artisan",
+    "artisans",
+    "tradespeople",
+    "contractors",
+    "bâtiment",
+    "construction",
+    "home improvement",
+    "plombier",
+    "plumber",
+    "électricien",
+    "electrician"
+  ]
+}
