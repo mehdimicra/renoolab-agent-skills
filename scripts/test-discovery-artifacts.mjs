@@ -81,8 +81,8 @@ try {
     assert.match(entry.digest, /^sha256:[0-9a-f]{64}$/);
 
     const archiveName = basename(new URL(entry.url).pathname);
-    const firstArchive = await readFile(join(firstOutput, "packages", archiveName));
-    const secondArchive = await readFile(join(secondOutput, "packages", archiveName));
+    const firstArchive = await readFile(join(firstOutput, "packages", "v0.4.2", archiveName));
+    const secondArchive = await readFile(join(secondOutput, "packages", "v0.4.2", archiveName));
     assert.deepEqual(firstArchive, secondArchive, `${entry.name} archive bytes must be deterministic`);
     assert.equal(`sha256:${createHash("sha256").update(firstArchive).digest("hex")}`, entry.digest);
 

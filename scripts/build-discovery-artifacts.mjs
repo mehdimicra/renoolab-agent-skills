@@ -169,7 +169,7 @@ export async function buildDiscoveryArtifacts({
   }
   skillEntries.sort((left, right) => compareStrings(left.name, right.name));
 
-  const packagesDirectory = join(resolvedOutputDirectory, "packages");
+  const packagesDirectory = join(resolvedOutputDirectory, "packages", `v${packageDocument.version}`);
   await mkdir(packagesDirectory, { recursive: true });
   for (const entry of skillEntries) {
     await writeFile(join(packagesDirectory, entry.archiveName), entry.archive);
