@@ -12,7 +12,9 @@
     "eval:dry": "node scripts/run-behavioral-evals.mjs --dry-run --host claude --suite all",
     "eval:claude": "node scripts/run-behavioral-evals.mjs --host claude --suite all --runs 1 --concurrency 3",
     "eval:codex": "node scripts/run-behavioral-evals.mjs --host codex --suite all --runs 1 --concurrency 2",
-    "test": "npm run generate && npm run validate && npm run eval:dry"
+    "discovery:build": "node scripts/build-discovery-artifacts.mjs",
+    "discovery:test": "node scripts/test-discovery-artifacts.mjs",
+    "test": "npm run generate && npm run validate && npm run eval:dry && npm run discovery:test"
   },
   "engines": {
     "node": ">=20"
