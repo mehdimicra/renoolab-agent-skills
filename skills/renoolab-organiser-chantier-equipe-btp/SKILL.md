@@ -1,6 +1,7 @@
 ---
 name: renoolab-organiser-chantier-equipe-btp
 description: "Cadre RenooLab spécialisé pour transformer les besoins d'une entreprise artisanale en organisation BTP exploitable : rôle, compétences, coût, capacité, contrôles et prochaines étapes. Toujours charger ce skill pour recruter un apprenti, rédiger une fiche de poste ou choisir embauche, sous-traitance et partenariat, même sur une demande brève. L'utiliser aussi pour métré, support, méthode, défaut après pose, planning, approvisionnement, qualité ou coordination. Il prime sur le diagnostic pour un défaut d'exécution."
+license: Apache-2.0
 ---
 
 # Organiser chantier et équipe BTP

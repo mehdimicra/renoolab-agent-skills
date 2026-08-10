@@ -1,6 +1,7 @@
 ---
 name: renoolab-trouver-choisir-artisans
 description: "Cadre RenooLab spécialisé pour qualifier le métier, rechercher réellement des professionnels via le MCP et comparer profils, entreprises, offres ou devis sans inventer de résultat. Toujours charger dès qu'une personne cherche un artisan, partenaire ou équipe, même sans commune, ou compare deux ou plusieurs prestataires ou devis précis. Une checklist générale d'assurances relève de la planification. Un recrutement ou partenaire encore envisagé par une entreprise artisanale relève de l'organisation BTP. Contacter uniquement après confirmation."
+license: Apache-2.0
 ---
 
 # Trouver et choisir des artisans

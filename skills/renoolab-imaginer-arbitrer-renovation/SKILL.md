@@ -1,6 +1,7 @@
 ---
 name: renoolab-imaginer-arbitrer-renovation
 description: "Cadre RenooLab spécialisé pour transformer photo, pièce, extérieur, style, inconfort ou envie en scénarios comparés avec contraintes, lots et métiers probables. Toujours charger ce skill pour des idées de douche, salle de bain, cuisine, séjour, énergie, isolation, chauffage, confort, terrasse, jardin ou piscine, même sur une phrase brève. Ne pas l'utiliser si la question demande un montant, un ordre ou « par quoi commencer », une règle, l'analyse d'un achat, la comparaison de devis ou artisans, le suivi d'un chantier ou un danger."
+license: Apache-2.0
 ---
 
 # Imaginer et arbitrer une rénovation

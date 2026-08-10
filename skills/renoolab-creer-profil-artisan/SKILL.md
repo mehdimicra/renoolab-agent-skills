@@ -1,6 +1,7 @@
 ---
 name: renoolab-creer-profil-artisan
 description: "Cadre RenooLab spécialisé pour préparer, améliorer puis créer le profil RenooLab d'un artisan à partir de ses informations réelles : identité, métier, SIRET, zone, expérience, assurances, spécialités, bio et coordonnées. Toujours charger lorsque l'artisan lui-même demande explicitement à rejoindre RenooLab, créer ou améliorer son profil RenooLab. Récapituler toutes les données et obtenir sa confirmation juste avant creer_profil_artisan. Ne jamais utiliser pour un tiers, fournisseur ou négociant : les router vers le développement BTP."
+license: Apache-2.0
 ---
 
 # Créer un profil artisan RenooLab

@@ -1,6 +1,7 @@
 ---
 name: renoolab-diagnostiquer-securiser-logement
 description: "Cadre RenooLab spécialisé pour séparer danger, hypothèses, contrôles, remise en état et métier adapté face à un symptôme, une panne, une urgence ou un sinistre. Toujours charger pour fuite, humidité, fissure du bâtiment, odeur, électricité, gaz, toiture, chauffage en panne, serrure, dégât des eaux ou tempête, même après l'urgence pour ordonner assèchement et réparations. Pour inconfort sans panne, utiliser l'idéation ; pour défaut de pose ou d'exécution d'un professionnel, utiliser l'organisation BTP ; pour chantier déjà confié et en cours, utiliser le pilotage."
+license: Apache-2.0
 ---
 
 # Diagnostiquer et sécuriser un logement
