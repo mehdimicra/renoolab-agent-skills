@@ -412,6 +412,8 @@ const jsonFiles = [
   ".claude-plugin/plugin.json",
   ".claude-plugin/marketplace.json",
   "gemini-extension.json",
+  "plugin.json",
+  "mcp.json",
   "package.json",
   "package-lock.json",
   "skill.json"
@@ -437,6 +439,7 @@ const versionEntries = [
   [".claude-plugin/plugin.json.version", json[".claude-plugin/plugin.json"]?.version],
   [".claude-plugin/marketplace.json.plugins[0].version", json[".claude-plugin/marketplace.json"]?.plugins?.[0]?.version],
   ["gemini-extension.json.version", json["gemini-extension.json"]?.version],
+  ["plugin.json.version", json["plugin.json"]?.version],
 ];
 for (const [label, version] of versionEntries) {
   if (typeof version !== "string" || version.length === 0) {
@@ -468,6 +471,42 @@ if (geminiExtension.name !== "renoolab-agent-skills") {
 }
 if (geminiExtension.description !== "10 French Agent Skills covering 29 intents for home renovation, finding tradespeople, and running an artisan or construction business.") {
   fail("Gemini CLI extension description must remain concise and distribution-focused");
+}
+const agentPlugin = json["plugin.json"] ?? {};
+if (agentPlugin.$schema !== "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json") {
+  fail("Kiro Power must target the official Agent Plugins 1.0.0 plugin schema");
+}
+if (agentPlugin.name !== "renoolab") {
+  fail("Kiro Power name must be renoolab");
+}
+if (JSON.stringify(agentPlugin.author) !== JSON.stringify({
+  name: "RenooLab",
+  email: "contact@renoolab.fr",
+  url: "https://renoolab.fr/",
+})) {
+  fail("Kiro Power author must expose the verified RenooLab name, email, and URL");
+}
+if (agentPlugin.homepage !== "https://renoolab.fr/mcp/"
+  || agentPlugin.repository !== "https://github.com/mehdimicra/renoolab-agent-skills"
+  || agentPlugin.license !== "Apache-2.0") {
+  fail("Kiro Power homepage, repository, and license metadata are invalid");
+}
+for (const keyword of ["renoolab", "rénovation", "renovation", "artisan", "tradespeople", "plombier", "plumber", "électricien", "electrician"]) {
+  if (!agentPlugin.keywords?.includes(keyword)) {
+    fail(`Kiro Power is missing the French/English activation keyword: ${keyword}`);
+  }
+}
+const expectedPortableMcp = {
+  $schema: "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  mcpServers: {
+    renoolab: {
+      type: "streamable-http",
+      url: expectedMcpUrl,
+    },
+  },
+};
+if (JSON.stringify(json["mcp.json"]) !== JSON.stringify(expectedPortableMcp)) {
+  fail("Agent Plugins mcp.json must expose only the canonical Streamable HTTP server without static credentials or approvals");
 }
 if (json["skill.json"]?.name !== "renoolab-agent-skills") {
   fail("OpenAgentSkill manifest name must be renoolab-agent-skills");
@@ -586,6 +625,40 @@ if (!readme.includes("Perplexity Pro, Max ou Enterprise")
 }
 if (!readme.includes("Sans MCP, ce skill reste consultatif")) {
   fail("README must state that the Perplexity skill remains advisory without MCP access");
+}
+for (const kiroEvidence of [
+  "[Kiro Powers](https://kiro.dev/docs/powers/create/)",
+  "Import power from GitHub",
+  "https://github.com/mehdimicra/renoolab-agent-skills",
+  "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "[Confidentialité](https://renoolab.fr/privacy/)",
+  "[Support](mailto:contact@renoolab.fr)",
+  "npm run validate:agent-plugins",
+  "schémas officiels Agent Plugins 1.0.0 épinglés localement",
+  "Manifests validés structurellement ; import frais, OAuth et appel réel à confirmer",
+  "[formulaire Kiro Powers](https://kiro.dev/powers/submit/)",
+  "installation fraîche",
+  "`tools/list`",
+  "recherche read-only réelle",
+]) {
+  if (!readme.includes(kiroEvidence)) {
+    fail(`README must document the Kiro Power publication requirement: ${kiroEvidence}`);
+  }
+}
+for (const mistralEvidence of [
+  "[Mistral Work MCP Connectors](https://docs.mistral.ai/vibe/work/connectors/mcp-connectors)",
+  "Custom MCP Connector",
+  "nom `renoolab`",
+  expectedMcpUrl,
+  "OAuth 2.1 avec enregistrement dynamique du client",
+  "détecte automatiquement",
+  "administrateur",
+  "Procédure officielle documentée ; connexion RenooLab à confirmer",
+]) {
+  if (!readme.includes(mistralEvidence)) {
+    fail(`README must document the Mistral Work custom MCP setup: ${mistralEvidence}`);
+  }
 }
 
 if (errors.length) {

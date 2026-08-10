@@ -50,12 +50,14 @@ Le skill apporte donc le raisonnement et le parcours métier. Le MCP apporte les
 | Codex | Agent Skills + `.codex-plugin/plugin.json` | Manifest validé et lecture réelle du bon `SKILL.md` traçable |
 | ChatGPT | Import/installation de Skills ou plugin selon les droits du workspace | Format Agent Skills compatible ; publication dans le répertoire OpenAI distincte du dépôt GitHub |
 | Gemini CLI | Extension native `gemini-extension.json` ou CLI `skills` | Extension validée par Gemini CLI stable ; dix skills standards embarqués |
+| Kiro | Power portable Agent Plugins importé depuis GitHub | Manifests validés structurellement ; import frais, OAuth et appel réel à confirmer |
+| Mistral Work | `Custom MCP Connector` distant | Procédure officielle documentée ; connexion RenooLab à confirmer |
 | Perplexity | Skill ZIP dans Computer + connecteur MCP distant | Workflow de recherche empaqueté à la racine et validé ; installation manuelle requise |
 | GitHub Copilot | Plugin `.github/plugin/` ou `gh skill install` / `gh skill publish` | Manifest plugin et validation Agent Skills intégrés à la CI |
 | Cursor | Plugin `.cursor-plugin/`, Agent Skills ou CLI `skills` | Manifest conforme au schéma officiel ; comportement à mesurer dans l'hôte |
 | Autres clients | Tout client conforme à `agentskills.io` | Compatibilité structurelle, à confirmer par l'implémentation de l'hôte |
 
-Références officielles : [OpenAI Skills](https://help.openai.com/en/articles/20001066), [extensions Gemini CLI](https://geminicli.com/docs/extensions/reference/), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) et [Cursor Plugins](https://github.com/cursor/plugins).
+Références officielles : [OpenAI Skills](https://help.openai.com/en/articles/20001066), [extensions Gemini CLI](https://geminicli.com/docs/extensions/reference/), [Kiro Powers](https://kiro.dev/docs/powers/create/), [Agent Plugins](https://agent-plugins.org/), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) et [Cursor Plugins](https://github.com/cursor/plugins).
 
 Documentation complémentaire : [Perplexity Computer Skills](https://www.perplexity.ai/help-center/en/articles/13914413-how-to-use-computer-skills).
 
@@ -91,16 +93,26 @@ Context7 signale toutefois ces commandes comme dépréciées et prévoit de les 
 Gemini CLI peut installer les dix skills comme extension native. Le manifeste racine embarque aussi la configuration du MCP distant via `mcpServers.renoolab.httpUrl`, sans jeton ni `trust`. Gemini CLI effectue la découverte OAuth dynamique auprès du serveur au moment de la connexion :
 
 ```bash
-gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v0.5.0
+gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v0.5.1
 ```
 
 Choisissez l'extension Gemini ou une installation séparée via `skills`, pas les deux : une copie utilisateur ou workspace peut masquer les skills fournis par l'extension.
 
-Pour être publiée et découvrable dans la Gallery Gemini CLI, la version `0.5.0` doit réunir cumulativement : dépôt GitHub public, `gemini-extension.json` à la racine, topic GitHub exact `gemini-cli-extension`, tag Git `v0.5.0` et versions synchronisées dans tous les manifestes. La Gallery effectue ensuite son propre crawl ; ces prérequis rendent le dépôt éligible sans garantir sa mise en avant.
+Pour être publiée et découvrable dans la Gallery Gemini CLI, la version `0.5.1` doit réunir cumulativement : dépôt GitHub public, `gemini-extension.json` à la racine, topic GitHub exact `gemini-cli-extension`, tag Git `v0.5.1` et versions synchronisées dans tous les manifestes. La Gallery effectue ensuite son propre crawl ; ces prérequis rendent le dépôt éligible sans garantir sa mise en avant.
+
+Kiro peut importer ce dépôt public comme Power portable. Dans **Powers → Add Custom Power → Import power from GitHub**, indiquez :
+
+```text
+https://github.com/mehdimicra/renoolab-agent-skills
+```
+
+Le manifeste racine `plugin.json` cible le schéma officiel <https://agent-plugins.org/schemas/1.0.0/plugin.schema.json>. Kiro découvre les dix skills dans `skills/` et le serveur distant dans `mcp.json`, validé contre <https://agent-plugins.org/schemas/1.0.0/mcp.schema.json>. Ce dernier contient uniquement le transport `streamable-http` et l'URL canonique : aucun en-tête, jeton, secret ou outil préautorisé n'est distribué. L'hôte gère la découverte et le consentement OAuth. La procédure officielle est décrite dans [Kiro Powers](https://kiro.dev/docs/powers/create/).
+
+Ne soumettre au [formulaire Kiro Powers](https://kiro.dev/powers/submit/) qu'après avoir testé, dans une installation fraîche, l'import GitHub, le parcours OAuth, `tools/list` et une recherche read-only réelle.
 
 Perplexity Computer peut importer le seul workflow passerelle de recherche lorsque Computer Skills est disponible pour le compte :
 
-<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.0/renoolab-trouver-choisir-artisans.zip>
+<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.1/renoolab-trouver-choisir-artisans.zip>
 
 Le ZIP place `SKILL.md` à la racine avec ses trois références canoniques et reste sous la limite de 10 MB. Sans MCP, ce skill reste consultatif : il aide à cadrer le besoin, le métier et les critères de choix, mais ne prétend jamais avoir interrogé RenooLab.
 
@@ -109,6 +121,8 @@ Avec un abonnement Perplexity Pro, Max ou Enterprise, ajoutez séparément le co
 ```bash
 npm run perplexity:build && npm run perplexity:test
 ```
+
+Dans Mistral Work, un administrateur peut ajouter RenooLab depuis **Connectors → + Add Connector → Custom MCP Connector** avec le nom `renoolab` et l'URL `https://mcp.renoolab.fr/mcp`. Work détecte automatiquement la méthode d'authentification ; RenooLab utilise OAuth 2.1 avec enregistrement dynamique du client, puis guide l'utilisateur dans le consentement. L'ajout d'un connecteur personnalisé et sa disponibilité dans l'organisation restent administrés par le compte. Voir [Mistral Work MCP Connectors](https://docs.mistral.ai/vibe/work/connectors/mcp-connectors).
 
 Claude Code peut charger le dépôt comme plugin :
 
@@ -172,9 +186,10 @@ Validations externes de release :
 claude plugin validate --strict .
 gh skill publish --dry-run .
 npm run validate:gemini
+npm run validate:agent-plugins
 ```
 
-La CI rejoue la génération, les assertions du catalogue, `skills-ref`, les validateurs Claude et Gemini stables et le dry-run GitHub, puis vérifie que le générateur n'a laissé aucun diff.
+La validation Kiro utilise Ajv `8.20.0` et les schémas officiels Agent Plugins 1.0.0 épinglés localement dans `schemas/agent-plugins/1.0.0/` ; leurs identifiants et empreintes JSON canoniques sont vérifiés avant les manifests. La CI rejoue la génération, les assertions du catalogue, `skills-ref`, les validateurs Claude, Gemini et Agent Plugins, ainsi que le dry-run GitHub, puis vérifie que le générateur n'a laissé aucun diff.
 
 ## Mesurer le comportement réel
 
