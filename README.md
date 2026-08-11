@@ -94,12 +94,12 @@ Context7 signale toutefois ces commandes comme dépréciées et prévoit de les 
 Gemini CLI peut installer les dix skills comme extension native. Le manifeste racine embarque aussi la configuration du MCP distant via `mcpServers.renoolab.httpUrl`, sans jeton ni `trust`. Gemini CLI effectue la découverte OAuth dynamique auprès du serveur au moment de la connexion :
 
 ```bash
-gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v0.5.2
+gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v0.5.3
 ```
 
 Choisissez l'extension Gemini ou une installation séparée via `skills`, pas les deux : une copie utilisateur ou workspace peut masquer les skills fournis par l'extension.
 
-Pour être publiée et découvrable dans la Gallery Gemini CLI, la version `0.5.2` doit réunir cumulativement : dépôt GitHub public, `gemini-extension.json` à la racine, topic GitHub exact `gemini-cli-extension`, tag Git `v0.5.2` et versions synchronisées dans tous les manifestes. La Gallery effectue ensuite son propre crawl ; ces prérequis rendent le dépôt éligible sans garantir sa mise en avant.
+Pour être publiée et découvrable dans la Gallery Gemini CLI, la version `0.5.3` doit réunir cumulativement : dépôt GitHub public, `gemini-extension.json` à la racine, topic GitHub exact `gemini-cli-extension`, tag Git `v0.5.3` et versions synchronisées dans tous les manifestes. La Gallery effectue ensuite son propre crawl ; ces prérequis rendent le dépôt éligible sans garantir sa mise en avant.
 
 Kiro peut importer ce dépôt public comme Power portable. Dans **Powers → Add Custom Power → Import power from GitHub**, indiquez :
 
@@ -107,13 +107,13 @@ Kiro peut importer ce dépôt public comme Power portable. Dans **Powers → Add
 https://github.com/mehdimicra/renoolab-agent-skills
 ```
 
-Le manifeste racine `plugin.json` cible le schéma officiel <https://agent-plugins.org/schemas/1.0.0/plugin.schema.json>. Kiro découvre les dix skills dans `skills/` et le serveur distant dans `mcp.json`, validé contre <https://agent-plugins.org/schemas/1.0.0/mcp.schema.json>. Ce dernier contient uniquement le transport `streamable-http` et l'URL canonique : aucun en-tête, jeton, secret ou outil préautorisé n'est distribué. L'hôte gère la découverte et le consentement OAuth. La procédure officielle est décrite dans [Kiro Powers](https://kiro.dev/docs/powers/create/).
+Le manifeste racine `plugin.json` est la source canonique et cible le schéma officiel <https://agent-plugins.org/schemas/1.0.0/plugin.schema.json>. Kiro découvre les dix skills dans `skills/` et le serveur distant dans `mcp.json`, validé contre <https://agent-plugins.org/schemas/1.0.0/mcp.schema.json>. Pour fiabiliser l'affichage et l'activation dans Kiro IDE 1.0.288, `POWER.md` et `dev.kiro/INSTRUCTIONS.md` fournissent aussi un shim de compatibilité synchronisé avec ces métadonnées et règles ; ils ne remplacent pas `plugin.json`. Aucun en-tête, jeton, secret ou outil préautorisé n'est distribué. L'hôte gère la découverte et le consentement OAuth. La procédure officielle est décrite dans [Kiro Powers](https://kiro.dev/docs/powers/create/).
 
 Ne soumettre au [formulaire Kiro Powers](https://kiro.dev/powers/submit/) qu'après avoir testé, dans une installation fraîche, l'import GitHub, le parcours OAuth, `tools/list` et une recherche read-only réelle.
 
 Perplexity Computer peut importer le seul workflow passerelle de recherche lorsque Computer Skills est disponible pour le compte :
 
-<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.2/renoolab-trouver-choisir-artisans.zip>
+<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3/renoolab-trouver-choisir-artisans.zip>
 
 Le ZIP place `SKILL.md` à la racine avec ses trois références canoniques et reste sous la limite de 10 MB. Sans MCP, ce skill reste consultatif : il aide à cadrer le besoin, le métier et les critères de choix, mais ne prétend jamais avoir interrogé RenooLab.
 
@@ -125,7 +125,7 @@ npm run perplexity:build && npm run perplexity:test
 
 Microsoft 365 Copilot Cowork peut importer le paquet complet versionné :
 
-<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.2/renoolab-microsoft-cowork.zip>
+<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3/renoolab-microsoft-cowork.zip>
 
 Le ZIP réunit le manifeste Microsoft 365 v1.28, les deux icônes aux dimensions requises, les dix skills canoniques et un snapshot sans secret des trois outils annoncés par `tools/list`. La validation structurelle locale utilise le schéma Microsoft v1.28 officiel épinglé, contrôle chaque octet des skills et vérifie une archive déterministe. Un import frais dans un tenant Cowork, le parcours DCR/OAuth, `initialize`, `tools/list` et un appel réel restent à confirmer avant toute soumission au Microsoft 365 App Store.
 

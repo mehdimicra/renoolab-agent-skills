@@ -182,7 +182,7 @@ try {
 
   const manifest = JSON.parse(files.get("manifest.json").toString("utf8"));
   const packageDocument = JSON.parse(await readFile(join(repositoryRoot, "package.json"), "utf8"));
-  assert.equal(packageDocument.version, "0.5.2", "Microsoft Cowork packaging requires a new synchronized release");
+  assert.equal(packageDocument.version, "0.5.3", "Microsoft Cowork packaging requires a new synchronized release");
   assert.equal(
     packageDocument.scripts?.["microsoft:build"],
     "node scripts/build-microsoft-cowork-plugin.mjs --output dist/microsoft/renoolab-microsoft-cowork.zip",
@@ -192,7 +192,7 @@ try {
   const readme = await readFile(join(repositoryRoot, "README.md"), "utf8");
   assert.ok(readme.includes("Microsoft 365 Copilot Cowork"), "README must document the Cowork package");
   assert.ok(
-    readme.includes("https://renoolab.fr/.well-known/agent-skills/packages/v0.5.2/renoolab-microsoft-cowork.zip"),
+    readme.includes("https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3/renoolab-microsoft-cowork.zip"),
     "README must link the versioned first-party Cowork package",
   );
   assert.ok(readme.includes("validation structurelle"), "README must state what has been structurally validated");

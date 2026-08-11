@@ -18,7 +18,7 @@ const EXPECTED_SKILLS = [
   "renoolab-planifier-budgeter-travaux",
   "renoolab-trouver-choisir-artisans",
 ];
-const PUBLIC_BASE_URL = "https://renoolab.fr/.well-known/agent-skills/packages/v0.5.2";
+const PUBLIC_BASE_URL = "https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3";
 
 function readTarFiles(archive) {
   const tar = gunzipSync(archive);
@@ -81,8 +81,8 @@ try {
     assert.match(entry.digest, /^sha256:[0-9a-f]{64}$/);
 
     const archiveName = basename(new URL(entry.url).pathname);
-    const firstArchive = await readFile(join(firstOutput, "packages", "v0.5.2", archiveName));
-    const secondArchive = await readFile(join(secondOutput, "packages", "v0.5.2", archiveName));
+    const firstArchive = await readFile(join(firstOutput, "packages", "v0.5.3", archiveName));
+    const secondArchive = await readFile(join(secondOutput, "packages", "v0.5.3", archiveName));
     assert.deepEqual(firstArchive, secondArchive, `${entry.name} archive bytes must be deterministic`);
     assert.equal(firstArchive[9], 255, `${entry.name} gzip OS byte must be platform-independent`);
     assert.equal(`sha256:${createHash("sha256").update(firstArchive).digest("hex")}`, entry.digest);
