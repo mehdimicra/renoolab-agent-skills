@@ -306,9 +306,10 @@ try {
 
   const { default: AjvDraft04 } = await import("ajv-draft-04");
   const schemaBytes = await readFile(pinnedSchemaFile);
+  assert.equal(schemaBytes.includes(Buffer.from("\r\n")), false, "pinned Microsoft schema must use canonical LF bytes");
   assert.equal(
     sha256(schemaBytes),
-    "cce967bb1c77641634ce30353f2a699c44cf245e695d2c7a34bb8be771877c3d",
+    "5e33914fc0f9b10e37bafba9f4886eca7ff374d739dfa98dbe90b7733b03511f",
     "pinned Microsoft 365 v1.28 schema changed",
   );
   const schema = JSON.parse(schemaBytes.toString("utf8"));
