@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "renoolab",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Prepare home renovation projects, find French tradespeople, and run an artisan or construction business with 10 French Agent Skills and the optional RenooLab MCP.",
   "author": {
     "name": "RenooLab",

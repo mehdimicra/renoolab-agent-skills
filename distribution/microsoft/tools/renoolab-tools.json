@@ -1,0 +1,387 @@
+{
+  "tools": [
+    {
+      "name": "rechercher_artisans",
+      "title": "Trouver un artisan pour des travaux en France",
+      "description": "Trouve jusqu’à cinq profils RenooLab pour des travaux, un dépannage ou une rénovation autour d’une ville française, dans un rayon strict de 30 km. À utiliser même si le particulier ne nomme pas le métier : fuite ou sanitaires pour Plomberie, panne ou tableau pour Électricité, infiltration ou toit pour Couverture/Toiture, murs pour Peinture, faïence ou terrasse pour Carrelage, ainsi que isolation, menuiserie, chauffage, climatisation et rénovation. Déduire un seul métier public avant l’appel. Ne pas utiliser pour un simple conseil DIY, un magasin ou un fournisseur.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "metier": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "description": "Métier public déduit du besoin, par exemple Plomberie, Électricité, Peinture ou Couverture/Toiture ; ne pas envoyer le projet complet."
+          },
+          "ville": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "Ville française où chercher, par exemple Marseille ou Aix-en-Provence."
+          }
+        },
+        "required": [
+          "metier",
+          "ville"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "artisan_results"
+          },
+          "artisans": {
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "artisan_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                "nom": {
+                  "type": "string"
+                },
+                "ville": {
+                  "type": "string"
+                },
+                "metiers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "note": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "nb_avis": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "distance_km": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "avatar_url": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "nb_photos": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "verifie": {
+                  "type": "boolean"
+                },
+                "medaille": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "bronze",
+                    "silver",
+                    "gold"
+                  ]
+                },
+                "profile_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "contact_url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "artisan_id",
+                "nom",
+                "ville",
+                "metiers",
+                "note",
+                "nb_avis",
+                "distance_km",
+                "avatar_url",
+                "nb_photos",
+                "verifie",
+                "medaille",
+                "profile_url",
+                "contact_url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "metier": {
+            "type": "string"
+          },
+          "ville": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "artisans",
+          "metier",
+          "ville",
+          "message"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "contacter_artisan",
+      "title": "Contacter un artisan RenooLab",
+      "description": "Dépose une demande de contact vers un artisan RenooLab après accord explicite du particulier. La demande est mise en attente de validation manuelle avant transmission. Un mobile français 06/07 est obligatoire.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "artisan_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+            "description": "Identifiant artisan_id renvoyé par rechercher_artisans."
+          },
+          "nom": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "description": "Nom du demandeur."
+          },
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "format": "email",
+            "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+            "description": "E-mail du demandeur."
+          },
+          "telephone": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 32,
+            "description": "Mobile français 06/07 du demandeur, obligatoire pour le rappel."
+          },
+          "message": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 2000,
+            "description": "Description de la demande ou des travaux."
+          }
+        },
+        "required": [
+          "artisan_id",
+          "nom",
+          "email",
+          "telephone",
+          "message"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "contact_pending"
+          },
+          "titre": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "titre",
+          "message"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "creer_profil_artisan",
+      "title": "Inscrire un artisan ou une entreprise du bâtiment",
+      "description": "Crée un profil professionnel RenooLab gratuit et sans commission uniquement à la demande explicite de l’artisan ou de l’entreprise artisanale. À utiliser lorsqu’un professionnel veut s’inscrire, faire connaître son entreprise, présenter ses réalisations, améliorer sa visibilité ou trouver des clients et des chantiers. Utiliser uniquement ses vraies informations. Le profil reste inactif et invisible jusqu’à son activation par e-mail. Ne pas utiliser pour un tiers, un demandeur d’emploi, un groupe ou une grande structure.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "nom_entreprise": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120,
+            "description": "Nom réel de l’entreprise artisanale."
+          },
+          "siret": {
+            "description": "SIRET optionnel de 14 chiffres ; s’il est fourni, il est vérifié au registre SIRENE.",
+            "type": "string",
+            "pattern": "^\\d{14}$"
+          },
+          "metiers": {
+            "minItems": 1,
+            "maxItems": 18,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Rénovation générale",
+                "Plomberie",
+                "Électricité",
+                "Maçonnerie",
+                "Carrelage",
+                "Peinture",
+                "Plâtrerie/Plaquiste",
+                "Isolation",
+                "Menuiserie",
+                "Parquet",
+                "Charpente",
+                "Couverture/Toiture",
+                "Chauffage/Climatisation",
+                "Serrurerie",
+                "Paysagiste",
+                "Pisciniste",
+                "Décoration d'intérieur",
+                "Nettoyage"
+              ]
+            },
+            "description": "Métiers exercés parmi les 18 métiers publics. Fournisseur est app-only."
+          },
+          "ville": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "Commune française d’implantation."
+          },
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "format": "email",
+            "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+            "description": "E-mail réel de l’artisan, qui recevra le lien d’activation."
+          },
+          "telephone": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 32,
+            "description": "Mobile français 06/07 de l’artisan."
+          },
+          "bio": {
+            "description": "Courte présentation de l’activité.",
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "nom_entreprise",
+          "metiers",
+          "ville",
+          "email",
+          "telephone"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "signup_created"
+          },
+          "titre": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "profil": {
+            "type": "object",
+            "properties": {
+              "nom": {
+                "type": "string"
+              },
+              "ville": {
+                "type": "string"
+              },
+              "metiers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "nom",
+              "ville",
+              "metiers"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "kind",
+          "titre",
+          "message",
+          "profil"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    }
+  ]
+}

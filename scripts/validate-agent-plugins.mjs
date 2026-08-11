@@ -59,7 +59,7 @@ assertSchemaValid(ajv.compile(mcpSchema), mcpDocument, "mcp.json");
 const expectedPluginDocument = {
   $schema: pluginSchemaUrl,
   name: "renoolab",
-  version: "0.5.1",
+  version: "0.5.2",
   description: "Prepare home renovation projects, find French tradespeople, and run an artisan or construction business with 10 French Agent Skills and the optional RenooLab MCP.",
   author: {
     name: "RenooLab",
@@ -97,7 +97,7 @@ const expectedMcpDocument = {
   },
 };
 
-assert.equal(packageDocument.version, "0.5.1", "Kiro Power release must be 0.5.1");
+assert.equal(packageDocument.version, "0.5.2", "Kiro Power release must be 0.5.2");
 assert.deepEqual(pluginDocument, expectedPluginDocument, "plugin.json must remain the audited Kiro activation surface");
 assert.deepEqual(mcpDocument, expectedMcpDocument, "mcp.json must contain only the canonical remote server without static credentials or approvals");
 
