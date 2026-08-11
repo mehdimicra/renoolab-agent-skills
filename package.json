@@ -11,6 +11,7 @@
     "validate:skills-ref": "node scripts/validate-skills-ref.mjs",
     "validate:gemini": "npx --yes @google/gemini-cli@0.54.0 extensions validate .",
     "validate:agent-plugins": "node scripts/validate-agent-plugins.mjs",
+    "test:kiro-compat": "node scripts/test-kiro-compat.mjs",
     "eval:dry": "node scripts/run-behavioral-evals.mjs --dry-run --host claude --suite all",
     "eval:claude": "node scripts/run-behavioral-evals.mjs --host claude --suite all --runs 1 --concurrency 3",
     "eval:codex": "node scripts/run-behavioral-evals.mjs --host codex --suite all --runs 1 --concurrency 2",
@@ -20,7 +21,7 @@
     "perplexity:test": "node scripts/test-perplexity-skill.mjs",
     "microsoft:build": "node scripts/build-microsoft-cowork-plugin.mjs --output dist/microsoft/renoolab-microsoft-cowork.zip",
     "microsoft:test": "node scripts/test-microsoft-cowork-plugin.mjs",
-    "test": "npm run generate && npm run validate && npm run validate:agent-plugins && npm run eval:dry && npm run discovery:test && npm run perplexity:test && npm run microsoft:test"
+    "test": "npm run generate && npm run validate && npm run validate:agent-plugins && npm run test:kiro-compat && npm run eval:dry && npm run discovery:test && npm run perplexity:test && npm run microsoft:test"
   },
   "engines": {
     "node": ">=20"
