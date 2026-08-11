@@ -124,7 +124,9 @@ async function createSkillArchive(skillDirectory, skillName) {
     if (paddingLength > 0) chunks.push(Buffer.alloc(paddingLength));
   }
   chunks.push(Buffer.alloc(1024));
-  return gzipSync(Buffer.concat(chunks), { level: 9, mtime: 0 });
+  const archive = gzipSync(Buffer.concat(chunks), { level: 9, mtime: 0 });
+  archive[9] = 255; // RFC 1952 unknown OS: identical bytes on every build platform.
+  return archive;
 }
 
 function normalizePublicBaseUrl(publicBaseUrl) {

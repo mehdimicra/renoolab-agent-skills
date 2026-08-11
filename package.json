@@ -1,6 +1,6 @@
 {
   "name": "renoolab-agent-skills",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "Apache-2.0",
   "private": true,
   "type": "module",
@@ -18,12 +18,15 @@
     "discovery:test": "node scripts/test-discovery-artifacts.mjs",
     "perplexity:build": "node scripts/build-perplexity-skill.mjs --output dist/perplexity/renoolab-trouver-choisir-artisans.zip",
     "perplexity:test": "node scripts/test-perplexity-skill.mjs",
-    "test": "npm run generate && npm run validate && npm run validate:agent-plugins && npm run eval:dry && npm run discovery:test && npm run perplexity:test"
+    "microsoft:build": "node scripts/build-microsoft-cowork-plugin.mjs --output dist/microsoft/renoolab-microsoft-cowork.zip",
+    "microsoft:test": "node scripts/test-microsoft-cowork-plugin.mjs",
+    "test": "npm run generate && npm run validate && npm run validate:agent-plugins && npm run eval:dry && npm run discovery:test && npm run perplexity:test && npm run microsoft:test"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
-    "ajv": "8.20.0"
+    "ajv": "8.20.0",
+    "ajv-draft-04": "1.0.0"
   }
 }
