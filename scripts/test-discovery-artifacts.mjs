@@ -18,7 +18,7 @@ const EXPECTED_SKILLS = [
   "renoolab-planifier-budgeter-travaux",
   "renoolab-trouver-choisir-artisans",
 ];
-const PUBLIC_BASE_URL = "https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3";
+const PUBLIC_BASE_URL = "https://renoolab.fr/.well-known/agent-skills/packages/v0.5.5";
 
 function readTarFiles(archive) {
   const tar = gunzipSync(archive);
@@ -69,6 +69,12 @@ try {
   const firstIndexBytes = await readFile(join(firstOutput, "index.json"));
   const secondIndexBytes = await readFile(join(secondOutput, "index.json"));
   assert.deepEqual(firstIndexBytes, secondIndexBytes, "index bytes must be deterministic");
+  const publishedRoot = join(process.cwd(), "dist", "agent-skills-discovery");
+  assert.deepEqual(
+    await readFile(join(publishedRoot, "index.json")),
+    firstIndexBytes,
+    "the staged discovery index must match a fresh deterministic build",
+  );
 
   const index = JSON.parse(firstIndexBytes.toString("utf8"));
   assert.equal(index.$schema, "https://schemas.agentskills.io/discovery/0.2.0/schema.json");
@@ -81,9 +87,14 @@ try {
     assert.match(entry.digest, /^sha256:[0-9a-f]{64}$/);
 
     const archiveName = basename(new URL(entry.url).pathname);
-    const firstArchive = await readFile(join(firstOutput, "packages", "v0.5.3", archiveName));
-    const secondArchive = await readFile(join(secondOutput, "packages", "v0.5.3", archiveName));
+    const firstArchive = await readFile(join(firstOutput, "packages", "v0.5.5", archiveName));
+    const secondArchive = await readFile(join(secondOutput, "packages", "v0.5.5", archiveName));
     assert.deepEqual(firstArchive, secondArchive, `${entry.name} archive bytes must be deterministic`);
+    assert.deepEqual(
+      await readFile(join(publishedRoot, "packages", "v0.5.5", archiveName)),
+      firstArchive,
+      `${entry.name} staged archive must match a fresh deterministic build`,
+    );
     assert.equal(firstArchive[9], 255, `${entry.name} gzip OS byte must be platform-independent`);
     assert.equal(`sha256:${createHash("sha256").update(firstArchive).digest("hex")}`, entry.digest);
 
@@ -95,6 +106,14 @@ try {
     const skillMdBytes = archiveFiles.get(`${entry.name}/SKILL.md`);
     assert.ok(skillMdBytes, `${entry.name} archive must contain SKILL.md`);
     assert.equal(entry.description, frontmatterDescription(skillMdBytes.toString("utf8")));
+    if (entry.name === "renoolab-trouver-choisir-artisans") {
+      const actionsReference = archiveFiles.get(
+        `${entry.name}/references/renoolab-actions.md`
+      )?.toString("utf8");
+      assert.match(actionsReference, /external_place_id/);
+      assert.match(actionsReference, /sélection explicite exacte/);
+      assert.match(actionsReference, /nouvelle sélection explicite/);
+    }
   }
 
   console.log(`Validated deterministic discovery artifacts for ${EXPECTED_SKILLS.length} skills.`);
