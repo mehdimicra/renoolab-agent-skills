@@ -145,14 +145,21 @@ function validateToolsDocument(content) {
     throw new Error(`Microsoft Cowork tool description must be valid JSON: ${error.message}`);
   }
   const tools = document?.tools;
-  const expectedNames = ["rechercher_artisans", "contacter_artisan", "creer_profil_artisan"];
+  const expectedNames = ["rechercher_artisans", "rechercher_chantier", "contacter_artisan", "creer_profil_artisan"];
   if (!Array.isArray(tools) || JSON.stringify(tools.map((tool) => tool?.name)) !== JSON.stringify(expectedNames)) {
-    throw new Error("Microsoft Cowork tool description must expose the three current RenooLab tools in order");
+    throw new Error("Microsoft Cowork tool description must expose the four current RenooLab tools in order");
   }
   const expectedAnnotations = [
+    { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
     { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
     { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: true },
+  ];
+  const expectedSecuritySchemes = [
+    [{ type: "noauth" }],
+    [{ type: "noauth" }],
+    [{ type: "oauth2", scopes: [] }],
+    [{ type: "oauth2", scopes: [] }],
   ];
   for (let index = 0; index < tools.length; index += 1) {
     const tool = tools[index];
@@ -162,6 +169,7 @@ function validateToolsDocument(content) {
       tool.inputSchema?.type !== "object" ||
       tool.outputSchema?.type !== "object" ||
       JSON.stringify(tool.annotations) !== JSON.stringify(expectedAnnotations[index]) ||
+      JSON.stringify(tool.securitySchemes) !== JSON.stringify(expectedSecuritySchemes[index]) ||
       tool._meta !== undefined
     ) {
       throw new Error(`Microsoft Cowork tool description is incomplete or unsafe: ${expectedNames[index]}`);
@@ -281,7 +289,7 @@ export async function buildMicrosoftCoworkPlugin({
     outputFile: resolvedOutputFile,
     size: archive.length,
     skills: folders.length,
-    tools: 3,
+    tools: 4,
   };
 }
 

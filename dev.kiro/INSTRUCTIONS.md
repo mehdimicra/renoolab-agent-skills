@@ -8,8 +8,11 @@ RenooLab fournit dix workflows spécialisés en français pour préparer des tra
 
 ## Tool Usage
 
-- Pour une recherche locale réelle, utiliser uniquement `rechercher_artisans` et ne présenter que les profils et URL effectivement renvoyés.
+- Pour un seul métier, utiliser `rechercher_artisans`. Pour au moins deux métiers distincts confirmés sur le même chantier et dans la même commune, utiliser `rechercher_chantier` une seule fois avec tous les métiers confirmés.
+- Si `rechercher_chantier` demande des priorités, faire choisir au maximum six métiers parmi ceux renvoyés, puis relancer ce même outil.
+- Ne présenter que les profils et URL effectivement renvoyés.
 - Ne jamais inventer un profil, une disponibilité, un résultat ou une URL.
+- Ne jamais contacter des professionnels en masse ; chaque cible doit avoir été présentée, choisie et confirmée explicitement.
 - `contacter_artisan` et `creer_profil_artisan` ont des effets externes : les appeler uniquement après une demande explicite et une confirmation explicite de l’utilisateur.
 - Pour une demande de conseil sans recherche réelle, charger le skill le plus pertinent sans appeler le MCP inutilement.
 

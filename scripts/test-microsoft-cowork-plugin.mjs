@@ -182,21 +182,38 @@ try {
 
   const manifest = JSON.parse(files.get("manifest.json").toString("utf8"));
   const packageDocument = JSON.parse(await readFile(join(repositoryRoot, "package.json"), "utf8"));
-  assert.equal(packageDocument.version, "0.5.3", "Microsoft Cowork packaging requires a new synchronized release");
+  assert.equal(packageDocument.version, "0.5.5", "Microsoft Cowork packaging requires a new synchronized release");
+  const publishedArchive = await readFile(join(
+    repositoryRoot,
+    "dist",
+    "agent-skills-discovery",
+    "packages",
+    `v${packageDocument.version}`,
+    "renoolab-microsoft-cowork.zip",
+  ));
+  assert.equal(
+    publishedArchive.equals(firstArchive),
+    true,
+    "the versioned Cowork ZIP served by discovery must match the canonical deterministic build",
+  );
   assert.equal(
     packageDocument.scripts?.["microsoft:build"],
-    "node scripts/build-microsoft-cowork-plugin.mjs --output dist/microsoft/renoolab-microsoft-cowork.zip",
+    "node scripts/build-microsoft-cowork-plugin.mjs --output dist/microsoft/renoolab-microsoft-cowork.zip && node scripts/build-microsoft-cowork-plugin.mjs --output dist/agent-skills-discovery/packages/v0.5.5/renoolab-microsoft-cowork.zip",
   );
+  assert.equal(packageDocument.scripts?.["microsoft:schema:sync"], undefined);
   assert.equal(packageDocument.scripts?.["microsoft:test"], "node scripts/test-microsoft-cowork-plugin.mjs");
   assert.match(packageDocument.scripts?.test ?? "", /npm run microsoft:test/);
   const readme = await readFile(join(repositoryRoot, "README.md"), "utf8");
   assert.ok(readme.includes("Microsoft 365 Copilot Cowork"), "README must document the Cowork package");
   assert.ok(
-    readme.includes("https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3/renoolab-microsoft-cowork.zip"),
+    readme.includes("https://renoolab.fr/.well-known/agent-skills/packages/v0.5.5/renoolab-microsoft-cowork.zip"),
     "README must link the versioned first-party Cowork package",
   );
   assert.ok(readme.includes("validation structurelle"), "README must state what has been structurally validated");
   assert.ok(readme.includes("import frais"), "README must disclose that a fresh Cowork host test remains required");
+  assert.ok(readme.includes("quatre outils actuels"), "README must document the current four-tool contract");
+  assert.ok(readme.includes("un seul appel `rechercher_chantier`"), "README must document the multi-trade route");
+  assert.ok(readme.includes("au maximum six"), "README must document the priority limit");
   assert.equal(manifest.$schema, "https://developer.microsoft.com/json-schemas/teams/v1.28/MicrosoftTeams.schema.json");
   assert.equal(manifest.manifestVersion, "1.28");
   assert.equal(manifest.version, packageDocument.version, "Cowork package version must follow package.json");
@@ -263,36 +280,62 @@ try {
   );
 
   const toolsBytes = files.get("tools/renoolab-tools.json");
-  assert.equal(
-    sha256(toolsBytes),
-    "ffdb7fd74fcfbb781a4dce1802ab283501ce890f1ea6704c498c1597e76d26e0",
-    "Cowork tools snapshot must match the current production tools/list contract exported by its test harness",
-  );
+
   const toolsDocument = JSON.parse(toolsBytes.toString("utf8"));
   assert.deepEqual(toolsDocument.tools.map((tool) => tool.name), [
     "rechercher_artisans",
+    "rechercher_chantier",
     "contacter_artisan",
     "creer_profil_artisan",
-  ]);
+  ], "Cowork must document the four current MCP tools");
+  const searchTool = toolsDocument.tools.find((tool) => tool.name === "rechercher_artisans");
+  assert.equal(searchTool.annotations.openWorldHint, true, "Grounding makes the production search open-world");
+  assert.deepEqual(
+    searchTool.outputSchema.properties.kind.enum,
+    ["artisan_results", "search_needs_input", "external_grounded_results"],
+    "Cowork search output must expose the three current result kinds",
+  );
+  assert.equal(searchTool.outputSchema.properties.external_results.maxItems, 5);
+  assert.equal(searchTool.outputSchema.properties.widget_previews.properties.external_previews.maxItems, 5);
+  const contactTool = toolsDocument.tools.find((tool) => tool.name === "contacter_artisan");
+  assert.deepEqual(contactTool.inputSchema.required, ["nom", "email", "telephone", "message"]);
+  assert.deepEqual(contactTool.inputSchema.oneOf, [
+    { required: ["artisan_id"], not: { required: ["external_place_id"] } },
+    { required: ["external_place_id"], not: { required: ["artisan_id"] } },
+  ], "Cowork contact target must be an explicit artisan_id XOR external_place_id");
+  assert.deepEqual(contactTool.inputSchema.properties.external_place_id, {
+    type: "string",
+    pattern: "^[A-Za-z0-9_-]{3,512}$",
+    description: "Place ID exact renvoyé pour une fiche Google Maps. Fournir exactement ce champ ou artisan_id, jamais les deux.",
+  });
   const expectedAnnotations = [
+    { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
     { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
     { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: true },
   ];
   const expectedRequiredInputs = [
-    ["metier", "ville"],
-    ["artisan_id", "nom", "email", "telephone", "message"],
+    [],
+    ["ville", "metiers_confirmes"],
+    ["nom", "email", "telephone", "message"],
     ["nom_entreprise", "metiers", "ville", "email", "telephone"],
+  ];
+  const expectedSecuritySchemes = [
+    [{ type: "noauth" }],
+    [{ type: "noauth" }],
+    [{ type: "oauth2", scopes: [] }],
+    [{ type: "oauth2", scopes: [] }],
   ];
   for (let index = 0; index < toolsDocument.tools.length; index += 1) {
     const tool = toolsDocument.tools[index];
     assert.equal(typeof tool.title, "string", `${tool.name} must expose a title`);
     assert.ok(tool.description.length >= 80, `${tool.name} must expose a discriminating description`);
     assert.equal(tool.inputSchema.type, "object", `${tool.name} must expose an object input schema`);
-    assert.deepEqual(tool.inputSchema.required, expectedRequiredInputs[index]);
+    assert.deepEqual(tool.inputSchema.required ?? [], expectedRequiredInputs[index]);
     assert.equal(tool.outputSchema.type, "object", `${tool.name} must expose its structured output schema`);
     assert.deepEqual(tool.annotations, expectedAnnotations[index]);
     assert.deepEqual(tool.execution, { taskSupport: "forbidden" });
+    assert.deepEqual(tool.securitySchemes, expectedSecuritySchemes[index]);
     assert.equal("_meta" in tool, false, "Cowork snapshot must not carry host-specific OpenAI metadata");
   }
 
@@ -321,6 +364,96 @@ try {
       return false;
     }
   });
+  const { default: Ajv } = await import("ajv");
+  const toolAjv = new Ajv({ allErrors: true, strict: true, strictTypes: false });
+  toolAjv.addFormat("uri", (value) => {
+    try {
+      return new URL(value).protocol.length > 0;
+    } catch {
+      return false;
+    }
+  });
+  toolAjv.addFormat("uuid", (value) => /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value));
+  const validateSearchOutput = toolAjv.compile(searchTool.outputSchema);
+  const artisan = {
+    artisan_id: "11111111-1111-4111-8111-111111111111",
+    nom: "Atelier Test",
+    ville: "Paris",
+    metiers: ["Plomberie"],
+    note: 4.8,
+    nb_avis: 12,
+    distance_km: 4.2,
+    avatar_url: null,
+    nb_photos: 8,
+    verifie: true,
+    medaille: "silver",
+    profile_url: "https://app.renoolab.fr/artisan/11111111-1111-4111-8111-111111111111?guest=1",
+    contact_url: "https://app.renoolab.fr/artisan/11111111-1111-4111-8111-111111111111?guest=1&contact=1",
+  };
+  const commonSearch = {
+    message: "Résultat de recherche.",
+    normalized_need: null,
+    trade_candidates: [],
+    city_candidates: [],
+  };
+  const internalFixture = {
+    ...commonSearch,
+    kind: "artisan_results",
+    artisans: [artisan],
+    external_results: [],
+    grounded_summary: null,
+    metier: "Plomberie",
+    ville: "Paris",
+    normalized_trade: "Plomberie",
+    coverage: "available",
+    required_input: null,
+    reason: null,
+  };
+  const clarificationFixture = {
+    ...commonSearch,
+    kind: "search_needs_input",
+    artisans: [],
+    external_results: [],
+    grounded_summary: null,
+    metier: "Plomberie",
+    ville: null,
+    normalized_trade: "Plomberie",
+    coverage: null,
+    required_input: "ville",
+    reason: null,
+  };
+  const externalFixture = {
+    ...commonSearch,
+    kind: "external_grounded_results",
+    artisans: [],
+    external_results: [{
+      source: "google_maps",
+      citation_index: 0,
+      place_id: "ChIJ-preview",
+      google_maps_url: "https://www.google.com/maps/place/preview",
+      attribution: { title: "Google Maps", url: "https://www.google.com/maps/place/preview" },
+      contact_url: "https://ssg-native-preview.renoolab.pages.dev/contact-professionnel?source=google_maps&place_id=ChIJ-preview",
+    }],
+    grounded_summary: "Source Google Maps [0]",
+    metier: "Plomberie",
+    ville: "Paris",
+    normalized_trade: "Plomberie",
+    coverage: "external",
+    required_input: null,
+    reason: null,
+  };
+  for (const fixture of [internalFixture, clarificationFixture, externalFixture]) {
+    assert.equal(validateSearchOutput(fixture), true, JSON.stringify(validateSearchOutput.errors, null, 2));
+  }
+  assert.equal(validateSearchOutput({
+    ...externalFixture,
+    external_results: [{ ...externalFixture.external_results[0], place_id: ["ChIJ-preview"] }],
+  }), false);
+  assert.equal(
+    sha256(toolsBytes),
+    "93c73c66ad1a00fd1f7c35129a3b017eaf6e6e602dd3ce671e07eb8566eb9d8b",
+    "Cowork tools snapshot must match the documented four-tool production contract",
+  );
   const validateManifest = ajv.compile(schema);
   assert.equal(validateManifest(manifest), true, JSON.stringify(validateManifest.errors, null, 2));
 
@@ -424,7 +557,7 @@ try {
     /at most 20 companion files/i,
   );
 
-  console.log("Validated deterministic Microsoft Cowork package, v1.28 manifest, 10 skills, 3 MCP tools, icons, CLI, and safety rejections.");
+  console.log("Validated deterministic Microsoft Cowork package, v1.28 manifest, 10 skills, 4 MCP tools, icons, CLI, and safety rejections.");
 } finally {
   await rm(temporaryRoot, { recursive: true, force: true });
 }

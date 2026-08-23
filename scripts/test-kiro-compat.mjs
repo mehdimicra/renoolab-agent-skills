@@ -51,8 +51,14 @@ for (const required of [
   "## Configuration",
   "`renoolab`",
   "`rechercher_artisans`",
+  "`rechercher_chantier`",
   "`contacter_artisan`",
   "`creer_profil_artisan`",
+  "un seul métier",
+  "au moins deux métiers",
+  "une seule fois",
+  "au maximum six",
+  "Ne jamais contacter des professionnels en masse",
   "demande explicite",
   "confirmation explicite",
   "https://renoolab.fr/privacy/",
@@ -61,6 +67,7 @@ for (const required of [
 ]) {
   assert.ok(body.includes(required), `Kiro instructions must contain ${required}`);
 }
+assert.ok(!body.includes("utiliser uniquement `rechercher_artisans`"));
 
 assert.deepEqual(Object.keys(mcp.mcpServers), ["renoolab"], "Kiro Power must expose one logical MCP server");
 assert.ok(!body.includes("power-renoolab-agent-skills-renoolab"), "Instructions must not expose Kiro's internal namespaced server id");

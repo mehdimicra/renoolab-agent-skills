@@ -9,7 +9,7 @@
 - **Source:** 10 `SKILL.md` implementations and their references are in [`skills/`](skills/); the 29 source intents and mappings are in [`catalog/`](catalog/); deterministic JavaScript tooling is in [`scripts/`](scripts/).
 - **Tests:** `npm test` regenerates the collection, runs about 90 catalog/manifest assertions and validates 103 routing fixtures. The public CI additionally runs the official `skills-ref`, Claude strict and GitHub Agent Skills validators.
 - **Security:** the skills do not execute local shell code. Eight workflows are instruction-only. Two may use the optional remote RenooLab MCP; search is read-only, while contact and profile creation require explicit user confirmation. See [SECURITY.md](SECURITY.md).
-- **External API:** optional MCP endpoint `https://mcp.renoolab.fr/mcp`; documented tools are `rechercher_artisans`, `contacter_artisan` and `creer_profil_artisan`. Full behavior, OAuth and privacy documentation: <https://renoolab.fr/mcp/>.
+- **External API:** optional MCP endpoint `https://mcp.renoolab.fr/mcp`; documented tools are `rechercher_artisans`, `rechercher_chantier`, `contacter_artisan` and `creer_profil_artisan`. Full behavior, OAuth and privacy documentation: <https://renoolab.fr/mcp/>.
 
 Example requests that should activate the collection:
 
@@ -28,7 +28,7 @@ Le dépôt suit le standard ouvert [Agent Skills](https://agentskills.io/specifi
 - **5 workflows particuliers** : imaginer, diagnostiquer, planifier, trouver des artisans et piloter des travaux.
 - **5 workflows artisans/BTP** : lancer, rentabiliser, développer, organiser et créer un profil RenooLab.
 - **29 intentions internes** : photo de douche, piscine, aides, sinistre, achat immobilier, manque de clients, devis peu rentables, recrutement, fournisseur BTP, etc.
-- **3 outils MCP actuels** : rechercher un artisan, transmettre une demande confirmée et créer un profil artisan confirmé.
+- **4 outils MCP actuels** : rechercher un métier, couvrir un chantier multi-métiers, transmettre une demande confirmée et créer un profil artisan confirmé.
 
 Voir [CATALOG.md](CATALOG.md) pour la cartographie complète.
 
@@ -94,12 +94,12 @@ Context7 signale toutefois ces commandes comme dépréciées et prévoit de les 
 Gemini CLI peut installer les dix skills comme extension native. Le manifeste racine embarque aussi la configuration du MCP distant via `mcpServers.renoolab.httpUrl`, sans jeton ni `trust`. Gemini CLI effectue la découverte OAuth dynamique auprès du serveur au moment de la connexion :
 
 ```bash
-gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v0.5.3
+gemini extensions install https://github.com/mehdimicra/renoolab-agent-skills --ref v0.5.5
 ```
 
 Choisissez l'extension Gemini ou une installation séparée via `skills`, pas les deux : une copie utilisateur ou workspace peut masquer les skills fournis par l'extension.
 
-Pour être publiée et découvrable dans la Gallery Gemini CLI, la version `0.5.3` doit réunir cumulativement : dépôt GitHub public, `gemini-extension.json` à la racine, topic GitHub exact `gemini-cli-extension`, tag Git `v0.5.3` et versions synchronisées dans tous les manifestes. La Gallery effectue ensuite son propre crawl ; ces prérequis rendent le dépôt éligible sans garantir sa mise en avant.
+Pour être publiée et découvrable dans la Gallery Gemini CLI, la version `0.5.5` doit réunir cumulativement : dépôt GitHub public, `gemini-extension.json` à la racine, topic GitHub exact `gemini-cli-extension`, tag Git `v0.5.5` et versions synchronisées dans tous les manifestes. La Gallery effectue ensuite son propre crawl ; ces prérequis rendent le dépôt éligible sans garantir sa mise en avant.
 
 Kiro peut importer ce dépôt public comme Power portable. Dans **Powers → Add Custom Power → Import power from GitHub**, indiquez :
 
@@ -113,7 +113,7 @@ Ne soumettre au [formulaire Kiro Powers](https://kiro.dev/powers/submit/) qu'apr
 
 Perplexity Computer peut importer le seul workflow passerelle de recherche lorsque Computer Skills est disponible pour le compte :
 
-<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3/renoolab-trouver-choisir-artisans.zip>
+<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.5/renoolab-trouver-choisir-artisans.zip>
 
 Le ZIP place `SKILL.md` à la racine avec ses trois références canoniques et reste sous la limite de 10 MB. Sans MCP, ce skill reste consultatif : il aide à cadrer le besoin, le métier et les critères de choix, mais ne prétend jamais avoir interrogé RenooLab.
 
@@ -125,9 +125,9 @@ npm run perplexity:build && npm run perplexity:test
 
 Microsoft 365 Copilot Cowork peut importer le paquet complet versionné :
 
-<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.3/renoolab-microsoft-cowork.zip>
+<https://renoolab.fr/.well-known/agent-skills/packages/v0.5.5/renoolab-microsoft-cowork.zip>
 
-Le ZIP réunit le manifeste Microsoft 365 v1.28, les deux icônes aux dimensions requises, les dix skills canoniques et un snapshot sans secret des trois outils annoncés par `tools/list`. La validation structurelle locale utilise le schéma Microsoft v1.28 officiel épinglé, contrôle chaque octet des skills et vérifie une archive déterministe. Un import frais dans un tenant Cowork, le parcours DCR/OAuth, `initialize`, `tools/list` et un appel réel restent à confirmer avant toute soumission au Microsoft 365 App Store.
+Le ZIP réunit le manifeste Microsoft 365 v1.28, les deux icônes aux dimensions requises, les dix skills canoniques et un snapshot sans secret des quatre outils actuels (`rechercher_artisans`, `rechercher_chantier`, `contacter_artisan`, `creer_profil_artisan`). Un métier passe par `rechercher_artisans` ; au moins deux métiers confirmés pour le même chantier et la même commune passent par un seul appel `rechercher_chantier`. Si ce dernier demande des priorités, l'utilisateur en choisit au maximum six. Le snapshot `rechercher_artisans` couvre profils internes, clarification de commune ou sources Google Maps externes attribuées ; un Place ID reste toujours une chaîne scalaire. `contacter_artisan` exige exactement une cible explicitement sélectionnée, `artisan_id` ou `external_place_id`, et ne sert jamais à contacter des professionnels en masse. La validation structurelle locale utilise le schéma Microsoft v1.28 officiel épinglé, contrôle chaque octet des skills et vérifie une archive déterministe. Un import frais dans un tenant Cowork, le parcours DCR/OAuth, `initialize`, `tools/list` et un appel réel restent à confirmer avant toute soumission au Microsoft 365 App Store.
 
 ```bash
 npm run microsoft:build && npm run microsoft:test
@@ -157,12 +157,13 @@ La connexion MCP dépend de l'hôte. Sans MCP, les huit workflows de conseil res
 Le MCP public expose actuellement :
 
 - `rechercher_artisans` ;
+- `rechercher_chantier` ;
 - `contacter_artisan` ;
 - `creer_profil_artisan`.
 
 Seuls `renoolab-trouver-choisir-artisans` et `renoolab-creer-profil-artisan` déclarent le MCP comme dépendance obligatoire. Les huit autres workflows répondent d'abord au besoin métier.
 
-La liste des métiers n'est volontairement pas copiée dans ce dépôt : le schéma actif de `rechercher_artisans` est la source de vérité. Une recherche ne doit jamais inventer disponibilité, prix, certification, distance, profil ou avis. Un contact ou une création de profil exige une confirmation explicite juste avant l'action. Les fournisseurs restent app-only.
+La liste des métiers n'est volontairement pas copiée dans ce dépôt : les schémas actifs de `rechercher_artisans` et `rechercher_chantier` sont la source de vérité. Un métier passe par `rechercher_artisans`. Au moins deux métiers confirmés pour le même chantier et la même commune passent par un seul appel `rechercher_chantier` ; si l'outil demande des priorités, l'utilisateur en choisit au maximum six. Une recherche ne doit jamais inventer disponibilité, prix, certification, distance, profil ou avis. Un contact ou une création de profil exige une confirmation explicite juste avant l'action, et aucun contact en masse n'est autorisé. Les fournisseurs restent app-only.
 
 ## Source et génération
 

@@ -102,6 +102,25 @@ try {
   const secondArchive = await readFile(secondOutput);
   assert.deepEqual(firstArchive, secondArchive, "Perplexity ZIP bytes must be deterministic");
   assert.ok(firstArchive.length < MAX_ARCHIVE_BYTES, "Perplexity ZIP must be smaller than 10 MB");
+  const packageDocument = JSON.parse(await readFile(join(repositoryRoot, "package.json"), "utf8"));
+  assert.equal(packageDocument.version, "0.5.5");
+  const publishedArchive = await readFile(join(
+    repositoryRoot,
+    "dist",
+    "agent-skills-discovery",
+    "packages",
+    `v${packageDocument.version}`,
+    "renoolab-trouver-choisir-artisans.zip",
+  ));
+  assert.deepEqual(
+    publishedArchive,
+    firstArchive,
+    "the versioned Perplexity ZIP served by discovery must match the canonical deterministic build",
+  );
+  assert.equal(
+    packageDocument.scripts?.["perplexity:build"],
+    "node scripts/build-perplexity-skill.mjs --output dist/perplexity/renoolab-trouver-choisir-artisans.zip && node scripts/build-perplexity-skill.mjs --output dist/agent-skills-discovery/packages/v0.5.5/renoolab-trouver-choisir-artisans.zip",
+  );
 
   const files = readStoredZip(firstArchive);
   assert.deepEqual([...files.keys()], EXPECTED_FILES, "ZIP must contain exactly the Perplexity skill files at root");

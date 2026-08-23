@@ -6,9 +6,9 @@
     "description": "Composer et sourcer une équipe locale pour une opération multi-métiers. Utiliser pour architecte, décorateur, maître d'œuvre, syndic, gestionnaire, entreprise générale ou artisan cherchant partenaires et sous-traitants : lots, interfaces, séquence, critères, recherche RenooLab et contacts confirmés.",
     "mission": "Passer d'un programme de travaux à une stratégie de consultation cohérente par lots, responsabilités et interfaces.",
     "inputs": ["programme, plans et localisation", "lots déjà couverts et responsabilités", "calendrier, occupation et contraintes d'accès", "niveau de sélection et documents attendus"],
-    "angles": ["décomposer lots et interfaces critiques", "choisir lots séparés ou regroupement", "définir critères et pièces par métier", "rechercher les métiers un par un dans la même zone", "construire tableau de consultation et contacts consentis"],
+    "angles": ["décomposer lots et interfaces critiques", "choisir lots séparés ou regroupement", "définir critères et pièces par métier", "appeler rechercher_chantier une seule fois avec tous les métiers confirmés dans la même zone", "construire tableau de consultation et contacts consentis"],
     "outputs": ["matrice lots-responsabilités", "ordre de consultation", "sélection disponible par métier", "tableau de comparaison et risques d'interface"],
-    "guardrails": ["Ne pas présenter RenooLab comme validant assurances, disponibilité ou capacité au-delà des données retournées.", "Ne jamais contacter plusieurs entreprises en masse sans confirmation explicite pour chaque action autorisée."],
+    "guardrails": ["Ne pas présenter RenooLab comme validant assurances, disponibilité ou capacité au-delà des données retournées.", "Ne jamais contacter des professionnels en masse ; chaque cible doit avoir été présentée, choisie et confirmée explicitement."],
     "handoff": "search",
     "positive_prompts": ["Je suis propriétaire d’un immeuble à Toulon et je cherche les entreprises locales pour composer l’équipe de rénovation.", "Trouve des partenaires couvreur et isolateur autour d'Aix."],
     "negative_prompts": ["Quel statut fiscal choisir pour mon entreprise individuelle ?"]
