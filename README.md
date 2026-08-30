@@ -76,9 +76,11 @@ Pour installer seulement le workflow de recherche d'artisans :
 npx skills add https://github.com/mehdimicra/renoolab-agent-skills --skill renoolab-trouver-choisir-artisans
 ```
 
-Avec GitHub CLI 2.90 ou plus récent :
+Avec GitHub CLI 2.90 ou plus récent, recherchez, inspectez puis installez un workflow :
 
 ```bash
+gh skill search renoolab --owner mehdimicra
+gh skill preview mehdimicra/renoolab-agent-skills renoolab-trouver-choisir-artisans
 gh skill install mehdimicra/renoolab-agent-skills renoolab-trouver-choisir-artisans
 ```
 
